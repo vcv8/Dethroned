@@ -1,0 +1,56 @@
+;;====================================
+;; FUNCIONES PUBLICAS DE LAS BALAS
+;;====================================
+
+.globl	b1_getPtrIX
+.globl	b1_getPtrIY
+.globl	b2_getPtrIX
+.globl	b2_getPtrIY
+.globl	b3_getPtrIX
+.globl	b3_getPtrIY
+.globl  b9_getPtrIX
+.globl  b9_getPtrIY
+.globl  b10_getPtrIX
+.globl  b10_getPtrIY
+.globl  b11_getPtrIX
+.globl  b11_getPtrIY
+.globl  b12_getPtrIX
+.globl  b12_getPtrIY
+.globl  b13_getPtrIX
+.globl  b13_getPtrIY
+.globl  b14_getPtrIX
+.globl  b14_getPtrIY
+.globl  b15_getPtrIX
+.globl  b15_getPtrIY
+.globl  b16_getPtrIX
+.globl  b16_getPtrIY
+.globl  b20_getPtrIX
+.globl  b20_getPtrIY
+.globl  b21_getPtrIX
+.globl  b21_getPtrIY
+.globl  b22_getPtrIX
+.globl  b22_getPtrIY
+.globl  b23_getPtrIX
+.globl  b23_getPtrIY
+.globl  b24_getPtrIX
+.globl  b24_getPtrIY
+.globl  b25_getPtrIX
+.globl  b25_getPtrIY
+.globl  b26_getPtrIX
+.globl  b26_getPtrIY
+.globl  b27_getPtrIX
+.globl  b27_getPtrIY
+.globl  b28_getPtrIX
+.globl  b28_getPtrIY
+.globl  b29_getPtrIX
+.globl  b29_getPtrIY
+.globl  b30_getPtrIX
+.globl  b30_getPtrIY
+.globl  b31_getPtrIX
+.globl  b31_getPtrIY
+.globl  b32_getPtrIX
+.globl  b32_getPtrIY
+.globl  b33_getPtrIX
+.globl  b33_getPtrIY
+.globl  minuevaposicion
+.globl	bala_update
