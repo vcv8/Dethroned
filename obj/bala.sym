@@ -1,0 +1,174 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |   0 b10_col    003E R   |   0 b10_dato   003A R
+  0 b10_dir    0044 R   |   0 b10_getP   0188 GR  |   0 b10_getP   018D GR
+  0 b10_h      003D R   |   0 b10_l      0041 R   |   0 b10_li     0042 R
+  0 b10_r      0043 R   |   0 b10_ralt   0047 R   |   0 b10_rand   0045 R
+  0 b10_spri   0046 R   |   0 b10_w      003C R   |   0 b10_x      003A R
+  0 b10_xi     003F R   |   0 b10_y      003B R   |   0 b10_yi     0040 R
+  0 b11_col    004C R   |   0 b11_dato   0048 R   |   0 b11_dir    0052 R
+  0 b11_getP   0192 GR  |   0 b11_getP   0197 GR  |   0 b11_h      004B R
+  0 b11_l      004F R   |   0 b11_li     0050 R   |   0 b11_r      0051 R
+  0 b11_ralt   0055 R   |   0 b11_rand   0053 R   |   0 b11_spri   0054 R
+  0 b11_w      004A R   |   0 b11_x      0048 R   |   0 b11_xi     004D R
+  0 b11_y      0049 R   |   0 b11_yi     004E R   |   0 b12_col    005A R
+  0 b12_dato   0056 R   |   0 b12_dir    0060 R   |   0 b12_getP   019C GR
+  0 b12_getP   01A1 GR  |   0 b12_h      0059 R   |   0 b12_l      005D R
+  0 b12_li     005E R   |   0 b12_r      005F R   |   0 b12_ralt   0063 R
+  0 b12_rand   0061 R   |   0 b12_spri   0062 R   |   0 b12_w      0058 R
+  0 b12_x      0056 R   |   0 b12_xi     005B R   |   0 b12_y      0057 R
+  0 b12_yi     005C R   |   0 b13_col    0068 R   |   0 b13_dato   0064 R
+  0 b13_dir    006E R   |   0 b13_getP   01A6 GR  |   0 b13_getP   01AB GR
+  0 b13_h      0067 R   |   0 b13_l      006B R   |   0 b13_li     006C R
+  0 b13_r      006D R   |   0 b13_ralt   0071 R   |   0 b13_rand   006F R
+  0 b13_spri   0070 R   |   0 b13_w      0066 R   |   0 b13_x      0064 R
+  0 b13_xi     0069 R   |   0 b13_y      0065 R   |   0 b13_yi     006A R
+  0 b14_col    0076 R   |   0 b14_dato   0072 R   |   0 b14_dir    007C R
+  0 b14_getP   01B0 GR  |   0 b14_getP   01B5 GR  |   0 b14_h      0075 R
+  0 b14_l      0079 R   |   0 b14_li     007A R   |   0 b14_r      007B R
+  0 b14_ralt   007F R   |   0 b14_rand   007D R   |   0 b14_spri   007E R
+  0 b14_w      0074 R   |   0 b14_x      0072 R   |   0 b14_xi     0077 R
+  0 b14_y      0073 R   |   0 b14_yi     0078 R   |   0 b15_col    0084 R
+  0 b15_dato   0080 R   |   0 b15_dir    008A R   |   0 b15_getP   01BA GR
+  0 b15_getP   01BF GR  |   0 b15_h      0083 R   |   0 b15_l      0087 R
+  0 b15_li     0088 R   |   0 b15_r      0089 R   |   0 b15_ralt   008D R
+  0 b15_rand   008B R   |   0 b15_spri   008C R   |   0 b15_w      0082 R
+  0 b15_x      0080 R   |   0 b15_xi     0085 R   |   0 b15_y      0081 R
+  0 b15_yi     0086 R   |   0 b16_col    0092 R   |   0 b16_dato   008E R
+  0 b16_dir    0098 R   |   0 b16_getP   01C4 GR  |   0 b16_getP   01C9 GR
+  0 b16_h      0091 R   |   0 b16_l      0095 R   |   0 b16_li     0096 R
+  0 b16_r      0097 R   |   0 b16_ralt   009B R   |   0 b16_rand   0099 R
+  0 b16_spri   009A R   |   0 b16_w      0090 R   |   0 b16_x      008E R
+  0 b16_xi     0093 R   |   0 b16_y      008F R   |   0 b16_yi     0094 R
+  0 b1_col     0006 R   |   0 b1_datos   0002 R   |   0 b1_dir     000C R
+  0 b1_getPt   0160 GR  |   0 b1_getPt   0165 GR  |   0 b1_h       0005 R
+  0 b1_l       0009 R   |   0 b1_li      000A R   |   0 b1_r       000B R
+  0 b1_ralt    000F R   |   0 b1_rando   000D R   |   0 b1_sprit   000E R
+  0 b1_w       0004 R   |   0 b1_x       0002 R   |   0 b1_xi      0007 R
+  0 b1_y       0003 R   |   0 b1_yi      0008 R   |   0 b20_col    00A0 R
+  0 b20_dato   009C R   |   0 b20_dir    00A6 R   |   0 b20_getP   01CE GR
+  0 b20_getP   01D3 GR  |   0 b20_h      009F R   |   0 b20_l      00A3 R
+  0 b20_li     00A4 R   |   0 b20_r      00A5 R   |   0 b20_ralt   00A9 R
+  0 b20_rand   00A7 R   |   0 b20_spri   00A8 R   |   0 b20_w      009E R
+  0 b20_x      009C R   |   0 b20_xi     00A1 R   |   0 b20_y      009D R
+  0 b20_yi     00A2 R   |   0 b21_col    00AE R   |   0 b21_dato   00AA R
+  0 b21_dir    00B4 R   |   0 b21_getP   01D8 GR  |   0 b21_getP   01DD GR
+  0 b21_h      00AD R   |   0 b21_l      00B1 R   |   0 b21_li     00B2 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 b21_r      00B3 R   |   0 b21_ralt   00B7 R   |   0 b21_rand   00B5 R
+  0 b21_spri   00B6 R   |   0 b21_w      00AC R   |   0 b21_x      00AA R
+  0 b21_xi     00AF R   |   0 b21_y      00AB R   |   0 b21_yi     00B0 R
+  0 b22_col    00BC R   |   0 b22_dato   00B8 R   |   0 b22_dir    00C2 R
+  0 b22_getP   01E2 GR  |   0 b22_getP   01E7 GR  |   0 b22_h      00BB R
+  0 b22_l      00BF R   |   0 b22_li     00C0 R   |   0 b22_r      00C1 R
+  0 b22_ralt   00C5 R   |   0 b22_rand   00C3 R   |   0 b22_spri   00C4 R
+  0 b22_w      00BA R   |   0 b22_x      00B8 R   |   0 b22_xi     00BD R
+  0 b22_y      00B9 R   |   0 b22_yi     00BE R   |   0 b23_col    00CA R
+  0 b23_dato   00C6 R   |   0 b23_dir    00D0 R   |   0 b23_getP   01EC GR
+  0 b23_getP   01F1 GR  |   0 b23_h      00C9 R   |   0 b23_l      00CD R
+  0 b23_li     00CE R   |   0 b23_r      00CF R   |   0 b23_ralt   00D3 R
+  0 b23_rand   00D1 R   |   0 b23_spri   00D2 R   |   0 b23_w      00C8 R
+  0 b23_x      00C6 R   |   0 b23_xi     00CB R   |   0 b23_y      00C7 R
+  0 b23_yi     00CC R   |   0 b24_col    00D8 R   |   0 b24_dato   00D4 R
+  0 b24_dir    00DE R   |   0 b24_getP   01F6 GR  |   0 b24_getP   01FB GR
+  0 b24_h      00D7 R   |   0 b24_l      00DB R   |   0 b24_li     00DC R
+  0 b24_r      00DD R   |   0 b24_ralt   00E1 R   |   0 b24_rand   00DF R
+  0 b24_spri   00E0 R   |   0 b24_w      00D6 R   |   0 b24_x      00D4 R
+  0 b24_xi     00D9 R   |   0 b24_y      00D5 R   |   0 b24_yi     00DA R
+  0 b25_col    00E6 R   |   0 b25_dato   00E2 R   |   0 b25_dir    00EC R
+  0 b25_getP   0200 GR  |   0 b25_getP   0205 GR  |   0 b25_h      00E5 R
+  0 b25_l      00E9 R   |   0 b25_li     00EA R   |   0 b25_r      00EB R
+  0 b25_ralt   00EF R   |   0 b25_rand   00ED R   |   0 b25_spri   00EE R
+  0 b25_w      00E4 R   |   0 b25_x      00E2 R   |   0 b25_xi     00E7 R
+  0 b25_y      00E3 R   |   0 b25_yi     00E8 R   |   0 b26_col    00F4 R
+  0 b26_dato   00F0 R   |   0 b26_dir    00FA R   |   0 b26_getP   020A GR
+  0 b26_getP   020F GR  |   0 b26_h      00F3 R   |   0 b26_l      00F7 R
+  0 b26_li     00F8 R   |   0 b26_r      00F9 R   |   0 b26_ralt   00FD R
+  0 b26_rand   00FB R   |   0 b26_spri   00FC R   |   0 b26_w      00F2 R
+  0 b26_x      00F0 R   |   0 b26_xi     00F5 R   |   0 b26_y      00F1 R
+  0 b26_yi     00F6 R   |   0 b27_col    0110 R   |   0 b27_dato   010C R
+  0 b27_dir    0116 R   |   0 b27_getP   0214 GR  |   0 b27_getP   0219 GR
+  0 b27_h      010F R   |   0 b27_l      0113 R   |   0 b27_li     0114 R
+  0 b27_r      0115 R   |   0 b27_ralt   0119 R   |   0 b27_rand   0117 R
+  0 b27_spri   0118 R   |   0 b27_w      010E R   |   0 b27_x      010C R
+  0 b27_xi     0111 R   |   0 b27_y      010D R   |   0 b27_yi     0112 R
+  0 b28_col    011E R   |   0 b28_dato   011A R   |   0 b28_dir    0124 R
+  0 b28_getP   021E GR  |   0 b28_getP   0223 GR  |   0 b28_h      011D R
+  0 b28_l      0121 R   |   0 b28_li     0122 R   |   0 b28_r      0123 R
+  0 b28_ralt   0127 R   |   0 b28_rand   0125 R   |   0 b28_spri   0126 R
+  0 b28_w      011C R   |   0 b28_x      011A R   |   0 b28_xi     011F R
+  0 b28_y      011B R   |   0 b28_yi     0120 R   |   0 b29_col    013A R
+  0 b29_dato   0136 R   |   0 b29_dir    0140 R   |   0 b29_getP   0228 GR
+  0 b29_getP   022D GR  |   0 b29_h      0139 R   |   0 b29_l      013D R
+  0 b29_li     013E R   |   0 b29_r      013F R   |   0 b29_ralt   0143 R
+  0 b29_rand   0141 R   |   0 b29_spri   0142 R   |   0 b29_w      0138 R
+  0 b29_x      0136 R   |   0 b29_xi     013B R   |   0 b29_y      0137 R
+  0 b29_yi     013C R   |   0 b2_col     0014 R   |   0 b2_datos   0010 R
+  0 b2_dir     001A R   |   0 b2_getPt   016A GR  |   0 b2_getPt   016F GR
+  0 b2_h       0013 R   |   0 b2_l       0017 R   |   0 b2_li      0018 R
+  0 b2_r       0019 R   |   0 b2_ralt    001D R   |   0 b2_rando   001B R
+  0 b2_sprit   001C R   |   0 b2_w       0012 R   |   0 b2_x       0010 R
+  0 b2_xi      0015 R   |   0 b2_y       0011 R   |   0 b2_yi      0016 R
+  0 b30_col    012C R   |   0 b30_dato   0128 R   |   0 b30_dir    0132 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 b30_getP   0232 GR  |   0 b30_getP   0237 GR  |   0 b30_h      012B R
+  0 b30_l      012F R   |   0 b30_li     0130 R   |   0 b30_r      0131 R
+  0 b30_ralt   0135 R   |   0 b30_rand   0133 R   |   0 b30_spri   0134 R
+  0 b30_w      012A R   |   0 b30_x      0128 R   |   0 b30_xi     012D R
+  0 b30_y      0129 R   |   0 b30_yi     012E R   |   0 b31_col    0148 R
+  0 b31_dato   0144 R   |   0 b31_dir    014E R   |   0 b31_getP   023C GR
+  0 b31_getP   0241 GR  |   0 b31_h      0147 R   |   0 b31_l      014B R
+  0 b31_li     014C R   |   0 b31_r      014D R   |   0 b31_ralt   0151 R
+  0 b31_rand   014F R   |   0 b31_spri   0150 R   |   0 b31_w      0146 R
+  0 b31_x      0144 R   |   0 b31_xi     0149 R   |   0 b31_y      0145 R
+  0 b31_yi     014A R   |   0 b32_col    0156 R   |   0 b32_dato   0152 R
+  0 b32_dir    015C R   |   0 b32_getP   0246 GR  |   0 b32_getP   024B GR
+  0 b32_h      0155 R   |   0 b32_l      0159 R   |   0 b32_li     015A R
+  0 b32_r      015B R   |   0 b32_ralt   015F R   |   0 b32_rand   015D R
+  0 b32_spri   015E R   |   0 b32_w      0154 R   |   0 b32_x      0152 R
+  0 b32_xi     0157 R   |   0 b32_y      0153 R   |   0 b32_yi     0158 R
+  0 b33_col    0102 R   |   0 b33_dato   00FE R   |   0 b33_dir    0108 R
+  0 b33_getP   0250 GR  |   0 b33_getP   0255 GR  |   0 b33_h      0101 R
+  0 b33_l      0105 R   |   0 b33_li     0106 R   |   0 b33_r      0107 R
+  0 b33_ralt   010B R   |   0 b33_rand   0109 R   |   0 b33_spri   010A R
+  0 b33_w      0100 R   |   0 b33_x      00FE R   |   0 b33_xi     0103 R
+  0 b33_y      00FF R   |   0 b33_yi     0104 R   |   0 b3_col     0022 R
+  0 b3_datos   001E R   |   0 b3_dir     0028 R   |   0 b3_getPt   0174 GR
+  0 b3_getPt   0179 GR  |   0 b3_h       0021 R   |   0 b3_l       0025 R
+  0 b3_li      0026 R   |   0 b3_r       0027 R   |   0 b3_ralt    002B R
+  0 b3_rando   0029 R   |   0 b3_sprit   002A R   |   0 b3_w       0020 R
+  0 b3_x       001E R   |   0 b3_xi      0023 R   |   0 b3_y       001F R
+  0 b3_yi      0024 R   |   0 b9_col     0030 R   |   0 b9_datos   002C R
+  0 b9_dir     0036 R   |   0 b9_getPt   017E GR  |   0 b9_getPt   0183 GR
+  0 b9_h       002F R   |   0 b9_l       0033 R   |   0 b9_li      0034 R
+  0 b9_r       0035 R   |   0 b9_ralt    0039 R   |   0 b9_rando   0037 R
+  0 b9_sprit   0038 R   |   0 b9_w       002E R   |   0 b9_x       002C R
+  0 b9_xi      0031 R   |   0 b9_y       002D R   |   0 b9_yi      0032 R
+    b_col   =  0004     |     b_dir   =  000A     |     b_h     =  0003 
+    b_l     =  0007     |     b_li    =  0008     |     b_r     =  0009 
+    b_ralt  =  000D     |     b_rand  =  000B     |     b_sprite=  000C 
+    b_w     =  0002     |     b_x     =  0000     |     b_xi    =  0005 
+    b_y     =  0001     |     b_yi    =  0006     |   0 bala_upd   0267 GR
+  0 izq        02C4 R   |   0 minuevap   025A GR  |   0 mueve1     02A9 R
+  0 mueve2     02E1 R   |   0 newposX    0000 R   |   0 newposY    0001 R
+  0 nocolisi   0284 R   |   0 not_rest   02C3 R   |   0 not_rest   02FB R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  2FC   flags    0
+

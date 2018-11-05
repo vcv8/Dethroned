@@ -1,0 +1,283 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 .area _CODE
+                              2 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                              3 .include "cpctelera.h.s"
+                              1 .globl cpct_drawSolidBox_asm
+                              2 .globl cpct_getScreenPtr_asm
+                              3 .globl cpct_scanKeyboard_asm
+                              4 .globl cpct_isKeyPressed_asm
+                              5 .globl cpct_waitVSYNC_asm
+                              6 .globl cpct_etm_setTileset2x4_asm
+                              7 .globl cpct_etm_drawTileBox2x4_asm
+                              8 .globl cpct_disableFirmware_asm
+                              9 .globl cpct_setVideoMode_asm
+                             10 .globl cpct_drawSprite_asm
+                             11 .globl cpct_setPalette_asm
+                             12 .globl cpct_drawStringM0_asm
+                             13 .globl cpct_setPALColour_asm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                              4 .include "protagonista.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE PROTAGONISTA
+                              3 ;;====================================
+                              4 
+                              5 .globl prota_getPtrIX
+                              6 .globl prota_update
+                              7 .globl checkColision
+                              8 .globl	checkMenu
+                              9 .globl	spriteAcorona
+                             10 .globl	spriteAnormal
+                             11 
+                             12 
+                     0000    13 .equ pos_x, 0
+                     0001    14 .equ pos_y, 1
+                     0002    15 .equ ancho, 2
+                     0003    16 .equ alto, 3
+                     0004    17 .equ colision, 4
+                     0005    18 .equ jump, 5
+                     0006    19 .equ down, 6	
+                     0007    20 .equ ataqueIzq, 7
+                     0008    21 .equ ataqueD, 8
+                     0009    22 .equ moveD, 9
+                     000A    23 .equ moveI, 10
+                     000B    24 .equ nivel, 11
+                     000C    25 .equ sprite, 12
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+                              5 
+                              6     
+                              7 .globl _g_tileset
+                              8 .globl _level1
+                              9 .globl _level2
+                             10 .globl _level4
+                             11 
+                             12 ;;=====================================================================
+                             13 ;;=====================================================================
+                             14 ;;DATOS PRIVADOS
+                             15 ;; Los otros ficheros no pueden acceder a estos valores. NO SON GLOBALES
+                             16 ;;======================================================================
+                             17 ;;=====================================================================
+                             18 
+                             19  ;;CREAR VARIABLES
+   0000 00 00                20 level: .dw #_level1
+                             21 
+   0002                      22 mapa_draw::
+                             23     
+   0002 21 00 00      [10]   24     ld hl, #_g_tileset
+   0005 CD 00 00      [17]   25     call cpct_etm_setTileset2x4_asm
+                             26 
+   0008 DD 7E 0B      [19]   27         ld a, 11(ix)
+                             28 
+   000B FE 01         [ 7]   29         cp #1
+   000D 21 00 00      [10]   30         ld   hl, #_level1
+   0010 22 00 00      [16]   31         ld (level),hl
+   0013 28 50         [12]   32         jr z, primer_nivel
+                             33 
+   0015 FE 02         [ 7]   34         cp #2
+   0017 21 00 00      [10]   35         ld   hl, #_level2
+   001A 22 00 00      [16]   36         ld (level),hl
+   001D 28 4C         [12]   37         jr z, segundo_nivel
+                             38 
+   001F FE 03         [ 7]   39         cp #3
+   0021 21 00 00      [10]   40         ld   hl, #_level4
+   0024 22 00 00      [16]   41         ld (level),hl
+   0027 28 48         [12]   42         jr z, cuarto_nivel
+                             43 
+   0029 FE 04         [ 7]   44         cp #4
+   002B 21 00 00      [10]   45         ld   hl, #_level1
+   002E 22 00 00      [16]   46         ld (level),hl
+   0031 28 32         [12]   47         jr z, primer_nivel
+                             48 
+   0033 FE 05         [ 7]   49         cp #5
+   0035 21 00 00      [10]   50         ld   hl, #_level2
+   0038 22 00 00      [16]   51         ld (level),hl
+   003B 28 2E         [12]   52         jr z, segundo_nivel
+                             53 
+   003D FE 06         [ 7]   54         cp #6
+   003F 21 00 00      [10]   55         ld   hl, #_level4
+   0042 22 00 00      [16]   56         ld (level),hl
+   0045 28 2A         [12]   57         jr z, cuarto_nivel
+                             58 
+   0047 FE 07         [ 7]   59         cp #7
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+   0049 21 00 00      [10]   60         ld   hl, #_level1
+   004C 22 00 00      [16]   61         ld (level),hl
+   004F 28 14         [12]   62         jr z, primer_nivel
+                             63 
+   0051 FE 08         [ 7]   64         cp #8
+   0053 21 00 00      [10]   65         ld   hl, #_level4
+   0056 22 00 00      [16]   66         ld (level),hl
+   0059 28 16         [12]   67         jr z, cuarto_nivel
+                             68 
+   005B FE 09         [ 7]   69         cp #9
+   005D 21 00 00      [10]   70         ld   hl, #_level4
+   0060 22 00 00      [16]   71         ld (level),hl
+   0063 28 0C         [12]   72         jr z, cuarto_nivel
+                             73 
+                             74 
+   0065                      75     primer_nivel:
+                             76 
+   0065 21 00 00      [10]   77         ld   hl, #_level1   ;; HL = pointer to the tilemap
+   0068 E5            [11]   78         push hl              ;; Push ptilemap to the stack
+                             79 
+   0069 18 0C         [12]   80         jr seguir
+                             81 
+   006B                      82     segundo_nivel:
+                             83 
+   006B 21 00 00      [10]   84         ld   hl, #_level2   ;; HL = pointer to the tilemap
+   006E E5            [11]   85         push hl              ;; Push ptilemap to the stack
+                             86 
+   006F 18 06         [12]   87         jr seguir
+                             88 
+   0071                      89     cuarto_nivel:
+                             90 
+   0071 21 00 00      [10]   91         ld   hl, #_level4   ;; HL = pointer to the tilemap
+   0074 E5            [11]   92         push hl              ;; Push ptilemap to the stack
+                             93 
+   0075 18 00         [12]   94         jr seguir
+                             95 
+                             96    
+                             97 
+                             98 
+   0077                      99     seguir:
+                            100 
+                            101     
+   0077 21 00 C0      [10]  102     ld   hl, #0xC000  ;; HL = Pointer to video memory location where tilemap is drawn
+   007A E5            [11]  103     push hl              ;; Push pvideomem to the stack
+                            104     ;; Set Paramters on registers
+   007B 3E 28         [ 7]  105     ld    a, #40  ;; A = map_width
+   007D 01 00 00      [10]  106     ld    bc, #0000          ;; BC 0000
+   0080 16 20         [ 7]  107     ld    d, #32          ;; H = height in tiles of the tile-box
+   0082 1E 28         [ 7]  108     ld    e, #40          ;; L =  width in tiles of the tile-box
+                            109 
+   0084 CD 00 00      [17]  110     call  cpct_etm_drawTileBox2x4_asm 
+                            111 
+   0087 C9            [10]  112     ret 
+                            113 
+   0088                     114 mapa_redraw::
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+                            115 
+                            116 
+   0088 21 00 00      [10]  117      ld hl, #_g_tileset
+   008B CD 00 00      [17]  118      call cpct_etm_setTileset2x4_asm
+                            119 
+   008E DD 7E 0B      [19]  120      ld a, 11(ix)
+                            121 
+   0091 FE 01         [ 7]  122         cp #1
+   0093 21 00 00      [10]  123         ld   hl, #_level1
+                            124         ;ld (level),hl
+   0096 28 03         [12]  125         jr z, seguir2
+                            126         
+   0098 2A 00 00      [16]  127      ld   hl, (level)   ;; HL = pointer to the tilemap
+                            128 
+   009B                     129      seguir2:
+   009B E5            [11]  130      push hl              ;; Push ptilemap to the stack
+   009C 21 00 C0      [10]  131      ld   hl, #0xC000  ;; HL = Pointer to video memory location where tilemap is drawn
+   009F 11 00 C0      [10]  132      ld de, #0xC000
+   00A2 DD 4E 00      [19]  133      ld c, 0(ix)                    ;; IX es el registro indice que nos permite acceder a los datos de la entidad (en este caso: entity_x, entity_y.) C= entity_x
+   00A5 DD 46 01      [19]  134      ld b, 1(ix)                    ;; B=entity_y Aqui indicamos la fila donde empieza y en c la columna (Coord X e Y)              
+                            135      ;dec c
+                            136      ;dec c
+                            137      
+                            138      ;dec b
+                            139      ;dec b
+                            140 
+                            141      ;call cpct_getScreenPtr_asm     ;; COGER PUNTERO DE PANTALLA
+   00A8 E5            [11]  142      push hl                        ;; Push pvideomem to the stack
+                            143      ;; Set Paramters on registers
+                            144     
+   00A9 DD 4E 00      [19]  145      ld c, 0(ix)                    ;; IX es el registro indice que nos permite acceder a los datos de la entidad (en este caso: entity_x, entity_y.) C= entity_x
+   00AC DD 46 01      [19]  146      ld b, 1(ix)                    ;; B=entity_y Aqui indicamos la fila donde empieza y en c la columna (Coord X e Y)              
+                            147      
+   00AF 78            [ 4]  148      ld a, b
+   00B0 50            [ 4]  149      ld d, b
+   00B1 06 00         [ 7]  150      ld b,#0
+   00B3                     151         bucle:
+   00B3 3D            [ 4]  152             dec a
+   00B4 FE 00         [ 7]  153             cp #0
+   00B6 28 16         [12]  154             jr z, salir
+   00B8 3D            [ 4]  155             dec a
+   00B9 FE 00         [ 7]  156             cp #0
+   00BB 28 11         [12]  157             jr z, salir
+   00BD 3D            [ 4]  158             dec a
+   00BE FE 00         [ 7]  159             cp #0
+   00C0 28 0C         [12]  160             jr z, salir
+   00C2 3D            [ 4]  161             dec a
+   00C3 FE 00         [ 7]  162             cp #0
+   00C5 28 07         [12]  163             jr z, salir
+   00C7 57            [ 4]  164             ld d,a
+   00C8 78            [ 4]  165             ld a,b
+   00C9 3C            [ 4]  166             inc a
+   00CA 47            [ 4]  167             ld b,a
+   00CB 7A            [ 4]  168             ld a,d
+   00CC 18 E5         [12]  169             jr bucle
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+   00CE                     170      salir:
+                            171      
+   00CE 79            [ 4]  172      ld a, c
+   00CF 0E 00         [ 7]  173      ld c, #0
+   00D1                     174         bucle_2:
+   00D1 3D            [ 4]  175             dec a
+   00D2 FE 00         [ 7]  176             cp #0
+   00D4 28 0C         [12]  177             jr z, salir2
+   00D6 3D            [ 4]  178             dec a
+   00D7 FE 00         [ 7]  179             cp #0
+   00D9 28 07         [12]  180             jr z, salir2
+   00DB 57            [ 4]  181             ld d,a
+   00DC 79            [ 4]  182             ld a,c
+   00DD 3C            [ 4]  183             inc a
+   00DE 4F            [ 4]  184             ld c,a
+   00DF 7A            [ 4]  185             ld a,d
+                            186             
+   00E0 18 EF         [12]  187             jr bucle_2
+                            188 
+   00E2                     189      salir2:
+                            190      
+                            191      ;dec b
+   00E2 DD 7E 03      [19]  192      ld a,3(ix)  
+   00E5 FE 0F         [ 7]  193      cp #15
+   00E7 20 06         [12]  194      jr nz,noprota
+   00E9 16 05         [ 7]  195      ld d,#5
+   00EB 1E 03         [ 7]  196      ld e,#3
+                            197         
+   00ED 18 04         [12]  198         jr saltar
+                            199 
+   00EF                     200      noprota:
+   00EF 16 02         [ 7]  201      ld d,#2
+   00F1 1E 02         [ 7]  202      ld e,#2
+                            203       
+   00F3                     204      saltar:
+                            205     
+   00F3 3E 28         [ 7]  206      ld    a, #40  ;; A = map_width
+   00F5 CD 00 00      [17]  207      call  cpct_etm_drawTileBox2x4_asm 
+                            208 
+                            209 
+   00F8 C9            [10]  210     ret 

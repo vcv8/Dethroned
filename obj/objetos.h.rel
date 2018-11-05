@@ -1,0 +1,13 @@
+XL2
+H 1 areas A global symbols
+S coronaIsMatada Ref0000
+S llave_getPtrIX Ref0000
+S llave_getPtrIY Ref0000
+S .__.ABS. Def0000
+S update_corona Ref0000
+S update_pocion Ref0000
+S PocionIsMatada Ref0000
+S comprobar_recogido Ref0000
+S pocion_getPtrIX Ref0000
+S pocion_getPtrIY Ref0000
+A _CODE size 0 flags 0 addr 0

@@ -1,0 +1,621 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           cpct_keyboard
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__DATA                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__HOME                         
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000100  s__CODE                         
+     00005689  l__CODE                         
+     00005789  s__DATA                         
+     00005789  s__GSFINAL                      
+     00005789  s__GSINIT                       
+     00005789  s__HOME                         
+     00005789  s__INITIALIZED                  
+     00005789  s__INITIALIZER                  
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000100  _level4                            level4
+     00000600  _level2                            level2
+     00000B00  _level1                            level1
+     00001000  _sfin_fin2                         fin2
+     00002770  _scrown_coronasola                 coronasola
+     0000277C  _sheart_heart2                     heart2
+     0000279C  _sbala_tileset                     bala3
+     000027A0  _sbala_bala3_0                     bala3
+     000027A4  _sbala_bala3_1                     bala3
+     000027A8  _stor_tileset                      torreta3
+     000027AC  _stor_torreta3_0                   torreta3
+     000027C4  _stor_torreta3_1                   torreta3
+     000027DC  _sprite_tileset                    protile3
+     00002804  _sprite_protile3_00                protile3
+     00002840  _sprite_protile3_01                protile3
+     0000287C  _sprite_protile3_02                protile3
+     000028B8  _sprite_protile3_03                protile3
+     000028F4  _sprite_protile3_04                protile3
+     00002930  _sprite_protile3_05                protile3
+     0000296C  _sprite_protile3_06                protile3
+     000029A8  _sprite_protile3_07                protile3
+     000029E4  _sprite_protile3_08                protile3
+     00002A20  _sprite_protile3_09                protile3
+     00002A5C  _sprite_protile3_10                protile3
+     00002A98  _sprite_protile3_11                protile3
+     00002AD4  _sprite_protile3_12                protile3
+     00002B10  _sprite_protile3_13                protile3
+     00002B4C  _sprite_protile3_14                protile3
+     00002B88  _sprite_protile3_15                protile3
+     00002BC4  _sprite_protile3_16                protile3
+     00002C00  _sprite_protile3_17                protile3
+     00002C3C  _sprite_protile3_18                protile3
+     00002C78  _sprite_protile3_19                protile3
+     00002CB4  _titulo_lredimborde3               lredimborde3
+     0000368C  _g_palette                         pixels
+     0000369C  _g_tileset                         pixels
+     0000389C  _g_pixels_000                      pixels
+     000038A4  _g_pixels_001                      pixels
+     000038AC  _g_pixels_002                      pixels
+     000038B4  _g_pixels_003                      pixels
+     000038BC  _g_pixels_004                      pixels
+     000038C4  _g_pixels_005                      pixels
+     000038CC  _g_pixels_006                      pixels
+     000038D4  _g_pixels_007                      pixels
+     000038DC  _g_pixels_008                      pixels
+     000038E4  _g_pixels_009                      pixels
+     000038EC  _g_pixels_010                      pixels
+     000038F4  _g_pixels_011                      pixels
+     000038FC  _g_pixels_012                      pixels
+     00003904  _g_pixels_013                      pixels
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000390C  _g_pixels_014                      pixels
+     00003914  _g_pixels_015                      pixels
+     0000391C  _g_pixels_016                      pixels
+     00003924  _g_pixels_017                      pixels
+     0000392C  _g_pixels_018                      pixels
+     00003934  _g_pixels_019                      pixels
+     0000393C  _g_pixels_020                      pixels
+     00003944  _g_pixels_021                      pixels
+     0000394C  _g_pixels_022                      pixels
+     00003954  _g_pixels_023                      pixels
+     0000395C  _g_pixels_024                      pixels
+     00003964  _g_pixels_025                      pixels
+     0000396C  _g_pixels_026                      pixels
+     00003974  _g_pixels_027                      pixels
+     0000397C  _g_pixels_028                      pixels
+     00003984  _g_pixels_029                      pixels
+     0000398C  _g_pixels_030                      pixels
+     00003994  _g_pixels_031                      pixels
+     0000399C  _g_pixels_032                      pixels
+     000039A4  _g_pixels_033                      pixels
+     000039AC  _g_pixels_034                      pixels
+     000039B4  _g_pixels_035                      pixels
+     000039BC  _g_pixels_036                      pixels
+     000039C4  _g_pixels_037                      pixels
+     000039CC  _g_pixels_038                      pixels
+     000039D4  _g_pixels_039                      pixels
+     000039DC  _g_pixels_040                      pixels
+     000039E4  _g_pixels_041                      pixels
+     000039EC  _g_pixels_042                      pixels
+     000039F4  _g_pixels_043                      pixels
+     000039FC  _g_pixels_044                      pixels
+     00003A04  _g_pixels_045                      pixels
+     00003A0C  _g_pixels_046                      pixels
+     00003A14  _g_pixels_047                      pixels
+     00003A1C  _g_pixels_048                      pixels
+     00003A24  _g_pixels_049                      pixels
+     00003A2C  _g_pixels_050                      pixels
+     00003A34  _g_pixels_051                      pixels
+     00003A3C  _g_pixels_052                      pixels
+     00003A44  _g_pixels_053                      pixels
+     00003A4C  _g_pixels_054                      pixels
+     00003A54  _g_pixels_055                      pixels
+     00003A5C  _g_pixels_056                      pixels
+     00003A64  _g_pixels_057                      pixels
+     00003A6C  _g_pixels_058                      pixels
+     00003A74  _g_pixels_059                      pixels
+     00003A7C  _g_pixels_060                      pixels
+     00003A84  _g_pixels_061                      pixels
+     00003A8C  _g_pixels_062                      pixels
+     00003A94  _g_pixels_063                      pixels
+     00003A9C  _g_pixels_064                      pixels
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00003AA4  _g_pixels_065                      pixels
+     00003AAC  _g_pixels_066                      pixels
+     00003AB4  _g_pixels_067                      pixels
+     00003ABC  _g_pixels_068                      pixels
+     00003AC4  _g_pixels_069                      pixels
+     00003ACC  _g_pixels_070                      pixels
+     00003AD4  _g_pixels_071                      pixels
+     00003ADC  _g_pixels_072                      pixels
+     00003AE4  _g_pixels_073                      pixels
+     00003AEC  _g_pixels_074                      pixels
+     00003AF4  _g_pixels_075                      pixels
+     00003AFC  _g_pixels_076                      pixels
+     00003B04  _g_pixels_077                      pixels
+     00003B0C  _g_pixels_078                      pixels
+     00003B14  _g_pixels_079                      pixels
+     00003B1C  _g_pixels_080                      pixels
+     00003B24  _g_pixels_081                      pixels
+     00003B2C  _g_pixels_082                      pixels
+     00003B34  _g_pixels_083                      pixels
+     00003B3C  _g_pixels_084                      pixels
+     00003B44  _g_pixels_085                      pixels
+     00003B4C  _g_pixels_086                      pixels
+     00003B54  _g_pixels_087                      pixels
+     00003B5C  _g_pixels_088                      pixels
+     00003B64  _g_pixels_089                      pixels
+     00003B6C  _g_pixels_090                      pixels
+     00003B74  _g_pixels_091                      pixels
+     00003B7C  _g_pixels_092                      pixels
+     00003B84  _g_pixels_093                      pixels
+     00003B8C  _g_pixels_094                      pixels
+     00003B94  _g_pixels_095                      pixels
+     00003B9C  _g_pixels_096                      pixels
+     00003BA4  _g_pixels_097                      pixels
+     00003BAC  _g_pixels_098                      pixels
+     00003BB4  _g_pixels_099                      pixels
+     00003BBC  _g_pixels_100                      pixels
+     00003BC4  _g_pixels_101                      pixels
+     00003BCC  _g_pixels_102                      pixels
+     00003BD4  _g_pixels_103                      pixels
+     00003BDC  _g_pixels_104                      pixels
+     00003BE4  _g_pixels_105                      pixels
+     00003BEC  _g_pixels_106                      pixels
+     00003BF4  _g_pixels_107                      pixels
+     00003BFC  _g_pixels_108                      pixels
+     00003C04  _g_pixels_109                      pixels
+     00003C0C  _g_pixels_110                      pixels
+     00003C14  _g_pixels_111                      pixels
+     00003C1C  _g_pixels_112                      pixels
+     00003C24  _g_pixels_113                      pixels
+     00003C2C  _g_pixels_114                      pixels
+     00003C34  _g_pixels_115                      pixels
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00003C3C  _g_pixels_116                      pixels
+     00003C44  _g_pixels_117                      pixels
+     00003C4C  _g_pixels_118                      pixels
+     00003C54  _g_pixels_119                      pixels
+     00003C5C  _g_pixels_120                      pixels
+     00003C64  _g_pixels_121                      pixels
+     00003C6C  _g_pixels_122                      pixels
+     00003C74  _g_pixels_123                      pixels
+     00003C7C  _g_pixels_124                      pixels
+     00003C84  _g_pixels_125                      pixels
+     00003C8C  _g_pixels_126                      pixels
+     00003C94  _g_pixels_127                      pixels
+     00003C9C  _g_pixels_128                      pixels
+     00003CA4  _g_pixels_129                      pixels
+     00003CAC  _g_pixels_130                      pixels
+     00003CB4  _g_pixels_131                      pixels
+     00003CBC  _g_pixels_132                      pixels
+     00003CC4  _g_pixels_133                      pixels
+     00003CCC  _g_pixels_134                      pixels
+     00003CD4  _g_pixels_135                      pixels
+     00003CDC  _g_pixels_136                      pixels
+     00003CE4  _g_pixels_137                      pixels
+     00003CEC  _g_pixels_138                      pixels
+     00003CF4  _g_pixels_139                      pixels
+     00003CFC  _g_pixels_140                      pixels
+     00003D04  _g_pixels_141                      pixels
+     00003D0C  _g_pixels_142                      pixels
+     00003D14  _g_pixels_143                      pixels
+     00003D1C  _g_pixels_144                      pixels
+     00003D24  _g_pixels_145                      pixels
+     00003D2C  _g_pixels_146                      pixels
+     00003D34  _g_pixels_147                      pixels
+     00003D3C  _g_pixels_148                      pixels
+     00003D44  _g_pixels_149                      pixels
+     00003D4C  _g_pixels_150                      pixels
+     00003D54  _g_pixels_151                      pixels
+     00003D5C  _g_pixels_152                      pixels
+     00003D64  _g_pixels_153                      pixels
+     00003D6C  _g_pixels_154                      pixels
+     00003D74  _g_pixels_155                      pixels
+     00003D7C  _g_pixels_156                      pixels
+     00003D84  _g_pixels_157                      pixels
+     00003D8C  _g_pixels_158                      pixels
+     00003D94  _g_pixels_159                      pixels
+     00003D9C  _g_pixels_160                      pixels
+     00003DA4  _g_pixels_161                      pixels
+     00003DAC  _g_pixels_162                      pixels
+     00003DB4  _g_pixels_163                      pixels
+     00003DBC  _g_pixels_164                      pixels
+     00003DC4  _g_pixels_165                      pixels
+     00003DCC  _g_pixels_166                      pixels
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00003DD4  _g_pixels_167                      pixels
+     00003DDC  _g_pixels_168                      pixels
+     00003DE4  _g_pixels_169                      pixels
+     00003DEC  _g_pixels_170                      pixels
+     00003DF4  _g_pixels_171                      pixels
+     00003DFC  _g_pixels_172                      pixels
+     00003E04  _g_pixels_173                      pixels
+     00003E0C  _g_pixels_174                      pixels
+     00003E14  _g_pixels_175                      pixels
+     00003E1C  _g_pixels_176                      pixels
+     00003E24  _g_pixels_177                      pixels
+     00003E2C  _g_pixels_178                      pixels
+     00003E34  _g_pixels_179                      pixels
+     00003E3C  _g_pixels_180                      pixels
+     00003E44  _g_pixels_181                      pixels
+     00003E4C  _g_pixels_182                      pixels
+     00003E54  _g_pixels_183                      pixels
+     00003E5C  _g_pixels_184                      pixels
+     00003E64  _g_pixels_185                      pixels
+     00003E6C  _g_pixels_186                      pixels
+     00003E74  _g_pixels_187                      pixels
+     00003E7C  _g_pixels_188                      pixels
+     00003E84  _g_pixels_189                      pixels
+     00003E8C  _g_pixels_190                      pixels
+     00003E94  _g_pixels_191                      pixels
+     00003E9C  _g_pixels_192                      pixels
+     00003EA4  _g_pixels_193                      pixels
+     00003EAC  _g_pixels_194                      pixels
+     00003EB4  _g_pixels_195                      pixels
+     00003EBC  _g_pixels_196                      pixels
+     00003EC4  _g_pixels_197                      pixels
+     00003ECC  _g_pixels_198                      pixels
+     00003ED4  _g_pixels_199                      pixels
+     00003EDC  _g_pixels_200                      pixels
+     00003EE4  _g_pixels_201                      pixels
+     00003EEC  _g_pixels_202                      pixels
+     00003EF4  _g_pixels_203                      pixels
+     00003EFC  _g_pixels_204                      pixels
+     00003F04  _g_pixels_205                      pixels
+     00003F0C  _g_pixels_206                      pixels
+     00003F14  _g_pixels_207                      pixels
+     00003F1C  _g_pixels_208                      pixels
+     00003F24  _g_pixels_209                      pixels
+     00003F2C  _g_pixels_210                      pixels
+     00003F34  _g_pixels_211                      pixels
+     00003F3C  _g_pixels_212                      pixels
+     00003F44  _g_pixels_213                      pixels
+     00003F4C  _g_pixels_214                      pixels
+     00003F54  _g_pixels_215                      pixels
+     00003F5C  _g_pixels_216                      pixels
+     00003F64  _g_pixels_217                      pixels
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00003F6C  _g_pixels_218                      pixels
+     00003F74  _g_pixels_219                      pixels
+     00003F7C  _g_pixels_220                      pixels
+     00003F84  _g_pixels_221                      pixels
+     00003F8C  _g_pixels_222                      pixels
+     00003F94  _g_pixels_223                      pixels
+     00003F9C  _g_pixels_224                      pixels
+     00003FA4  _g_pixels_225                      pixels
+     00003FAC  _g_pixels_226                      pixels
+     00003FB4  _g_pixels_227                      pixels
+     00003FBC  _g_pixels_228                      pixels
+     00003FC4  _g_pixels_229                      pixels
+     00003FCC  _g_pixels_230                      pixels
+     00003FD4  _g_pixels_231                      pixels
+     00003FDC  _g_pixels_232                      pixels
+     00003FE4  _g_pixels_233                      pixels
+     00003FEC  _g_pixels_234                      pixels
+     00003FF4  _g_pixels_235                      pixels
+     00003FFC  _g_pixels_236                      pixels
+     00004004  _g_pixels_237                      pixels
+     0000400C  _g_pixels_238                      pixels
+     00004014  _g_pixels_239                      pixels
+     0000401C  _g_pixels_240                      pixels
+     00004024  _g_pixels_241                      pixels
+     0000402C  _g_pixels_242                      pixels
+     00004034  _g_pixels_243                      pixels
+     0000403C  _g_pixels_244                      pixels
+     00004044  _g_pixels_245                      pixels
+     0000404C  _g_pixels_246                      pixels
+     00004054  _g_pixels_247                      pixels
+     0000405C  _g_pixels_248                      pixels
+     00004064  _g_pixels_249                      pixels
+     0000406C  _g_pixels_250                      pixels
+     00004074  _g_pixels_251                      pixels
+     0000407C  _g_pixels_252                      pixels
+     00004084  _g_pixels_253                      pixels
+     0000408C  _g_pixels_254                      pixels
+     00004094  _g_pixels_255                      pixels
+     000041FC  b1_getPtrIX                        
+     00004201  b1_getPtrIY                        
+     00004206  b2_getPtrIX                        
+     0000420B  b2_getPtrIY                        
+     00004210  b3_getPtrIX                        
+     00004215  b3_getPtrIY                        
+     0000421A  b9_getPtrIX                        
+     0000421F  b9_getPtrIY                        
+     00004224  b10_getPtrIX                       
+     00004229  b10_getPtrIY                       
+     0000422E  b11_getPtrIX                       
+     00004233  b11_getPtrIY                       
+     00004238  b12_getPtrIX                       
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000423D  b12_getPtrIY                       
+     00004242  b13_getPtrIX                       
+     00004247  b13_getPtrIY                       
+     0000424C  b14_getPtrIX                       
+     00004251  b14_getPtrIY                       
+     00004256  b15_getPtrIX                       
+     0000425B  b15_getPtrIY                       
+     00004260  b16_getPtrIX                       
+     00004265  b16_getPtrIY                       
+     0000426A  b20_getPtrIX                       
+     0000426F  b20_getPtrIY                       
+     00004274  b21_getPtrIX                       
+     00004279  b21_getPtrIY                       
+     0000427E  b22_getPtrIX                       
+     00004283  b22_getPtrIY                       
+     00004288  b23_getPtrIX                       
+     0000428D  b23_getPtrIY                       
+     00004292  b24_getPtrIX                       
+     00004297  b24_getPtrIY                       
+     0000429C  b25_getPtrIX                       
+     000042A1  b25_getPtrIY                       
+     000042A6  b26_getPtrIX                       
+     000042AB  b26_getPtrIY                       
+     000042B0  b27_getPtrIX                       
+     000042B5  b27_getPtrIY                       
+     000042BA  b28_getPtrIX                       
+     000042BF  b28_getPtrIY                       
+     000042C4  b29_getPtrIX                       
+     000042C9  b29_getPtrIY                       
+     000042CE  b30_getPtrIX                       
+     000042D3  b30_getPtrIY                       
+     000042D8  b31_getPtrIX                       
+     000042DD  b31_getPtrIY                       
+     000042E2  b32_getPtrIX                       
+     000042E7  b32_getPtrIY                       
+     000042EC  b33_getPtrIX                       
+     000042F1  b33_getPtrIY                       
+     000042F6  minuevaposicion                    
+     00004303  bala_update                        
+     000043B4  hud_getPtrIX                       
+     000043B9  hud_getPtrFIN                      
+     000043BE  hud_draw                           
+     000043CC  hud_erase                          
+     000043E1  hud_getHP                          
+     000043E5  hud_title                          
+     000043E9  hud_ertitle                        
+     0000448B  _cpct_keyboardStatusBuffer         cpct_keyboard
+     000044F3  spriteAcorona                      cpct_keyboard
+     000044FC  spriteAnormal                      cpct_keyboard
+     00004505  prota_getPtrIX                     cpct_keyboard
+     0000450A  prota_update                       cpct_keyboard
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000451D  checkColision                      cpct_keyboard
+     0000456B  checkMenu                          cpct_keyboard
+     000049D5  dibujar_entidad                    
+     000049DB  borrar_entidad                     
+     00004AEE  enemigo1_getPtrIX                  
+     00004AF3  enemigo1_getPtrIY                  
+     00004AF8  enemigo2_getPtrIX                  
+     00004AFD  enemigo2_getPtrIY                  
+     00004B02  enemigo3_getPtrIX                  
+     00004B07  enemigo3_getPtrIY                  
+     00004B0C  enemigo7_getPtrIX                  
+     00004B11  enemigo7_getPtrIY                  
+     00004B16  enemigo8_getPtrIX                  
+     00004B1B  enemigo8_getPtrIY                  
+     00004B20  enemigo9_getPtrIX                  
+     00004B25  enemigo9_getPtrIY                  
+     00004B2A  enemigo10_getPtrIX                 
+     00004B2F  enemigo10_getPtrIY                 
+     00004B34  enemigo11_getPtrIX                 
+     00004B39  enemigo11_getPtrIY                 
+     00004B3E  enemigo12_getPtrIX                 
+     00004B43  enemigo12_getPtrIY                 
+     00004B48  enemigo16_getPtrIX                 
+     00004B4D  enemigo16_getPtrIY                 
+     00004B52  enemigo17_getPtrIX                 
+     00004B57  enemigo17_getPtrIY                 
+     00004B5C  enemigo18_getPtrIX                 
+     00004B61  enemigo18_getPtrIY                 
+     00004B66  enemigo19_getPtrIX                 
+     00004B6B  enemigo19_getPtrIY                 
+     00004B70  enemigo20_getPtrIX                 
+     00004B75  enemigo20_getPtrIY                 
+     00004B7A  enemigo21_getPtrIX                 
+     00004B7F  enemigo21_getPtrIY                 
+     00004B84  enemigo9_update                    
+     00004C9A  _main                              
+     000052A0  llave_getPtrIX                     
+     000052A5  llave_getPtrIY                     
+     000052AA  pocion_getPtrIX                    
+     000052AF  pocion_getPtrIY                    
+     000052B4  comprobar_recogido                 
+     000052C0  update_corona                      
+     000052E6  update_pocion                      
+     00005309  coronaIsMatada                     
+     0000530F  PocionIsMatada                     
+     00005317  mapa_draw                          
+     0000539D  mapa_redraw                        
+     0000540E  _cpct_isKeyPressed                 cpct_keyboard
+     0000540E  cpct_isKeyPressed_asm              cpct_keyboard
+     0000541A  cpct_setPalette_asm                cpct_video
+     0000542D  cpct_setPALColour_asm              cpct_video
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000100    00005689 =       22153. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00005437  _cpct_drawStringM0                 cpct_strings
+     0000543F  cpct_drawStringM0_asm              cpct_strings
+     0000545B  cpct_drawSprite_asm                cpct_sprites
+     000054FB  cpct_etm_drawTileBox2x4_asm        cpct_easytilemaps
+     00005587  _cpct_drawCharM0                   cpct_strings
+     00005594  cpct_drawCharM0_asm                cpct_strings
+     00005614  _cpct_etm_setTileset2x4            cpct_easytilemaps
+     00005614  cpct_etm_setTileset2x4_asm         cpct_easytilemaps
+     00005618  _cpct_etm_drawTileRow2x4           cpct_easytilemaps
+     0000561F  cpct_etm_drawTileRow2x4_asm        cpct_easytilemaps
+     00005621  dtr_restore_ptileset               cpct_easytilemaps
+     00005639  dc_mode0_ct                        cpct_strings
+     00005649  _cpct_waitVSYNC                    cpct_video
+     00005649  cpct_waitVSYNC_asm                 cpct_video
+     00005651  cpct_setVideoMode_asm              cpct_video
+     0000565E  _cpct_disableFirmware              cpct_firmware
+     0000565E  _cpct_removeInterruptHandler       cpct_firmware
+     0000565E  cpct_disableFirmware_asm           cpct_firmware
+     0000565E  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000566E  cpct_drawSolidBox_asm              cpct_sprites
+     0000571A  cpct_drawTileAligned2x4_f_asm      cpct_sprites
+     0000573B  _cpct_mode_rom_status              cpct_firmware
+     0000573C  cpct_getScreenPtr_asm              cpct_video
+     00005758  _cpct_scanKeyboard                 cpct_keyboard
+     00005758  cpct_scanKeyboard_asm              cpct_keyboard
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+
+Files Linked                              [ module(s) ]
+
+obj/niveles/level4.rel                    [ level4 ]
+obj/niveles/level2.rel                    [ level2 ]
+obj/niveles/level1.rel                    [ level1 ]
+obj/sprites/fin2.rel                      [ fin2 ]
+obj/sprites/coronasola.rel                [ coronasola ]
+obj/sprites/heart2.rel                    [ heart2 ]
+obj/sprites/bala3.rel                     [ bala3 ]
+obj/sprites/torreta3.rel                  [ torreta3 ]
+obj/sprites/protile3.rel                  [ protile3 ]
+obj/sprites/lredimborde3.rel              [ lredimborde3 ]
+obj/sprites/pixels.rel                    [ pixels ]
+obj/bala.rel                              [  ]
+obj/bala.h.rel                            [  ]
+obj/cpctelera.h.rel                       [  ]
+obj/hud.rel                               [  ]
+obj/protagonista.rel                      [ cpct_keyboard ]
+obj/dibujar.rel                           [  ]
+obj/enemigo.rel                           [  ]
+obj/main.rel                              [  ]
+obj/hud.h.rel                             [  ]
+obj/objetos.h.rel                         [  ]
+obj/protagonista.h.rel                    [  ]
+obj/enemigo.h.rel                         [  ]
+obj/dibujar.h.rel                         [  ]
+obj/objetos.rel                           [  ]
+obj/mapas.rel                             [  ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_setPalette_asmbindings.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_setPALColour_asmbindings.re ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_drawStringM0.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_drawSprite_asmbindings.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_etm_drawTileBox2x4_asmbindi ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_drawCharM0.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_etm_setTileset2x4.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_etm_drawTileRow2x4.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_dc_mode0_ct.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_waitVSYNC.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_asmbindings.re ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_drawSolidBox_asmbindings.re ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_drawTileAligned2x4_f_asmbin ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_getScreenPtr_asmbindings.re ]
+/home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+
+User Base Address Definitions
+
+_CODE = 0x0100
+_DATA = 0x0000
+
+

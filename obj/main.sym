@@ -1,0 +1,85 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |   0 EnemMuer   015E R   |   0 EnemMuer   0540 R
+  0 EnemMuer   05A5 R   |   0 EnemMuer   01C3 R   |   0 EnemMuer   0278 R
+  0 EnemMuer   0384 R   |   0 EnemMuer   03E9 R   |   0 EnemMuer   0213 R
+  0 EnemMuer   02C3 R   |   0 EnemMuer   0434 R   |     PocionIs   **** GX
+    _g_palet   **** GX  |   0 _main      00E9 GR  |     alto    =  0003 
+    ancho   =  0002     |     ataqueD =  0008     |     ataqueIz=  0007 
+    b10_getP   **** GX  |     b10_getP   **** GX  |     b11_getP   **** GX
+    b11_getP   **** GX  |     b12_getP   **** GX  |     b12_getP   **** GX
+    b13_getP   **** GX  |     b13_getP   **** GX  |     b14_getP   **** GX
+    b14_getP   **** GX  |     b15_getP   **** GX  |     b15_getP   **** GX
+    b16_getP   **** GX  |     b16_getP   **** GX  |     b1_getPt   **** GX
+    b1_getPt   **** GX  |     b20_getP   **** GX  |     b20_getP   **** GX
+    b21_getP   **** GX  |     b21_getP   **** GX  |     b22_getP   **** GX
+    b22_getP   **** GX  |     b23_getP   **** GX  |     b23_getP   **** GX
+    b24_getP   **** GX  |     b24_getP   **** GX  |     b25_getP   **** GX
+    b25_getP   **** GX  |     b26_getP   **** GX  |     b26_getP   **** GX
+    b27_getP   **** GX  |     b27_getP   **** GX  |     b28_getP   **** GX
+    b28_getP   **** GX  |     b29_getP   **** GX  |     b29_getP   **** GX
+    b2_getPt   **** GX  |     b2_getPt   **** GX  |     b30_getP   **** GX
+    b30_getP   **** GX  |     b31_getP   **** GX  |     b31_getP   **** GX
+    b32_getP   **** GX  |     b32_getP   **** GX  |     b33_getP   **** GX
+    b33_getP   **** GX  |     b3_getPt   **** GX  |     b3_getPt   **** GX
+    b9_getPt   **** GX  |     b9_getPt   **** GX  |     bala_upd   **** GX
+    borrar_e   **** GX  |     checkCol   **** GX  |     checkMen   **** GX
+    colision=  0004     |     comproba   **** GX  |   0 contEnem   0001 R
+    coronaIs   **** GX  |     cpct_dis   **** GX  |     cpct_dra   **** GX
+    cpct_dra   **** GX  |     cpct_dra   **** GX  |     cpct_etm   **** GX
+    cpct_etm   **** GX  |     cpct_get   **** GX  |     cpct_isK   **** GX
+    cpct_sca   **** GX  |     cpct_set   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_wai   **** GX  |     dibujar_   **** GX
+    down    =  0006     |   0 endmatar   00C8 R   |   0 endmatar   00E8 R
+    enemigo1   **** GX  |     enemigo1   **** GX  |     enemigo1   **** GX
+    enemigo1   **** GX  |     enemigo1   **** GX  |     enemigo1   **** GX
+    enemigo1   **** GX  |     enemigo1   **** GX  |     enemigo1   **** GX
+    enemigo1   **** GX  |     enemigo1   **** GX  |     enemigo1   **** GX
+    enemigo1   **** GX  |     enemigo1   **** GX  |     enemigo1   **** GX
+    enemigo1   **** GX  |     enemigo2   **** GX  |     enemigo2   **** GX
+    enemigo2   **** GX  |     enemigo2   **** GX  |     enemigo2   **** GX
+    enemigo2   **** GX  |     enemigo3   **** GX  |     enemigo3   **** GX
+    enemigo7   **** GX  |     enemigo7   **** GX  |     enemigo8   **** GX
+    enemigo8   **** GX  |     enemigo9   **** GX  |     enemigo9   **** GX
+    enemigo9   **** GX  |   0 fin        06A3 R   |     hud_draw   **** GX
+    hud_eras   **** GX  |     hud_erti   **** GX  |     hud_getH   **** GX
+    hud_getP   **** GX  |     hud_getP   **** GX  |     hud_titl   **** GX
+  0 infi       008B R   |   0 iniciali   002B R   |   0 iniciali   0043 R
+  0 inmenu     0046 R   |     jump    =  0005     |   0 kg         008D R
+    llave_ge   **** GX  |     llave_ge   **** GX  |   0 losehp     006F R
+  0 main_loo   00FB R   |     mapa_dra   **** GX  |     mapa_red   **** GX
+  0 mataCor    00BF R   |   0 matarCor   00AB R   |   0 matarEne   0097 R
+  0 matarPoc   00DD R   |   0 matarVid   00C9 R   |     minuevap   **** GX
+    moveD   =  0009     |     moveI   =  000A     |     nivel   =  000B 
+  0 no_nivel   0161 R   |   0 no_nivel   06A5 R   |   0 no_nivel   0216 R
+  0 no_nivel   0322 R   |   0 no_nivel   0387 R   |   0 no_nivel   0437 R
+  0 no_nivel   04C0 R   |   0 no_nivel   0543 R   |   0 no_nivel   0604 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 no_nivel   0689 R   |   0 nomata     0146 R   |   0 nomata17   0510 R
+  0 nomata18   058D R   |   0 nomata2    01AB R   |   0 nomata3    0260 R
+  0 nomata4    036C R   |   0 nomata5    03D1 R   |   0 nomata6    01F6 R
+  0 nomata7    02AB R   |   0 nomata8    041C R   |     pocion_g   **** GX
+    pocion_g   **** GX  |     pos_x   =  0000     |     pos_y   =  0001 
+    prota_ge   **** GX  |     prota_up   **** GX  |   0 ralentiz   0000 R
+  0 reducirV   008E R   |   0 resetear   00A5 R   |   0 restarvi   0069 R
+  0 sincroni   06A5 R   |     sprite  =  000C     |     spriteAc   **** GX
+    spriteAn   **** GX  |   0 string     0002 R   |   0 string2    000E R
+  0 string3    0018 R   |     update_c   **** GX  |     update_p   **** GX
+  0 volver_e   00EC R   |   0 win        0022 R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  6AB   flags    0
+   1 _DATA      size    0   flags    0
+

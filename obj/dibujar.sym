@@ -1,0 +1,37 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     _sbala_b   **** GX  |     _sbala_b   **** GX
+    _scrown_   **** GX  |     _sfin_fi   **** GX  |     _sheart_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _sprite_   **** GX
+    _sprite_   **** GX  |     _sprite_   **** GX  |     _stor_to   **** GX
+    _stor_to   **** GX  |     alto    =  0003     |     ancho   =  0002 
+    ataqueD =  0008     |     ataqueIz=  0007     |   0 borra      0064 R
+  0 borrar_e   003C GR  |     checkCol   **** GX  |     checkMen   **** GX
+    colision=  0004     |     cpct_dis   **** GX  |     cpct_dra   **** GX
+    cpct_dra   **** GX  |     cpct_dra   **** GX  |     cpct_etm   **** GX
+    cpct_etm   **** GX  |     cpct_get   **** GX  |     cpct_isK   **** GX
+    cpct_sca   **** GX  |     cpct_set   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_wai   **** GX  |   0 dibujado   0042 R
+  0 dibujar_   0036 GR  |     down    =  0006     |   0 finaliza   007D R
+    jump    =  0005     |     mapa_dra   **** GX  |     mapa_red   **** GX
+    moveD   =  0009     |     moveI   =  000A     |     nivel   =  000B 
+    pos_x   =  0000     |     pos_y   =  0001     |     prota_ge   **** GX
+    prota_up   **** GX  |   0 select_s   007E R   |     sprite  =  000C 
+    spriteAc   **** GX  |     spriteAn   **** GX  |   0 spriteAr   0000 R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size   8C   flags    0
+

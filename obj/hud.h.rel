@@ -1,0 +1,11 @@
+XL2
+H 1 areas 8 global symbols
+S hud_title Ref0000
+S hud_draw Ref0000
+S hud_ertitle Ref0000
+S .__.ABS. Def0000
+S hud_erase Ref0000
+S hud_getPtrFIN Ref0000
+S hud_getPtrIX Ref0000
+S hud_getHP Ref0000
+A _CODE size 0 flags 0 addr 0

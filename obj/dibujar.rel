@@ -1,0 +1,104 @@
+XL2
+H 1 areas 33 global symbols
+S mapa_redraw Ref0000
+S cpct_setPalette_asm Ref0000
+S cpct_isKeyPressed_asm Ref0000
+S _sprite_protile3_00 Ref0000
+S cpct_setPALColour_asm Ref0000
+S _sprite_protile3_10 Ref0000
+S _sprite_protile3_01 Ref0000
+S _sprite_protile3_11 Ref0000
+S _sprite_protile3_02 Ref0000
+S prota_update Ref0000
+S _stor_torreta3_0 Ref0000
+S _sprite_protile3_12 Ref0000
+S _sprite_protile3_03 Ref0000
+S _stor_torreta3_1 Ref0000
+S _sprite_protile3_13 Ref0000
+S _sprite_protile3_04 Ref0000
+S _scrown_coronasola Ref0000
+S _sheart_heart2 Ref0000
+S _sprite_protile3_14 Ref0000
+S _sprite_protile3_05 Ref0000
+S cpct_drawStringM0_asm Ref0000
+S _sprite_protile3_15 Ref0000
+S _sprite_protile3_06 Ref0000
+S _sprite_protile3_16 Ref0000
+S _sprite_protile3_07 Ref0000
+S _sprite_protile3_17 Ref0000
+S _sprite_protile3_08 Ref0000
+S cpct_drawSprite_asm Ref0000
+S _sprite_protile3_18 Ref0000
+S _sprite_protile3_09 Ref0000
+S _sprite_protile3_19 Ref0000
+S cpct_etm_drawTileBox2x4_asm Ref0000
+S cpct_etm_setTileset2x4_asm Ref0000
+S _sbala_bala3_0 Ref0000
+S checkMenu Ref0000
+S _sbala_bala3_1 Ref0000
+S spriteAcorona Ref0000
+S prota_getPtrIX Ref0000
+S _sfin_fin2 Ref0000
+S .__.ABS. Def0000
+S spriteAnormal Ref0000
+S mapa_draw Ref0000
+S cpct_setVideoMode_asm Ref0000
+S cpct_waitVSYNC_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+S cpct_drawSolidBox_asm Ref0000
+S checkColision Ref0000
+S cpct_scanKeyboard_asm Ref0000
+S cpct_getScreenPtr_asm Ref0000
+A _CODE size 8C flags 0 addr 0
+S borrar_entidad Def003C
+S dibujar_entidad Def0036
+T 00 00
+R 00 00 00 00
+T 00 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 03 00 02 04 06 00 02 06 08 00
+T 06 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 0C 00 02 04 0F 00 02 06 13 00
+T 0C 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 16 00 02 04 18 00 02 06 1A 00
+T 12 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 1D 00 02 04 05 00 02 06 07 00
+T 18 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 0B 00 02 04 0E 00 02 06 12 00
+T 1E 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 15 00 02 04 17 00 02 06 19 00
+T 24 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 1C 00 02 04 1E 00 02 06 0A 00
+T 2A 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 0D 00 02 04 21 00 02 06 23 00
+T 30 00 00 00 00 00 00 00
+R 00 00 00 00 02 02 11 00 02 04 10 00 02 06 26 00
+T 36 00
+R 00 00 00 00
+T 36 00 3E FF CD 42 00 C9
+R 00 00 00 00 00 05 00 00
+T 3C 00
+R 00 00 00 00
+T 3C 00 3E 00 CD 00 00 C9
+R 00 00 00 00 02 05 00 00
+T 42 00
+R 00 00 00 00
+T 42 00 FE 00 28 1E CD 7E 00 C5 11 00 C0 DD 4E 00
+R 00 00 00 00 00 07 00 00
+T 50 00 DD 46 01 CD 00 00 D1 EB DD 4E 02 DD 46 03
+R 00 00 00 00 02 06 30 00
+T 5E 00 CD 00 00 C3 7D 00
+R 00 00 00 00 02 03 1B 00 00 06 00 00
+T 64 00
+R 00 00 00 00
+T 64 00 11 00 C0 DD 4E 00 DD 46 01 CD 00 00 EB 3E
+R 00 00 00 00 02 0C 30 00
+T 72 00 00 DD 4E 02 DD 46 03 CD 00 00 E1
+R 00 00 00 00 02 0A 2D 00
+T 7D 00
+R 00 00 00 00
+T 7D 00 C9
+R 00 00 00 00
+T 7E 00
+R 00 00 00 00
+T 7E 00 11 00 00 DD 6E 0C 26 00 29 19 4E 23 46 C9
+R 00 00 00 00 00 03 00 00

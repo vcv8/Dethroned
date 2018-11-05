@@ -1,0 +1,10 @@
+XL2
+H 1 areas 7 global symbols
+S prota_update Ref0000
+S checkMenu Ref0000
+S spriteAcorona Ref0000
+S prota_getPtrIX Ref0000
+S .__.ABS. Def0000
+S spriteAnormal Ref0000
+S checkColision Ref0000
+A _CODE size 0 flags 0 addr 0

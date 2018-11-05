@@ -1,0 +1,372 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 
+                              2 .area _CODE
+                              3 
+                              4 
+                              5 
+                              6 ;;===============================================================================
+                              7 ;;===============================================================================
+                              8 ;;	PRIVATE DATA
+                              9 ;;===============================================================================
+                             10 ;;===============================================================================
+                             11 
+                             12 
+                             13 .globl _titulo_lredimborde3
+                             14 .globl _sheart_heart2
+                             15 ;;.globl _sfin_fin2
+                             16 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                             17 .include "dibujar.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE DIBUJAR
+                              3 ;;====================================
+                              4 
+                              5 .globl dibujar_entidad
+                              6 .globl borrar_entidad
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                             18 .include "cpctelera.h.s"
+                              1 .globl cpct_drawSolidBox_asm
+                              2 .globl cpct_getScreenPtr_asm
+                              3 .globl cpct_scanKeyboard_asm
+                              4 .globl cpct_isKeyPressed_asm
+                              5 .globl cpct_waitVSYNC_asm
+                              6 .globl cpct_etm_setTileset2x4_asm
+                              7 .globl cpct_etm_drawTileBox2x4_asm
+                              8 .globl cpct_disableFirmware_asm
+                              9 .globl cpct_setVideoMode_asm
+                             10 .globl cpct_drawSprite_asm
+                             11 .globl cpct_setPalette_asm
+                             12 .globl cpct_drawStringM0_asm
+                             13 .globl cpct_setPALColour_asm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+                             19 
+                             20 
+                             21 
+   0000                      22 hud_datos:
+                             23 
+   0000 05                   24 	hud_x: 	.db #5
+   0001 8C                   25 	hud_y: 	.db #140
+   0002 01                   26 	hud_s:	.db #1				;; Estado de la hud, 1 Dibujado, 0 Borrado
+   0003 00                   27 	hud_hp: .db #0				;; Vida actual del hero	
+   0004 0A                   28 	title_x: .db #10
+   0005 24                   29 	title_y: .db #36
+   0006 FF                   30 	hud_random: .db -1 			;, Esta variable no sirve para nada
+   0007 FF                   31 	hud_random1: .db -1 			;, Esta variable no sirve para nada
+   0008 FF                   32 	hud_random2: .db -1 			;, Esta variable no sirve para nada
+   0009 FF                   33 	hud_random3: .db -1 			;, Esta variable no sirve para nada
+   000A 04                   34 	hud_w: .db #4 				;, Esta variable no sirve para nada
+   000B 08                   35 	hud_h: .db #8	 			;, Esta variable no sirve para nada
+   000C 00 00                36 	hud_heartsprite: .dw _sheart_heart2	;; Variable que contiene la referencia al sprite a una de las partes de la hud
+   000E 03                   37 	hud_initHP: .db #3			;; Vida con la que hero empieza la partida
+                             38 
+   000F                      39 p_final:
+                             40 
+   000F 0A                   41 	fin_x: .db #10		;; x Inicial
+   0010 1E                   42 	fin_y: .db #30		;; y Inicial
+   0011 3C                   43 	fin_w: .db #60		;; Ancho
+   0012 64                   44 	fin_h: .db #100		;; Alto de enemigo 8 lineas (8 bytes)
+   0013 00                   45 	fin_col: .db #0	  	;; Esta variable no sirve para nada
+   0014 00                   46 	fin_xi: .db #0		;; Esta variable no sirve para nada   
+   0015 00                   47 	fin_yi: .db #0		;; Esta variable no sirve para nada  
+   0016 00                   48 	fin_l: .db #0		;; Esta variable no sirve para nada  
+   0017 00                   49 	fin_li: .db #0		;; Esta variable no sirve para nada  
+   0018 00                   50 	fin_r: .db #0		;; Esta variable no sirve para nada		  
+   0019 00                   51 	fin_dir: .db #0	  	;; Esta variable no sirve para nada  
+   001A 00                   52 	fin_random: .db #0	;; Esta variable no sirve para nada
+   001B 1A                   53 	fin_sprite: .db #26	;; Referencia sprite final
+                             54 
+                             55 ;;===============================================================================
+                             56 ;;===============================================================================
+                             57 ;;	PUBLIC FUNCTIONS
+                             58 ;;===============================================================================
+                             59 ;;===============================================================================
+                             60 
+                             61 
+                             62 ;;==============================================================================
+                             63 ;; FUNCION GLOBAL QUE OBTIENE EL PUNTERO IX PARA GUARDAR LOS DATOS DE LA HUDS
+                             64 ;; MODIFICA : IX
+                             65 ;; DEVUELVE : 
+                             66 ;;		IX: Puntero a los datos de la hud
+                             67 ;;===============================================================================
+                             68 
+   001C                      69 hud_getPtrIX::
+                             70 
+   001C DD 21 00 00   [14]   71 	ld ix, #hud_datos
+                             72 
+   0020 C9            [10]   73 	ret
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+                             74 
+   0021                      75 hud_getPtrFIN::
+                             76 
+   0021 DD 21 0F 00   [14]   77 	ld ix, #p_final
+                             78 
+   0025 C9            [10]   79 	ret
+                             80 
+                             81 
+                             82 ;;=======================================
+                             83 ;; Draws the HEART HUD
+                             84 ;; INPUTS: A -> NUMERO DE CORAZONES A DIBUJAR	
+                             85 ;; MODIFICA : AF, BC, DE, HL
+                             86 ;;========================================
+   0026                      87 hud_draw::
+   0026 21 02 00      [10]   88 	ld 	hl, #hud_s				;; |
+   0029 36 01         [10]   89 	ld	(hl), #1				;; \Marcamos el estado de HUD (HUD_S) con 1, dibujando
+                             90 
+   002B                      91     	dibujarmas:					;; FUNCION BUCLE PARA SEGUIR DIBUJANDO MAS CORAZONES, SEGUN EL VALOR DE A
+   002B F5            [11]   92     		push 	af				;; Almaceno CONTADOR HEARTS
+   002C CD 55 00      [17]   93     		call	drawHUD				;; DIBUJA 1 HEART, con A como color
+   002F F1            [10]   94     		pop	af				;; OBTENGO CONTADOR HEARTS
+   0030 3D            [ 4]   95     		dec 	a				;;|
+   0031 20 F8         [12]   96     		jr	nz, dibujarmas			;;\ If (A!=0) sigue dibujando HEARTS
+                             97 
+   0033 C9            [10]   98     	ret
+                             99 
+                            100 ;;=======================================
+                            101 ;; ERASES NUMBER OF HUD HEARTS
+                            102 ;; INPUTS: A -> NUMERO DE CORAZONES A BORRAR
+                            103 ;; MODIFICA : AF, BC, DE, HL
+                            104 ;;========================================
+   0034                     105 hud_erase::
+   0034 21 02 00      [10]  106 	ld 	hl, #hud_s				;; |
+   0037 36 00         [10]  107 	ld	(hl), #0				;; \Marcamos el estado de HUD (HUD_S) con 0, borrado
+                            108 
+   0039                     109 	borramas:					;; FUNCION BUCLE PARA SEGUIR BORRANDO CORAZONES, SEGUN EL VALOR DE A
+   0039 F5            [11]  110 		push	af				;; Almaceno CONTADOR HEARTS
+   003A 3A 00 00      [13]  111 		ld 	a, (hud_x)			;;|
+   003D FE 06         [ 7]  112 		cp 	#6				;;|
+   003F 28 03         [12]  113 		jr	z, noborra			;;\ If (hud_X == 6), minima posicion de hud_x, por lo tanto no borro mas
+   0041 CD 55 00      [17]  114 		call	drawHUD				;;\ PINTA EN COLOR DE FONDO 1 HEART, IF hero_x > 6
+   0044                     115 		noborra:
+   0044 F1            [10]  116 		pop	af				;; OBTENGO CONTADOR HEARTS
+   0045 3D            [ 4]  117 	    	dec 	a				;;|
+   0046 20 F1         [12]  118 	    	jr	nz, borramas			;;\ If (A!=0) sigue dibujando HEARTS
+                            119 
+   0048 C9            [10]  120     	ret
+                            121 
+                            122 
+                            123 ;;=======================================
+                            124 ;; Gives a pointer to hud data in HL, (hud_hp)
+                            125 ;; MODIFICA : HL
+                            126 ;; RETURNS: HL -> Pointer to Hero Data
+                            127 ;;========================================
+   0049                     128 hud_getHP::
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+   0049 21 03 00      [10]  129 	ld	hl, #hud_hp		;;HL points to the Hero Data (Pos in X)
+   004C C9            [10]  130 	ret
+                            131 
+                            132 ;;=======================================
+                            133 ;; Draws the TITLE screen
+                            134 ;; MODIFICA : HL
+                            135 ;;========================================
+   004D                     136 hud_title::
+   004D CD AD 00      [17]  137 	call	drawTITLE
+   0050 C9            [10]  138 	ret
+                            139 
+                            140 ;;=======================================
+                            141 ;; Draws the TITLE screen
+                            142 ;; MODIFICA : HL
+                            143 ;;========================================
+   0051                     144 hud_ertitle::
+   0051 CD C6 00      [17]  145 	call	eraseTITLE
+   0054 C9            [10]  146 	ret
+                            147 ;;===============================================================================
+                            148 ;;===============================================================================
+                            149 ;;	PRIVATE FUNCTIONS
+                            150 ;;===============================================================================
+                            151 ;;===============================================================================
+                            152 
+                            153 ;;=======================================
+                            154 ;; FUNCION PARA PINTAR LA HUD
+                            155 ;; INPUTS: 
+                            156 ;;      A -> COLOR
+                            157 ;; MODIFICA : AF, BC, DE, HL
+                            158 ;;========================================
+   0055                     159 drawHUD:
+                            160 
+   0055 DD 21 00 00   [14]  161 	ld 	ix, #hud_datos
+                            162 
+                            163 	;; Input Parameters (4 Bytes)
+                            164 	;; (2B DE) screen_start	Pointer to the start of the screen (or a backbuffer)
+                            165 	;; (1B C ) x	[0-79] Byte-aligned column starting from 0 (x coordinate,
+                            166 	;; (1B B ) y	[0-199] row starting from 0 (y coordinate) in bytes)
+                            167 
+                            168 		;;CALCULAR POSICION EN PANTALLA, CON ADELANTO Y RETRASO
+                            169 
+   0059 11 00 C0      [10]  170 	ld 	de, #0xC000     			;;PUNTERO AL PRINCIPIO DE LA MEMORIA DE VIDEO
+   005C 3A 02 00      [13]  171 	ld 	a, (hud_s)				;; A = ESTADO DE HUD (DIBUJADO o BORRADO)
+   005F FE 01         [ 7]  172 	cp	#1					;; |
+   0061 28 0C         [12]  173 	jr 	z, go					;; \ If (A == 1), no modifico hud_x por ahora
+                            174 
+                            175 			
+   0063 3A 00 00      [13]  176 	ld 	a, (hud_x)				;; RETRASO, hago retroceder hud_x hasta la posicion a BORRAR
+   0066 D6 06         [ 7]  177 	sub 	#6					;;|
+   0068 32 00 00      [13]  178 	ld	(hud_x), a				;;\ hud_x -= 4, ALLWAYS MOVE IN BLOCKS OF 4
+                            179 
+   006B CD 49 00      [17]  180 	call 	hud_getHP
+   006E 35            [11]  181 	dec	(hl)
+                            182 
+   006F                     183 	go:						;; Etiqueta de salto Para evitar BORRADO
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+   006F 3A 00 00      [13]  184 	ld 	a, (hud_x)				;;|
+   0072 4F            [ 4]  185 	ld 	c, a  					;;\ C=hud_x
+   0073 3A 01 00      [13]  186 	ld 	a, (hud_y)				;;|
+   0076 47            [ 4]  187 	ld 	b, a 					;;\ B=hud_y
+   0077 CD 00 00      [17]  188 	call 	cpct_getScreenPtr_asm      		;; COGER PUNTERO DE PANTALLA
+                            189 
+                            190 	;;LA FUNCION DEVUELVE EL VALOR DE APUNTADOR EN EL REGISTRO HL
+                            191 
+   007A 3A 02 00      [13]  192 	ld 	a, (hud_s)				;; A = ESTADO DE HUD (DIBUJADO o BORRADO)
+   007D FE 01         [ 7]  193 	cp	#1					;; |
+   007F 28 0F         [12]  194 	jr 	z, goPintar				;; \ If (A == 1), no modifico hud_x por ahora
+                            195 
+                            196     	;; BORRAR CORAZON
+                            197 
+   0081 EB            [ 4]  198     	ex 	de, hl  						;; Intercambia valores entre los dos registros, ya que nosotros lo queremos en de y venia en hl
+   0082 3E 00         [ 7]  199 	ld 	a, #0x00
+   0084 DD 4E 0A      [19]  200 	ld 	c, 10(ix)						;; C = ancho entidad ( en bytes!)
+   0087 DD 46 0B      [19]  201 	ld 	b, 11(ix)						;; B = alto entidad ( en bytes! = mismo numero de filas)
+   008A CD 00 00      [17]  202 	call 	cpct_drawSolidBox_asm
+   008D C3 AC 00      [10]  203 	jp 	fin
+                            204 
+   0090                     205     	goPintar:
+                            206 	;; PINTAR CORAZON
+                            207 	
+   0090 EB            [ 4]  208 	ex 	de, hl  						;; Intercambia valores entre los dos registros, ya que nosotros lo queremos en de y venia en hl
+   0091 DD 6E 0C      [19]  209 	ld 	l, 12(ix)						;; Sprite del CORAZON prob. NOFUNCA
+   0094 DD 66 0D      [19]  210 	ld	h, 13(ix)
+   0097 DD 4E 0A      [19]  211 	ld 	c, 10(ix)						;; C = ancho entidad ( en bytes!)
+   009A DD 46 0B      [19]  212 	ld 	b, 11(ix) 						;; B = alto entidad
+   009D CD 00 00      [17]  213 	call 	cpct_drawSprite_asm
+                            214 
+   00A0 3A 00 00      [13]  215 	ld 	a, (hud_x)				;;| Solo si DIBUJANDO, ACTUALIZAMOS APUNTADOR HUD_X PARA EL SIGUIENTE CORAZON
+   00A3 C6 06         [ 7]  216 	add 	#6					;;| ADELANTO,  Update position for the next heart to be drawn
+   00A5 32 00 00      [13]  217 	ld 	(hud_x), a				;;\ hud_x += 4, ALLWAYS MOVE IN BLOCKS OF 4
+                            218 
+   00A8 CD 49 00      [17]  219 	call	hud_getHP
+   00AB 34            [11]  220 	inc 	(hl)
+                            221 
+   00AC                     222 	fin:						;; Etiqueta de Salto para evitar DIBUJADO
+   00AC C9            [10]  223 	ret 						;; Final de funcion
+                            224 
+                            225 
+                            226 ;;=======================================
+                            227 ;; FUNCION PARA PINTAR SPRITE DE TITULO
+                            228 ;; MODIFICA : AF, BC, DE, HL
+                            229 ;;========================================
+   00AD                     230 drawTITLE:
+                            231 
+                            232 	;;CALCULAR POSICION EN PANTALLA
+   00AD 11 00 C0      [10]  233 		ld de, #0xC000     				;;PUNTERO AL PRINCIPIO DE LA MEMORIA DE VIDEO
+   00B0 3A 04 00      [13]  234 		ld a, (title_x)					;;
+   00B3 4F            [ 4]  235 		ld c, a  						;; C=hero_x
+   00B4 3A 05 00      [13]  236 		ld a, (title_y)					;;
+   00B7 47            [ 4]  237 		ld b, a 						;; B=hero_y
+   00B8 CD 00 00      [17]  238 		call cpct_getScreenPtr_asm      ;; COGER PUNTERO DE PANTALLA
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 8.
+Hexadecimal [16-Bits]
+
+
+
+                            239 
+                            240 	;;LA FUNCION DEVUELVE EL VALOR EN EL REGISTRO HL PERO NOSOTROS LO QUEREMOS EN DE
+                            241 
+                            242 		
+                            243 	    ;; PINTAR UNA CAJA 
+   00BB EB            [ 4]  244 	    ex de, hl  						;; Intercambia valores entre los dos registros
+   00BC 21 00 00      [10]  245 	    ld	hl, #_titulo_lredimborde3
+   00BF 01 3C 2A      [10]  246 	    ld bc, #0x2A3C                      ;; 8X8 pixeles. El 2 del final indica 2 bytes
+   00C2 CD 00 00      [17]  247 	    call cpct_drawSprite_asm
+                            248 
+                            249 
+                            250 ;;	    ;;CALCULAR POSICION EN PANTALLA
+                            251 ;;		ld de, #0xC000     				;;PUNTERO AL PRINCIPIO DE LA MEMORIA DE VIDEO
+                            252 ;;		ld a, #10					;;
+                            253 ;;		ld c, a  						;; C=hero_x
+                            254 ;;		ld a, #42					;;
+                            255 ;;		ld b, a 						;; B=hero_y
+                            256 ;;		call cpct_getScreenPtr_asm      ;; COGER PUNTERO DE PANTALLA
+                            257 ;;
+                            258 ;;		;;LA FUNCION DEVUELVE EL VALOR EN EL REGISTRO HL PERO NOSOTROS LO QUEREMOS EN DE
+                            259 ;;
+                            260 ;;		
+                            261 ;;	    ;; PINTAR UNA CAJA 
+                            262 ;;	    ex de, hl  						;; Intercambia valores entre los dos registros
+                            263 ;;	    ld	hl, #_sfin_fin2
+                            264 ;;	    ld bc, #0x643C                      ;; 8X8 pixeles. El 2 del final indica 2 bytes
+                            265 ;;	    call cpct_drawSprite_asm
+                            266 
+   00C5 C9            [10]  267 	ret ;; Final de funcion
+                            268 
+   00C6                     269 eraseTITLE:
+                            270 
+                            271 	;;CALCULAR POSICION EN PANTALLA
+   00C6 11 00 C0      [10]  272 		ld de, #0xC000     				;;PUNTERO AL PRINCIPIO DE LA MEMORIA DE VIDEO
+   00C9 3A 04 00      [13]  273 		ld a, (title_x)					;;
+   00CC 4F            [ 4]  274 		ld c, a  						;; C=hero_x
+   00CD 3A 05 00      [13]  275 		ld a, (title_y)					;;
+   00D0 47            [ 4]  276 		ld b, a 						;; B=hero_y
+   00D1 CD 00 00      [17]  277 		call cpct_getScreenPtr_asm      ;; COGER PUNTERO DE PANTALLA
+                            278 
+                            279 		;;LA FUNCION DEVUELVE EL VALOR EN EL REGISTRO HL PERO NOSOTROS LO QUEREMOS EN DE
+                            280 
+                            281 		
+                            282 	    ;; PINTAR UNA CAJA 
+   00D4 EB            [ 4]  283 	    ex de, hl  						;; Intercambia valores entre los dos registros
+   00D5 3E 00         [ 7]  284 	    ld  a, #0x00
+                            285 	    ;;ld	hl, #_titulo_lredimborde
+   00D7 01 3C 2A      [10]  286 	    ld bc, #0x2A3C                      ;; 8X8 pixeles. El 2 del final indica 2 bytes
+   00DA CD 00 00      [17]  287 	    call cpct_drawSolidBox_asm
+                            288 
+                            289 
+                            290 	    ;;CALCULAR POSICION EN PANTALLA
+   00DD 11 00 C0      [10]  291 		ld de, #0xC000     				;;PUNTERO AL PRINCIPIO DE LA MEMORIA DE VIDEO
+   00E0 3E 0D         [ 7]  292 		ld a, #13					;;
+   00E2 4F            [ 4]  293 		ld c, a  						;; C=hero_x
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 9.
+Hexadecimal [16-Bits]
+
+
+
+   00E3 3E 64         [ 7]  294 		ld a, #100					;;
+   00E5 47            [ 4]  295 		ld b, a 						;; B=hero_y
+   00E6 CD 00 00      [17]  296 		call cpct_getScreenPtr_asm      ;; COGER PUNTERO DE PANTALLA
+                            297 
+                            298 		;;LA FUNCION DEVUELVE EL VALOR EN EL REGISTRO HL PERO NOSOTROS LO QUEREMOS EN DE
+                            299 
+                            300 		
+                            301 	    ;; PINTAR UNA CAJA 
+   00E9 EB            [ 4]  302 	    ex de, hl  		
+   00EA 3E 00         [ 7]  303 	    ld a, #0x00				;; Intercambia valores entre los dos registros
+                            304 	    ;;ld	hl, #_letra_teclamenu
+   00EC 01 32 2E      [10]  305 	    ld bc, #0x2E32                      ;; 8X8 pixeles. El 2 del final indica 2 bytes
+   00EF CD 00 00      [17]  306 	    call cpct_drawSolidBox_asm
+                            307 
+   00F2 C9            [10]  308 	ret ;; Final de funcion

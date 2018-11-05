@@ -1,0 +1,40 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |   0 PocionIs   00B3 GR  |     alto    =  0003 
+    ancho   =  0002     |     ataqueD =  0008     |     ataqueIz=  0007 
+    checkCol   **** GX  |     checkMen   **** GX  |     colision=  0004 
+  0 comproba   0058 GR  |   0 coronaIs   00AD GR  |     cpct_dis   **** GX
+    cpct_dra   **** GX  |     cpct_dra   **** GX  |     cpct_dra   **** GX
+    cpct_etm   **** GX  |     cpct_etm   **** GX  |     cpct_get   **** GX
+    cpct_isK   **** GX  |     cpct_sca   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_wai   **** GX
+    down    =  0006     |     jump    =  0005     |   0 llave_co   0004 R
+  0 llave_da   0000 R   |   0 llave_ge   0044 GR  |   0 llave_ge   0049 GR
+  0 llave_h    0003 R   |   0 llave_ma   000D R   |   0 llave_ra   0006 R
+  0 llave_ra   0007 R   |   0 llave_ra   0008 R   |   0 llave_ra   0009 R
+  0 llave_ra   000A R   |   0 llave_ra   000B R   |   0 llave_re   0005 R
+  0 llave_sp   000C R   |   0 llave_w    0002 R   |   0 llave_x    0000 R
+  0 llave_y    0001 R   |     moveD   =  0009     |     moveI   =  000A 
+    nivel   =  000B     |   0 nohabiac   0084 R   |   0 nohabiap   00A7 R
+  0 pocion_c   0012 R   |   0 pocion_d   000E R   |   0 pocion_g   004E GR
+  0 pocion_g   0053 GR  |   0 pocion_h   0011 R   |   0 pocion_m   001B R
+  0 pocion_r   0014 R   |   0 pocion_r   0015 R   |   0 pocion_r   0016 R
+  0 pocion_r   0017 R   |   0 pocion_r   0018 R   |   0 pocion_r   0019 R
+  0 pocion_r   0013 R   |   0 pocion_s   001A R   |   0 pocion_w   0010 R
+  0 pocion_x   000E R   |   0 pocion_y   000F R   |     pos_x   =  0000 
+    pos_y   =  0001     |   0 posicion   001C R   |   0 posicion   0030 R
+    prota_ge   **** GX  |     prota_up   **** GX  |     sprite  =  000C 
+    spriteAc   **** GX  |     spriteAn   **** GX  |   0 update_c   0064 GR
+  0 update_p   008A GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size   B9   flags    0
+

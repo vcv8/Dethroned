@@ -1,0 +1,304 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  0 _g_palette                                                     0000 GR
+  0 _g_pixels_000                                                  0210 GR
+  0 _g_pixels_001                                                  0218 GR
+  0 _g_pixels_002                                                  0220 GR
+  0 _g_pixels_003                                                  0228 GR
+  0 _g_pixels_004                                                  0230 GR
+  0 _g_pixels_005                                                  0238 GR
+  0 _g_pixels_006                                                  0240 GR
+  0 _g_pixels_007                                                  0248 GR
+  0 _g_pixels_008                                                  0250 GR
+  0 _g_pixels_009                                                  0258 GR
+  0 _g_pixels_010                                                  0260 GR
+  0 _g_pixels_011                                                  0268 GR
+  0 _g_pixels_012                                                  0270 GR
+  0 _g_pixels_013                                                  0278 GR
+  0 _g_pixels_014                                                  0280 GR
+  0 _g_pixels_015                                                  0288 GR
+  0 _g_pixels_016                                                  0290 GR
+  0 _g_pixels_017                                                  0298 GR
+  0 _g_pixels_018                                                  02A0 GR
+  0 _g_pixels_019                                                  02A8 GR
+  0 _g_pixels_020                                                  02B0 GR
+  0 _g_pixels_021                                                  02B8 GR
+  0 _g_pixels_022                                                  02C0 GR
+  0 _g_pixels_023                                                  02C8 GR
+  0 _g_pixels_024                                                  02D0 GR
+  0 _g_pixels_025                                                  02D8 GR
+  0 _g_pixels_026                                                  02E0 GR
+  0 _g_pixels_027                                                  02E8 GR
+  0 _g_pixels_028                                                  02F0 GR
+  0 _g_pixels_029                                                  02F8 GR
+  0 _g_pixels_030                                                  0300 GR
+  0 _g_pixels_031                                                  0308 GR
+  0 _g_pixels_032                                                  0310 GR
+  0 _g_pixels_033                                                  0318 GR
+  0 _g_pixels_034                                                  0320 GR
+  0 _g_pixels_035                                                  0328 GR
+  0 _g_pixels_036                                                  0330 GR
+  0 _g_pixels_037                                                  0338 GR
+  0 _g_pixels_038                                                  0340 GR
+  0 _g_pixels_039                                                  0348 GR
+  0 _g_pixels_040                                                  0350 GR
+  0 _g_pixels_041                                                  0358 GR
+  0 _g_pixels_042                                                  0360 GR
+  0 _g_pixels_043                                                  0368 GR
+  0 _g_pixels_044                                                  0370 GR
+  0 _g_pixels_045                                                  0378 GR
+  0 _g_pixels_046                                                  0380 GR
+  0 _g_pixels_047                                                  0388 GR
+  0 _g_pixels_048                                                  0390 GR
+  0 _g_pixels_049                                                  0398 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _g_pixels_050                                                  03A0 GR
+  0 _g_pixels_051                                                  03A8 GR
+  0 _g_pixels_052                                                  03B0 GR
+  0 _g_pixels_053                                                  03B8 GR
+  0 _g_pixels_054                                                  03C0 GR
+  0 _g_pixels_055                                                  03C8 GR
+  0 _g_pixels_056                                                  03D0 GR
+  0 _g_pixels_057                                                  03D8 GR
+  0 _g_pixels_058                                                  03E0 GR
+  0 _g_pixels_059                                                  03E8 GR
+  0 _g_pixels_060                                                  03F0 GR
+  0 _g_pixels_061                                                  03F8 GR
+  0 _g_pixels_062                                                  0400 GR
+  0 _g_pixels_063                                                  0408 GR
+  0 _g_pixels_064                                                  0410 GR
+  0 _g_pixels_065                                                  0418 GR
+  0 _g_pixels_066                                                  0420 GR
+  0 _g_pixels_067                                                  0428 GR
+  0 _g_pixels_068                                                  0430 GR
+  0 _g_pixels_069                                                  0438 GR
+  0 _g_pixels_070                                                  0440 GR
+  0 _g_pixels_071                                                  0448 GR
+  0 _g_pixels_072                                                  0450 GR
+  0 _g_pixels_073                                                  0458 GR
+  0 _g_pixels_074                                                  0460 GR
+  0 _g_pixels_075                                                  0468 GR
+  0 _g_pixels_076                                                  0470 GR
+  0 _g_pixels_077                                                  0478 GR
+  0 _g_pixels_078                                                  0480 GR
+  0 _g_pixels_079                                                  0488 GR
+  0 _g_pixels_080                                                  0490 GR
+  0 _g_pixels_081                                                  0498 GR
+  0 _g_pixels_082                                                  04A0 GR
+  0 _g_pixels_083                                                  04A8 GR
+  0 _g_pixels_084                                                  04B0 GR
+  0 _g_pixels_085                                                  04B8 GR
+  0 _g_pixels_086                                                  04C0 GR
+  0 _g_pixels_087                                                  04C8 GR
+  0 _g_pixels_088                                                  04D0 GR
+  0 _g_pixels_089                                                  04D8 GR
+  0 _g_pixels_090                                                  04E0 GR
+  0 _g_pixels_091                                                  04E8 GR
+  0 _g_pixels_092                                                  04F0 GR
+  0 _g_pixels_093                                                  04F8 GR
+  0 _g_pixels_094                                                  0500 GR
+  0 _g_pixels_095                                                  0508 GR
+  0 _g_pixels_096                                                  0510 GR
+  0 _g_pixels_097                                                  0518 GR
+  0 _g_pixels_098                                                  0520 GR
+  0 _g_pixels_099                                                  0528 GR
+  0 _g_pixels_100                                                  0530 GR
+  0 _g_pixels_101                                                  0538 GR
+  0 _g_pixels_102                                                  0540 GR
+  0 _g_pixels_103                                                  0548 GR
+  0 _g_pixels_104                                                  0550 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _g_pixels_105                                                  0558 GR
+  0 _g_pixels_106                                                  0560 GR
+  0 _g_pixels_107                                                  0568 GR
+  0 _g_pixels_108                                                  0570 GR
+  0 _g_pixels_109                                                  0578 GR
+  0 _g_pixels_110                                                  0580 GR
+  0 _g_pixels_111                                                  0588 GR
+  0 _g_pixels_112                                                  0590 GR
+  0 _g_pixels_113                                                  0598 GR
+  0 _g_pixels_114                                                  05A0 GR
+  0 _g_pixels_115                                                  05A8 GR
+  0 _g_pixels_116                                                  05B0 GR
+  0 _g_pixels_117                                                  05B8 GR
+  0 _g_pixels_118                                                  05C0 GR
+  0 _g_pixels_119                                                  05C8 GR
+  0 _g_pixels_120                                                  05D0 GR
+  0 _g_pixels_121                                                  05D8 GR
+  0 _g_pixels_122                                                  05E0 GR
+  0 _g_pixels_123                                                  05E8 GR
+  0 _g_pixels_124                                                  05F0 GR
+  0 _g_pixels_125                                                  05F8 GR
+  0 _g_pixels_126                                                  0600 GR
+  0 _g_pixels_127                                                  0608 GR
+  0 _g_pixels_128                                                  0610 GR
+  0 _g_pixels_129                                                  0618 GR
+  0 _g_pixels_130                                                  0620 GR
+  0 _g_pixels_131                                                  0628 GR
+  0 _g_pixels_132                                                  0630 GR
+  0 _g_pixels_133                                                  0638 GR
+  0 _g_pixels_134                                                  0640 GR
+  0 _g_pixels_135                                                  0648 GR
+  0 _g_pixels_136                                                  0650 GR
+  0 _g_pixels_137                                                  0658 GR
+  0 _g_pixels_138                                                  0660 GR
+  0 _g_pixels_139                                                  0668 GR
+  0 _g_pixels_140                                                  0670 GR
+  0 _g_pixels_141                                                  0678 GR
+  0 _g_pixels_142                                                  0680 GR
+  0 _g_pixels_143                                                  0688 GR
+  0 _g_pixels_144                                                  0690 GR
+  0 _g_pixels_145                                                  0698 GR
+  0 _g_pixels_146                                                  06A0 GR
+  0 _g_pixels_147                                                  06A8 GR
+  0 _g_pixels_148                                                  06B0 GR
+  0 _g_pixels_149                                                  06B8 GR
+  0 _g_pixels_150                                                  06C0 GR
+  0 _g_pixels_151                                                  06C8 GR
+  0 _g_pixels_152                                                  06D0 GR
+  0 _g_pixels_153                                                  06D8 GR
+  0 _g_pixels_154                                                  06E0 GR
+  0 _g_pixels_155                                                  06E8 GR
+  0 _g_pixels_156                                                  06F0 GR
+  0 _g_pixels_157                                                  06F8 GR
+  0 _g_pixels_158                                                  0700 GR
+  0 _g_pixels_159                                                  0708 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _g_pixels_160                                                  0710 GR
+  0 _g_pixels_161                                                  0718 GR
+  0 _g_pixels_162                                                  0720 GR
+  0 _g_pixels_163                                                  0728 GR
+  0 _g_pixels_164                                                  0730 GR
+  0 _g_pixels_165                                                  0738 GR
+  0 _g_pixels_166                                                  0740 GR
+  0 _g_pixels_167                                                  0748 GR
+  0 _g_pixels_168                                                  0750 GR
+  0 _g_pixels_169                                                  0758 GR
+  0 _g_pixels_170                                                  0760 GR
+  0 _g_pixels_171                                                  0768 GR
+  0 _g_pixels_172                                                  0770 GR
+  0 _g_pixels_173                                                  0778 GR
+  0 _g_pixels_174                                                  0780 GR
+  0 _g_pixels_175                                                  0788 GR
+  0 _g_pixels_176                                                  0790 GR
+  0 _g_pixels_177                                                  0798 GR
+  0 _g_pixels_178                                                  07A0 GR
+  0 _g_pixels_179                                                  07A8 GR
+  0 _g_pixels_180                                                  07B0 GR
+  0 _g_pixels_181                                                  07B8 GR
+  0 _g_pixels_182                                                  07C0 GR
+  0 _g_pixels_183                                                  07C8 GR
+  0 _g_pixels_184                                                  07D0 GR
+  0 _g_pixels_185                                                  07D8 GR
+  0 _g_pixels_186                                                  07E0 GR
+  0 _g_pixels_187                                                  07E8 GR
+  0 _g_pixels_188                                                  07F0 GR
+  0 _g_pixels_189                                                  07F8 GR
+  0 _g_pixels_190                                                  0800 GR
+  0 _g_pixels_191                                                  0808 GR
+  0 _g_pixels_192                                                  0810 GR
+  0 _g_pixels_193                                                  0818 GR
+  0 _g_pixels_194                                                  0820 GR
+  0 _g_pixels_195                                                  0828 GR
+  0 _g_pixels_196                                                  0830 GR
+  0 _g_pixels_197                                                  0838 GR
+  0 _g_pixels_198                                                  0840 GR
+  0 _g_pixels_199                                                  0848 GR
+  0 _g_pixels_200                                                  0850 GR
+  0 _g_pixels_201                                                  0858 GR
+  0 _g_pixels_202                                                  0860 GR
+  0 _g_pixels_203                                                  0868 GR
+  0 _g_pixels_204                                                  0870 GR
+  0 _g_pixels_205                                                  0878 GR
+  0 _g_pixels_206                                                  0880 GR
+  0 _g_pixels_207                                                  0888 GR
+  0 _g_pixels_208                                                  0890 GR
+  0 _g_pixels_209                                                  0898 GR
+  0 _g_pixels_210                                                  08A0 GR
+  0 _g_pixels_211                                                  08A8 GR
+  0 _g_pixels_212                                                  08B0 GR
+  0 _g_pixels_213                                                  08B8 GR
+  0 _g_pixels_214                                                  08C0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _g_pixels_215                                                  08C8 GR
+  0 _g_pixels_216                                                  08D0 GR
+  0 _g_pixels_217                                                  08D8 GR
+  0 _g_pixels_218                                                  08E0 GR
+  0 _g_pixels_219                                                  08E8 GR
+  0 _g_pixels_220                                                  08F0 GR
+  0 _g_pixels_221                                                  08F8 GR
+  0 _g_pixels_222                                                  0900 GR
+  0 _g_pixels_223                                                  0908 GR
+  0 _g_pixels_224                                                  0910 GR
+  0 _g_pixels_225                                                  0918 GR
+  0 _g_pixels_226                                                  0920 GR
+  0 _g_pixels_227                                                  0928 GR
+  0 _g_pixels_228                                                  0930 GR
+  0 _g_pixels_229                                                  0938 GR
+  0 _g_pixels_230                                                  0940 GR
+  0 _g_pixels_231                                                  0948 GR
+  0 _g_pixels_232                                                  0950 GR
+  0 _g_pixels_233                                                  0958 GR
+  0 _g_pixels_234                                                  0960 GR
+  0 _g_pixels_235                                                  0968 GR
+  0 _g_pixels_236                                                  0970 GR
+  0 _g_pixels_237                                                  0978 GR
+  0 _g_pixels_238                                                  0980 GR
+  0 _g_pixels_239                                                  0988 GR
+  0 _g_pixels_240                                                  0990 GR
+  0 _g_pixels_241                                                  0998 GR
+  0 _g_pixels_242                                                  09A0 GR
+  0 _g_pixels_243                                                  09A8 GR
+  0 _g_pixels_244                                                  09B0 GR
+  0 _g_pixels_245                                                  09B8 GR
+  0 _g_pixels_246                                                  09C0 GR
+  0 _g_pixels_247                                                  09C8 GR
+  0 _g_pixels_248                                                  09D0 GR
+  0 _g_pixels_249                                                  09D8 GR
+  0 _g_pixels_250                                                  09E0 GR
+  0 _g_pixels_251                                                  09E8 GR
+  0 _g_pixels_252                                                  09F0 GR
+  0 _g_pixels_253                                                  09F8 GR
+  0 _g_pixels_254                                                  0A00 GR
+  0 _g_pixels_255                                                  0A08 GR
+  0 _g_tileset                                                     0010 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size  A10   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size    0   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

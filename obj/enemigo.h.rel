@@ -1,0 +1,35 @@
+XL2
+H 1 areas 20 global symbols
+S enemigo16_getPtrIX Ref0000
+S enemigo17_getPtrIX Ref0000
+S enemigo16_getPtrIY Ref0000
+S enemigo18_getPtrIX Ref0000
+S enemigo17_getPtrIY Ref0000
+S enemigo19_getPtrIX Ref0000
+S enemigo18_getPtrIY Ref0000
+S enemigo19_getPtrIY Ref0000
+S enemigo1_getPtrIX Ref0000
+S enemigo2_getPtrIX Ref0000
+S enemigo1_getPtrIY Ref0000
+S enemigo3_getPtrIX Ref0000
+S enemigo2_getPtrIY Ref0000
+S enemigo3_getPtrIY Ref0000
+S enemigo7_getPtrIX Ref0000
+S enemigo8_getPtrIX Ref0000
+S enemigo7_getPtrIY Ref0000
+S enemigo9_getPtrIX Ref0000
+S enemigo8_getPtrIY Ref0000
+S enemigo9_getPtrIY Ref0000
+S .__.ABS. Def0000
+S enemigo10_getPtrIX Ref0000
+S enemigo20_getPtrIX Ref0000
+S enemigo11_getPtrIX Ref0000
+S enemigo10_getPtrIY Ref0000
+S enemigo21_getPtrIX Ref0000
+S enemigo20_getPtrIY Ref0000
+S enemigo12_getPtrIX Ref0000
+S enemigo11_getPtrIY Ref0000
+S enemigo21_getPtrIY Ref0000
+S enemigo12_getPtrIY Ref0000
+S enemigo9_update Ref0000
+A _CODE size 0 flags 0 addr 0

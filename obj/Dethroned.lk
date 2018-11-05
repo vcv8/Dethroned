@@ -1,0 +1,37 @@
+-mjwx
+-i obj/Dethroned.ihx
+-b _CODE = 0x0100
+-b _DATA = 0x0000
+-u
+-k /home/victor/Documentos/cpctelera-1.4.2/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80
+-k /home/victor/Documentos/cpctelera-1.4.2/cpctelera/tools/sdcc-3.6.8-r9946/share/sdcc/lib/z80
+-l /home/victor/Documentos/cpctelera-1.4.2/cpctelera/cpctelera.lib
+-l z80
+obj/niveles/level4.rel
+obj/niveles/level2.rel
+obj/niveles/level1.rel
+obj/sprites/fin2.rel
+obj/sprites/coronasola.rel
+obj/sprites/heart2.rel
+obj/sprites/bala3.rel
+obj/sprites/torreta3.rel
+obj/sprites/protile3.rel
+obj/sprites/lredimborde3.rel
+obj/sprites/pixels.rel
+obj/bala.rel
+obj/bala.h.rel
+obj/cpctelera.h.rel
+obj/hud.rel
+obj/protagonista.rel
+obj/dibujar.rel
+obj/enemigo.rel
+obj/main.rel
+obj/hud.h.rel
+obj/objetos.h.rel
+obj/protagonista.h.rel
+obj/enemigo.h.rel
+obj/dibujar.h.rel
+obj/objetos.rel
+obj/mapas.rel
+
+-e

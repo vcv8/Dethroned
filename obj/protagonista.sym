@@ -1,0 +1,96 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     Joy0_Dow=  0209     |     Joy0_Fir=  1009 
+    Joy0_Fir=  2009     |     Joy0_Fir=  4009     |     Joy0_Lef=  0409 
+    Joy0_Rig=  0809     |     Joy0_Up =  0109     |     Joy1_Dow=  0206 
+    Joy1_Fir=  1006     |     Joy1_Fir=  2006     |     Joy1_Fir=  4006 
+    Joy1_Lef=  0406     |     Joy1_Rig=  0806     |     Joy1_Up =  0106 
+    Key_0   =  0104     |     Key_1   =  0108     |     Key_2   =  0208 
+    Key_3   =  0207     |     Key_4   =  0107     |     Key_5   =  0206 
+    Key_6   =  0106     |     Key_7   =  0205     |     Key_8   =  0105 
+    Key_9   =  0204     |     Key_A   =  2008     |     Key_At  =  0403 
+    Key_B   =  4006     |     Key_Back=  4002     |     Key_C   =  4007 
+    Key_Caps=  4008     |     Key_Care=  0103     |     Key_Clos=  0802 
+    Key_Clr =  0102     |     Key_Colo=  2003     |     Key_Comm=  8004 
+    Key_Cont=  8002     |     Key_Copy=  0201     |     Key_Curs=  0400 
+    Key_Curs=  0101     |     Key_Curs=  0200     |     Key_Curs=  0100 
+    Key_D   =  2007     |     Key_Del =  8009     |     Key_Dot =  8003 
+    Key_E   =  0407     |     Key_Ente=  4000     |     Key_Esc =  0408 
+    Key_F   =  2006     |     Key_F0  =  8001     |     Key_F1  =  2001 
+    Key_F2  =  4001     |     Key_F3  =  2000     |     Key_F4  =  1002 
+    Key_F5  =  1001     |     Key_F6  =  1000     |     Key_F7  =  0401 
+    Key_F8  =  0801     |     Key_F9  =  0800     |     Key_FDot=  8000 
+    Key_G   =  1006     |     Key_H   =  1005     |     Key_Hyph=  0203 
+    Key_I   =  0804     |     Key_J   =  2005     |     Key_K   =  2004 
+    Key_L   =  1004     |     Key_M   =  4004     |     Key_N   =  4005 
+    Key_O   =  0404     |     Key_Open=  0202     |     Key_P   =  0803 
+    Key_Q   =  0808     |     Key_R   =  0406     |     Key_Retu=  0402 
+    Key_S   =  1007     |     Key_Semi=  1003     |     Key_Shif=  2002 
+    Key_Slas=  4003     |     Key_Spac=  8005     |     Key_T   =  0806 
+    Key_Tab =  1008     |     Key_U   =  0405     |     Key_V   =  8006 
+    Key_W   =  0807     |     Key_X   =  8007     |     Key_Y   =  0805 
+    Key_Z   =  8008     |     PocionIs   **** GX  |   0 StartAta   01FF R
+  0 StartAta   0211 R   |   0 StartJum   01F3 R   |   0 _cpct_ke   0000 GR
+  0 a_not_pr   012B R   |     alto    =  0003     |     ancho   =  0002 
+  0 animated   04E7 R   |   0 atackCon   0223 R   |   0 atackCon   024B R
+  0 atacklef   005B R   |   0 atackrig   004E R   |     ataqueD =  0008 
+    ataqueIz=  0007     |   0 ataque_d   0173 R   |   0 avanzarN   0273 R
+  0 cambioPi   0344 R   |   0 cambioPi   0019 R   |   0 checkCol   0092 GR
+  0 checkMen   00E0 GR  |   0 checkUse   00F0 R   |     colision=  0004 
+    comproba   **** GX  |   0 continua   0322 R   |     coronaIs   **** GX
+    cpct_dis   **** GX  |     cpct_dra   **** GX  |     cpct_dra   **** GX
+    cpct_dra   **** GX  |     cpct_etm   **** GX  |     cpct_etm   **** GX
+    cpct_get   **** GX  |     cpct_isK   **** GX  |     cpct_sca   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_set   **** GX
+    cpct_wai   **** GX  |   0 d_not_pr   010F R   |     dir     =  000D 
+  0 dirContr   04E9 R   |     diri    =  000E     |   0 do_not_m   019C R
+  0 do_not_m   01A9 R   |     down    =  0006     |   0 end_of_a   026D R
+  0 end_of_a   0245 R   |   0 end_of_j   01EA R   |   0 enddirCo   0513 R
+  0 ent_not_   00EF R   |     hud_draw   **** GX  |     hud_eras   **** GX
+    hud_erti   **** GX  |     hud_getH   **** GX  |     hud_getP   **** GX
+    hud_getP   **** GX  |     hud_titl   **** GX  |     jump    =  0005 
+  0 jumpAnim   049E R   |   0 jumpCont   01AD R   |   0 jumptabl   003D R
+  0 jumptabl   002C R   |   0 jumptabl   001B R   |   0 k_not_pr   0176 R
+  0 level3     0361 R   |   0 level5     03A8 R   |   0 level6     03C4 R
+  0 level8     040B R   |   0 level9     0452 R   |     llave_ge   **** GX
+    llave_ge   **** GX  |   0 looking_   0513 R   |     mapa_dra   **** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    mapa_red   **** GX  |     moveD   =  0009     |     moveI   =  000A 
+  0 moveLeft   0190 R   |   0 moveRigh   019D R   |     nivel   =  000B 
+  0 nivel_10   0322 R   |   0 nivel_2    028B R   |   0 nivel_3    029B R
+  0 nivel_4    02AA R   |   0 nivel_5    02C2 R   |   0 nivel_6    02D7 R
+  0 nivel_7    02EC R   |   0 nivel_8    02F8 R   |   0 nivel_9    030D R
+  0 no_cambi   01B9 R   |   0 no_colli   00D9 R   |   0 no_corre   0498 R
+  0 no_salto   0144 R   |   0 noother    0508 R   |   0 other      0500 R
+    pocion_g   **** GX  |     pocion_g   **** GX  |   0 posCorre   001A R
+    pos_x   =  0000     |     pos_y   =  0001     |   0 prota_at   0011 R
+  0 prota_at   0012 R   |   0 prota_co   000E R   |   0 prota_da   000A R
+  0 prota_di   0017 R   |   0 prota_di   0018 R   |   0 prota_do   0010 R
+  0 prota_ge   007A GR  |   0 prota_h    000D R   |   0 prota_ju   000F R
+  0 prota_mo   0014 R   |   0 prota_mo   0013 R   |   0 prota_ni   0015 R
+  0 prota_sp   0016 R   |   0 prota_up   007F GR  |   0 prota_w    000C R
+  0 prota_x    000A R   |   0 prota_y    000B R   |   0 s_not_pr   015D R
+  0 salto_ar   01C5 R   |   0 seguir_s   01C8 R   |   0 sig        04AE R
+  0 sig1       04BD R   |   0 sig2       04CC R   |   0 sig3       04DB R
+  0 siguient   037D R   |   0 siguient   0392 R   |   0 siguient   03E0 R
+  0 siguient   03F5 R   |   0 siguient   0427 R   |   0 siguient   043C R
+  0 siguient   046D R   |   0 siguient   0482 R   |   0 space_no   018F R
+    sprite  =  000C     |   0 spriteAc   0068 GR  |   0 spriteAn   0071 GR
+  0 ultimo_n   0342 R   |     update_c   **** GX  |     update_p   **** GX
+  0 w_not_pr   0144 R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  514   flags    0
+

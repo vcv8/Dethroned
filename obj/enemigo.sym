@@ -1,0 +1,112 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     alto    =  0003     |     ancho   =  0002 
+    ataqueD =  0008     |     ataqueIz=  0007     |     checkCol   **** GX
+    checkMen   **** GX  |     colision=  0004     |     down    =  0006 
+    enem_col=  0004     |     enem_dir=  000A     |     enem_h  =  0003 
+    enem_l  =  0008     |     enem_li =  0009     |     enem_mue=  0005 
+    enem_ran=  000B     |     enem_spr=  000C     |     enem_w  =  0002 
+    enem_x  =  0000     |     enem_xi =  0006     |     enem_y  =  0001 
+    enem_yi =  0007     |   0 enemigo1   0052 R   |   0 enemigo1   004E R
+  0 enemigo1   0058 R   |   0 enemigo1   00FF GR  |   0 enemigo1   0104 GR
+  0 enemigo1   0051 R   |   0 enemigo1   0056 R   |   0 enemigo1   0057 R
+  0 enemigo1   0053 R   |   0 enemigo1   0059 R   |   0 enemigo1   005A R
+  0 enemigo1   0050 R   |   0 enemigo1   004E R   |   0 enemigo1   0054 R
+  0 enemigo1   004F R   |   0 enemigo1   0055 R   |   0 enemigo1   005F R
+  0 enemigo1   005B R   |   0 enemigo1   0065 R   |   0 enemigo1   0109 GR
+  0 enemigo1   010E GR  |   0 enemigo1   005E R   |   0 enemigo1   0063 R
+  0 enemigo1   0064 R   |   0 enemigo1   0060 R   |   0 enemigo1   0066 R
+  0 enemigo1   0067 R   |   0 enemigo1   005D R   |   0 enemigo1   005B R
+  0 enemigo1   0061 R   |   0 enemigo1   005C R   |   0 enemigo1   0062 R
+  0 enemigo1   006C R   |   0 enemigo1   0068 R   |   0 enemigo1   0072 R
+  0 enemigo1   0113 GR  |   0 enemigo1   0118 GR  |   0 enemigo1   006B R
+  0 enemigo1   0070 R   |   0 enemigo1   0071 R   |   0 enemigo1   006D R
+  0 enemigo1   0073 R   |   0 enemigo1   0074 R   |   0 enemigo1   006A R
+  0 enemigo1   0068 R   |   0 enemigo1   006E R   |   0 enemigo1   0069 R
+  0 enemigo1   006F R   |   0 enemigo1   0079 R   |   0 enemigo1   0075 R
+  0 enemigo1   007F R   |   0 enemigo1   011D GR  |   0 enemigo1   0122 GR
+  0 enemigo1   0078 R   |   0 enemigo1   007D R   |   0 enemigo1   007E R
+  0 enemigo1   007A R   |   0 enemigo1   0080 R   |   0 enemigo1   0081 R
+  0 enemigo1   0077 R   |   0 enemigo1   0075 R   |   0 enemigo1   007B R
+  0 enemigo1   0076 R   |   0 enemigo1   007C R   |   0 enemigo1   0086 R
+  0 enemigo1   0082 R   |   0 enemigo1   008C R   |   0 enemigo1   0127 GR
+  0 enemigo1   012C GR  |   0 enemigo1   0085 R   |   0 enemigo1   008A R
+  0 enemigo1   008B R   |   0 enemigo1   0087 R   |   0 enemigo1   008D R
+  0 enemigo1   008E R   |   0 enemigo1   0084 R   |   0 enemigo1   0082 R
+  0 enemigo1   0088 R   |   0 enemigo1   0083 R   |   0 enemigo1   0089 R
+  0 enemigo1   0093 R   |   0 enemigo1   008F R   |   0 enemigo1   0099 R
+  0 enemigo1   0131 GR  |   0 enemigo1   0136 GR  |   0 enemigo1   0092 R
+  0 enemigo1   0097 R   |   0 enemigo1   0098 R   |   0 enemigo1   0094 R
+  0 enemigo1   009A R   |   0 enemigo1   009B R   |   0 enemigo1   0091 R
+  0 enemigo1   008F R   |   0 enemigo1   0095 R   |   0 enemigo1   0090 R
+  0 enemigo1   0096 R   |   0 enemigo1   00A0 R   |   0 enemigo1   009C R
+  0 enemigo1   00A6 R   |   0 enemigo1   013B GR  |   0 enemigo1   0140 GR
+  0 enemigo1   009F R   |   0 enemigo1   00A4 R   |   0 enemigo1   00A5 R
+  0 enemigo1   00A1 R   |   0 enemigo1   00A7 R   |   0 enemigo1   00A8 R
+  0 enemigo1   009E R   |   0 enemigo1   009C R   |   0 enemigo1   00A2 R
+  0 enemigo1   009D R   |   0 enemigo1   00A3 R   |   0 enemigo1   0004 R
+  0 enemigo1   0000 R   |   0 enemigo1   000A R   |   0 enemigo1   00C3 GR
+  0 enemigo1   00C8 GR  |   0 enemigo1   0003 R   |   0 enemigo1   0008 R
+  0 enemigo1   0009 R   |   0 enemigo1   0005 R   |   0 enemigo1   000B R
+  0 enemigo1   000C R   |   0 enemigo1   0002 R   |   0 enemigo1   0000 R
+  0 enemigo1   0006 R   |   0 enemigo1   0001 R   |   0 enemigo1   0007 R
+  0 enemigo2   00AD R   |   0 enemigo2   00A9 R   |   0 enemigo2   00B3 R
+  0 enemigo2   0145 GR  |   0 enemigo2   014A GR  |   0 enemigo2   00AC R
+  0 enemigo2   00B1 R   |   0 enemigo2   00B2 R   |   0 enemigo2   00AE R
+  0 enemigo2   00B4 R   |   0 enemigo2   00B5 R   |   0 enemigo2   00AB R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 enemigo2   00A9 R   |   0 enemigo2   00AF R   |   0 enemigo2   00AA R
+  0 enemigo2   00B0 R   |   0 enemigo2   00BA R   |   0 enemigo2   00B6 R
+  0 enemigo2   00C0 R   |   0 enemigo2   014F GR  |   0 enemigo2   0154 GR
+  0 enemigo2   00B9 R   |   0 enemigo2   00BE R   |   0 enemigo2   00BF R
+  0 enemigo2   00BB R   |   0 enemigo2   00C1 R   |   0 enemigo2   00C2 R
+  0 enemigo2   00B8 R   |   0 enemigo2   00B6 R   |   0 enemigo2   00BC R
+  0 enemigo2   00B7 R   |   0 enemigo2   00BD R   |   0 enemigo2   0011 R
+  0 enemigo2   000D R   |   0 enemigo2   0017 R   |   0 enemigo2   00CD GR
+  0 enemigo2   00D2 GR  |   0 enemigo2   0010 R   |   0 enemigo2   0015 R
+  0 enemigo2   0016 R   |   0 enemigo2   0012 R   |   0 enemigo2   0018 R
+  0 enemigo2   0019 R   |   0 enemigo2   000F R   |   0 enemigo2   000D R
+  0 enemigo2   0013 R   |   0 enemigo2   000E R   |   0 enemigo2   0014 R
+  0 enemigo3   001E R   |   0 enemigo3   001A R   |   0 enemigo3   0024 R
+  0 enemigo3   00D7 GR  |   0 enemigo3   00DC GR  |   0 enemigo3   001D R
+  0 enemigo3   0022 R   |   0 enemigo3   0023 R   |   0 enemigo3   001F R
+  0 enemigo3   0025 R   |   0 enemigo3   0026 R   |   0 enemigo3   001C R
+  0 enemigo3   001A R   |   0 enemigo3   0020 R   |   0 enemigo3   001B R
+  0 enemigo3   0021 R   |   0 enemigo7   002B R   |   0 enemigo7   0027 R
+  0 enemigo7   0031 R   |   0 enemigo7   00E1 GR  |   0 enemigo7   00E6 GR
+  0 enemigo7   002A R   |   0 enemigo7   002F R   |   0 enemigo7   0030 R
+  0 enemigo7   002C R   |   0 enemigo7   0032 R   |   0 enemigo7   0033 R
+  0 enemigo7   0029 R   |   0 enemigo7   0027 R   |   0 enemigo7   002D R
+  0 enemigo7   0028 R   |   0 enemigo7   002E R   |   0 enemigo8   0038 R
+  0 enemigo8   0034 R   |   0 enemigo8   003E R   |   0 enemigo8   00EB GR
+  0 enemigo8   00F0 GR  |   0 enemigo8   0037 R   |   0 enemigo8   003C R
+  0 enemigo8   003D R   |   0 enemigo8   0039 R   |   0 enemigo8   003F R
+  0 enemigo8   0040 R   |   0 enemigo8   0036 R   |   0 enemigo8   0034 R
+  0 enemigo8   003A R   |   0 enemigo8   0035 R   |   0 enemigo8   003B R
+  0 enemigo9   0045 R   |   0 enemigo9   0041 R   |   0 enemigo9   004B R
+  0 enemigo9   00F5 GR  |   0 enemigo9   00FA GR  |   0 enemigo9   0044 R
+  0 enemigo9   0049 R   |   0 enemigo9   004A R   |   0 enemigo9   0046 R
+  0 enemigo9   004C R   |   0 enemigo9   004D R   |   0 enemigo9   0159 GR
+  0 enemigo9   0043 R   |   0 enemigo9   0041 R   |   0 enemigo9   0047 R
+  0 enemigo9   0042 R   |   0 enemigo9   0048 R   |   0 goup1      0173 R
+    jump    =  0005     |     moveD   =  0009     |     moveI   =  000A 
+    nivel   =  000B     |   0 not_rest   0172 R   |   0 not_rest   0185 R
+    pos_x   =  0000     |     pos_y   =  0001     |     prota_ge   **** GX
+    prota_up   **** GX  |     sprite  =  000C     |     spriteAc   **** GX
+    spriteAn   **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  186   flags    0
+

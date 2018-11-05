@@ -1,0 +1,698 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 .area _CODE
+                              2 
+                              3 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                              4 .include "protagonista.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE PROTAGONISTA
+                              3 ;;====================================
+                              4 
+                              5 .globl prota_getPtrIX
+                              6 .globl prota_update
+                              7 .globl checkColision
+                              8 .globl	checkMenu
+                              9 .globl	spriteAcorona
+                             10 .globl	spriteAnormal
+                             11 
+                             12 
+                     0000    13 .equ pos_x, 0
+                     0001    14 .equ pos_y, 1
+                     0002    15 .equ ancho, 2
+                     0003    16 .equ alto, 3
+                     0004    17 .equ colision, 4
+                     0005    18 .equ jump, 5
+                     0006    19 .equ down, 6	
+                     0007    20 .equ ataqueIzq, 7
+                     0008    21 .equ ataqueD, 8
+                     0009    22 .equ moveD, 9
+                     000A    23 .equ moveI, 10
+                     000B    24 .equ nivel, 11
+                     000C    25 .equ sprite, 12
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                              5 ;;======================================================================
+                              6 ;;======================================================================
+                              7 ;; DATOS PRIVADOS
+                              8 ;; Los otros ficheros no pueden acceder a estos valores. NO SON GLOBALES
+                              9 ;;======================================================================
+                             10 ;;======================================================================
+                             11 
+                             12 
+                             13 .macro defineEnemy name, x, y, w, h, l, s
+                             14 
+                             15   name'_datos:
+                             16 
+                             17 		name'_x: .db x 			;; Pos x
+                             18 		name'_y: .db y			;; Pos y
+                             19 		name'_w: .db w 			;; Ancho
+                             20 		name'_h: .db h		  	;; Alto de enemigo 8 lineas (8 bytes)
+                             21 		name'_colision: .db -1 		;; Para saber si ha colisionado o no
+                             22 		name'_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+                             23 		name'_xi: .db x		 	;; x Actual 
+                             24 		name'_yi: .db y		 	;; y Actual
+                             25 		name'_l: .db l		 	;; Estado de longitude de recorrido	
+                             26 		name'_li: .db l		 	;; Longitud de recorrido inicial
+                             27 		name'_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+                             28 		name'_random: .db -1 		;, Esta variable no sirve para nada
+                             29 		name'_sprite: .db s
+                             30 	.endm
+                             31 
+                     0000    32 .equ	enem_x, 	0
+                     0001    33 .equ	enem_y, 	1
+                     0002    34 .equ	enem_w, 	2
+                     0003    35 .equ	enem_h, 	3
+                     0004    36 .equ	enem_col, 	4	
+                     0005    37 .equ 	enem_mue, 	5
+                     0006    38 .equ	enem_xi, 	6
+                     0007    39 .equ	enem_yi, 	7
+                     0008    40 .equ	enem_l, 	8
+                     0009    41 .equ	enem_li, 	9
+                     000A    42 .equ	enem_dir,	10
+                     000B    43 .equ 	enem_random, 	11
+                     000C    44 .equ 	enem_sprite, 	12
+                             45 
+   0000                      46 defineEnemy enemigo1, 65, 112, 2, 12, 0, 20 	;; NIVEL 1
+                              1 
+   0000                       2   enemigo1_datos:
+                              3 
+   0000 41                    4 		enemigo1_x: .db 65 			;; Pos x
+   0001 70                    5 		enemigo1_y: .db 112			;; Pos y
+   0002 02                    6 		enemigo1_w: .db 2 			;; Ancho
+   0003 0C                    7 		enemigo1_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0004 FF                    8 		enemigo1_colision: .db -1 		;; Para saber si ha colisionado o no
+   0005 FF                    9 		enemigo1_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0006 41                   10 		enemigo1_xi: .db 65		 	;; x Actual 
+   0007 70                   11 		enemigo1_yi: .db 112		 	;; y Actual
+   0008 00                   12 		enemigo1_l: .db 0		 	;; Estado de longitude de recorrido	
+   0009 00                   13 		enemigo1_li: .db 0		 	;; Longitud de recorrido inicial
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+   000A 01                   14 		enemigo1_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   000B FF                   15 		enemigo1_random: .db -1 		;, Esta variable no sirve para nada
+   000C 14                   16 		enemigo1_sprite: .db 20
+                             47 
+   000D                      48 defineEnemy enemigo2, 80-2, 112, 2, 12, 0, 20      ;; NIVEL 2
+                              1 
+   000D                       2   enemigo2_datos:
+                              3 
+   000D 4E                    4 		enemigo2_x: .db 80-2 			;; Pos x
+   000E 70                    5 		enemigo2_y: .db 112			;; Pos y
+   000F 02                    6 		enemigo2_w: .db 2 			;; Ancho
+   0010 0C                    7 		enemigo2_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0011 FF                    8 		enemigo2_colision: .db -1 		;; Para saber si ha colisionado o no
+   0012 FF                    9 		enemigo2_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0013 4E                   10 		enemigo2_xi: .db 80-2		 	;; x Actual 
+   0014 70                   11 		enemigo2_yi: .db 112		 	;; y Actual
+   0015 00                   12 		enemigo2_l: .db 0		 	;; Estado de longitude de recorrido	
+   0016 00                   13 		enemigo2_li: .db 0		 	;; Longitud de recorrido inicial
+   0017 01                   14 		enemigo2_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0018 FF                   15 		enemigo2_random: .db -1 		;, Esta variable no sirve para nada
+   0019 14                   16 		enemigo2_sprite: .db 20
+   001A                      49 defineEnemy enemigo3, 9, 80, 2, 12, 0, 21	   ;; NIVEL 2
+                              1 
+   001A                       2   enemigo3_datos:
+                              3 
+   001A 09                    4 		enemigo3_x: .db 9 			;; Pos x
+   001B 50                    5 		enemigo3_y: .db 80			;; Pos y
+   001C 02                    6 		enemigo3_w: .db 2 			;; Ancho
+   001D 0C                    7 		enemigo3_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   001E FF                    8 		enemigo3_colision: .db -1 		;; Para saber si ha colisionado o no
+   001F FF                    9 		enemigo3_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0020 09                   10 		enemigo3_xi: .db 9		 	;; x Actual 
+   0021 50                   11 		enemigo3_yi: .db 80		 	;; y Actual
+   0022 00                   12 		enemigo3_l: .db 0		 	;; Estado de longitude de recorrido	
+   0023 00                   13 		enemigo3_li: .db 0		 	;; Longitud de recorrido inicial
+   0024 01                   14 		enemigo3_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0025 FF                   15 		enemigo3_random: .db -1 		;, Esta variable no sirve para nada
+   0026 15                   16 		enemigo3_sprite: .db 21
+                             50 
+   0027                      51 defineEnemy enemigo7, 66, 112, 2, 12, 0, 20         ;; NIVEL 3
+                              1 
+   0027                       2   enemigo7_datos:
+                              3 
+   0027 42                    4 		enemigo7_x: .db 66 			;; Pos x
+   0028 70                    5 		enemigo7_y: .db 112			;; Pos y
+   0029 02                    6 		enemigo7_w: .db 2 			;; Ancho
+   002A 0C                    7 		enemigo7_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   002B FF                    8 		enemigo7_colision: .db -1 		;; Para saber si ha colisionado o no
+   002C FF                    9 		enemigo7_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   002D 42                   10 		enemigo7_xi: .db 66		 	;; x Actual 
+   002E 70                   11 		enemigo7_yi: .db 112		 	;; y Actual
+   002F 00                   12 		enemigo7_l: .db 0		 	;; Estado de longitude de recorrido	
+   0030 00                   13 		enemigo7_li: .db 0		 	;; Longitud de recorrido inicial
+   0031 01                   14 		enemigo7_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0032 FF                   15 		enemigo7_random: .db -1 		;, Esta variable no sirve para nada
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+   0033 14                   16 		enemigo7_sprite: .db 20
+   0034                      52 defineEnemy enemigo8, 20, 80, 2, 12, 0, 21           ;; NIVEL 3
+                              1 
+   0034                       2   enemigo8_datos:
+                              3 
+   0034 14                    4 		enemigo8_x: .db 20 			;; Pos x
+   0035 50                    5 		enemigo8_y: .db 80			;; Pos y
+   0036 02                    6 		enemigo8_w: .db 2 			;; Ancho
+   0037 0C                    7 		enemigo8_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0038 FF                    8 		enemigo8_colision: .db -1 		;; Para saber si ha colisionado o no
+   0039 FF                    9 		enemigo8_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   003A 14                   10 		enemigo8_xi: .db 20		 	;; x Actual 
+   003B 50                   11 		enemigo8_yi: .db 80		 	;; y Actual
+   003C 00                   12 		enemigo8_l: .db 0		 	;; Estado de longitude de recorrido	
+   003D 00                   13 		enemigo8_li: .db 0		 	;; Longitud de recorrido inicial
+   003E 01                   14 		enemigo8_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   003F FF                   15 		enemigo8_random: .db -1 		;, Esta variable no sirve para nada
+   0040 15                   16 		enemigo8_sprite: .db 21
+   0041                      53 defineEnemy enemigo9, 65, 52, 2, 12, 40, 20         ;; NIVEL 3
+                              1 
+   0041                       2   enemigo9_datos:
+                              3 
+   0041 41                    4 		enemigo9_x: .db 65 			;; Pos x
+   0042 34                    5 		enemigo9_y: .db 52			;; Pos y
+   0043 02                    6 		enemigo9_w: .db 2 			;; Ancho
+   0044 0C                    7 		enemigo9_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0045 FF                    8 		enemigo9_colision: .db -1 		;; Para saber si ha colisionado o no
+   0046 FF                    9 		enemigo9_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0047 41                   10 		enemigo9_xi: .db 65		 	;; x Actual 
+   0048 34                   11 		enemigo9_yi: .db 52		 	;; y Actual
+   0049 28                   12 		enemigo9_l: .db 40		 	;; Estado de longitude de recorrido	
+   004A 28                   13 		enemigo9_li: .db 40		 	;; Longitud de recorrido inicial
+   004B 01                   14 		enemigo9_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   004C FF                   15 		enemigo9_random: .db -1 		;, Esta variable no sirve para nada
+   004D 14                   16 		enemigo9_sprite: .db 20
+                             54 
+   004E                      55 defineEnemy enemigo10, 70, 112, 2, 12, 0, 20        ;; NIVEL 4
+                              1 
+   004E                       2   enemigo10_datos:
+                              3 
+   004E 46                    4 		enemigo10_x: .db 70 			;; Pos x
+   004F 70                    5 		enemigo10_y: .db 112			;; Pos y
+   0050 02                    6 		enemigo10_w: .db 2 			;; Ancho
+   0051 0C                    7 		enemigo10_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0052 FF                    8 		enemigo10_colision: .db -1 		;; Para saber si ha colisionado o no
+   0053 FF                    9 		enemigo10_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0054 46                   10 		enemigo10_xi: .db 70		 	;; x Actual 
+   0055 70                   11 		enemigo10_yi: .db 112		 	;; y Actual
+   0056 00                   12 		enemigo10_l: .db 0		 	;; Estado de longitude de recorrido	
+   0057 00                   13 		enemigo10_li: .db 0		 	;; Longitud de recorrido inicial
+   0058 01                   14 		enemigo10_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0059 FF                   15 		enemigo10_random: .db -1 		;, Esta variable no sirve para nada
+   005A 14                   16 		enemigo10_sprite: .db 20
+                             56 
+   005B                      57 defineEnemy enemigo11, 80-2, 112, 2, 12, 0, 20      ;; NIVEL 5
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+                              1 
+   005B                       2   enemigo11_datos:
+                              3 
+   005B 4E                    4 		enemigo11_x: .db 80-2 			;; Pos x
+   005C 70                    5 		enemigo11_y: .db 112			;; Pos y
+   005D 02                    6 		enemigo11_w: .db 2 			;; Ancho
+   005E 0C                    7 		enemigo11_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   005F FF                    8 		enemigo11_colision: .db -1 		;; Para saber si ha colisionado o no
+   0060 FF                    9 		enemigo11_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0061 4E                   10 		enemigo11_xi: .db 80-2		 	;; x Actual 
+   0062 70                   11 		enemigo11_yi: .db 112		 	;; y Actual
+   0063 00                   12 		enemigo11_l: .db 0		 	;; Estado de longitude de recorrido	
+   0064 00                   13 		enemigo11_li: .db 0		 	;; Longitud de recorrido inicial
+   0065 01                   14 		enemigo11_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0066 FF                   15 		enemigo11_random: .db -1 		;, Esta variable no sirve para nada
+   0067 14                   16 		enemigo11_sprite: .db 20
+   0068                      58 defineEnemy enemigo12, 9, 80, 2, 12, 0, 21	    ;; NIVEL 5
+                              1 
+   0068                       2   enemigo12_datos:
+                              3 
+   0068 09                    4 		enemigo12_x: .db 9 			;; Pos x
+   0069 50                    5 		enemigo12_y: .db 80			;; Pos y
+   006A 02                    6 		enemigo12_w: .db 2 			;; Ancho
+   006B 0C                    7 		enemigo12_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   006C FF                    8 		enemigo12_colision: .db -1 		;; Para saber si ha colisionado o no
+   006D FF                    9 		enemigo12_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   006E 09                   10 		enemigo12_xi: .db 9		 	;; x Actual 
+   006F 50                   11 		enemigo12_yi: .db 80		 	;; y Actual
+   0070 00                   12 		enemigo12_l: .db 0		 	;; Estado de longitude de recorrido	
+   0071 00                   13 		enemigo12_li: .db 0		 	;; Longitud de recorrido inicial
+   0072 01                   14 		enemigo12_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0073 FF                   15 		enemigo12_random: .db -1 		;, Esta variable no sirve para nada
+   0074 15                   16 		enemigo12_sprite: .db 21
+                             59 
+   0075                      60 defineEnemy enemigo16, 65, 110, 2, 12, 108, 20      ;; NIVEL 6
+                              1 
+   0075                       2   enemigo16_datos:
+                              3 
+   0075 41                    4 		enemigo16_x: .db 65 			;; Pos x
+   0076 6E                    5 		enemigo16_y: .db 110			;; Pos y
+   0077 02                    6 		enemigo16_w: .db 2 			;; Ancho
+   0078 0C                    7 		enemigo16_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0079 FF                    8 		enemigo16_colision: .db -1 		;; Para saber si ha colisionado o no
+   007A FF                    9 		enemigo16_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   007B 41                   10 		enemigo16_xi: .db 65		 	;; x Actual 
+   007C 6E                   11 		enemigo16_yi: .db 110		 	;; y Actual
+   007D 6C                   12 		enemigo16_l: .db 108		 	;; Estado de longitude de recorrido	
+   007E 6C                   13 		enemigo16_li: .db 108		 	;; Longitud de recorrido inicial
+   007F 01                   14 		enemigo16_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   0080 FF                   15 		enemigo16_random: .db -1 		;, Esta variable no sirve para nada
+   0081 14                   16 		enemigo16_sprite: .db 20
+                             61 
+   0082                      62 defineEnemy enemigo17, 65, 112, 2, 12, 0, 20       ;; NIVEL 7
+                              1 
+   0082                       2   enemigo17_datos:
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+                              3 
+   0082 41                    4 		enemigo17_x: .db 65 			;; Pos x
+   0083 70                    5 		enemigo17_y: .db 112			;; Pos y
+   0084 02                    6 		enemigo17_w: .db 2 			;; Ancho
+   0085 0C                    7 		enemigo17_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0086 FF                    8 		enemigo17_colision: .db -1 		;; Para saber si ha colisionado o no
+   0087 FF                    9 		enemigo17_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0088 41                   10 		enemigo17_xi: .db 65		 	;; x Actual 
+   0089 70                   11 		enemigo17_yi: .db 112		 	;; y Actual
+   008A 00                   12 		enemigo17_l: .db 0		 	;; Estado de longitude de recorrido	
+   008B 00                   13 		enemigo17_li: .db 0		 	;; Longitud de recorrido inicial
+   008C 01                   14 		enemigo17_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   008D FF                   15 		enemigo17_random: .db -1 		;, Esta variable no sirve para nada
+   008E 14                   16 		enemigo17_sprite: .db 20
+                             63 
+   008F                      64 defineEnemy enemigo18, 66, 112, 2, 12, 0, 20       ;; NIVEL 8
+                              1 
+   008F                       2   enemigo18_datos:
+                              3 
+   008F 42                    4 		enemigo18_x: .db 66 			;; Pos x
+   0090 70                    5 		enemigo18_y: .db 112			;; Pos y
+   0091 02                    6 		enemigo18_w: .db 2 			;; Ancho
+   0092 0C                    7 		enemigo18_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   0093 FF                    8 		enemigo18_colision: .db -1 		;; Para saber si ha colisionado o no
+   0094 FF                    9 		enemigo18_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   0095 42                   10 		enemigo18_xi: .db 66		 	;; x Actual 
+   0096 70                   11 		enemigo18_yi: .db 112		 	;; y Actual
+   0097 00                   12 		enemigo18_l: .db 0		 	;; Estado de longitude de recorrido	
+   0098 00                   13 		enemigo18_li: .db 0		 	;; Longitud de recorrido inicial
+   0099 01                   14 		enemigo18_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   009A FF                   15 		enemigo18_random: .db -1 		;, Esta variable no sirve para nada
+   009B 14                   16 		enemigo18_sprite: .db 20
+   009C                      65 defineEnemy enemigo19, 9, 52, 2, 12, 40, 21       ;; NIVEL 8
+                              1 
+   009C                       2   enemigo19_datos:
+                              3 
+   009C 09                    4 		enemigo19_x: .db 9 			;; Pos x
+   009D 34                    5 		enemigo19_y: .db 52			;; Pos y
+   009E 02                    6 		enemigo19_w: .db 2 			;; Ancho
+   009F 0C                    7 		enemigo19_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   00A0 FF                    8 		enemigo19_colision: .db -1 		;; Para saber si ha colisionado o no
+   00A1 FF                    9 		enemigo19_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   00A2 09                   10 		enemigo19_xi: .db 9		 	;; x Actual 
+   00A3 34                   11 		enemigo19_yi: .db 52		 	;; y Actual
+   00A4 28                   12 		enemigo19_l: .db 40		 	;; Estado de longitude de recorrido	
+   00A5 28                   13 		enemigo19_li: .db 40		 	;; Longitud de recorrido inicial
+   00A6 01                   14 		enemigo19_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   00A7 FF                   15 		enemigo19_random: .db -1 		;, Esta variable no sirve para nada
+   00A8 15                   16 		enemigo19_sprite: .db 21
+                             66 
+   00A9                      67 defineEnemy enemigo20, 65, 50, 2, 12, 35, 20       ;; NIVEL 9
+                              1 
+   00A9                       2   enemigo20_datos:
+                              3 
+   00A9 41                    4 		enemigo20_x: .db 65 			;; Pos x
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 8.
+Hexadecimal [16-Bits]
+
+
+
+   00AA 32                    5 		enemigo20_y: .db 50			;; Pos y
+   00AB 02                    6 		enemigo20_w: .db 2 			;; Ancho
+   00AC 0C                    7 		enemigo20_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   00AD FF                    8 		enemigo20_colision: .db -1 		;; Para saber si ha colisionado o no
+   00AE FF                    9 		enemigo20_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   00AF 41                   10 		enemigo20_xi: .db 65		 	;; x Actual 
+   00B0 32                   11 		enemigo20_yi: .db 50		 	;; y Actual
+   00B1 23                   12 		enemigo20_l: .db 35		 	;; Estado de longitude de recorrido	
+   00B2 23                   13 		enemigo20_li: .db 35		 	;; Longitud de recorrido inicial
+   00B3 01                   14 		enemigo20_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   00B4 FF                   15 		enemigo20_random: .db -1 		;, Esta variable no sirve para nada
+   00B5 14                   16 		enemigo20_sprite: .db 20
+   00B6                      68 defineEnemy enemigo21, 9, 80, 2, 12, 50, 21       ;; NIVEL 9
+                              1 
+   00B6                       2   enemigo21_datos:
+                              3 
+   00B6 09                    4 		enemigo21_x: .db 9 			;; Pos x
+   00B7 50                    5 		enemigo21_y: .db 80			;; Pos y
+   00B8 02                    6 		enemigo21_w: .db 2 			;; Ancho
+   00B9 0C                    7 		enemigo21_h: .db 12		  	;; Alto de enemigo 8 lineas (8 bytes)
+   00BA FF                    8 		enemigo21_colision: .db -1 		;; Para saber si ha colisionado o no
+   00BB FF                    9 		enemigo21_muerto: .db -1    	;; Para saber si el enemigo esta muerto o no
+   00BC 09                   10 		enemigo21_xi: .db 9		 	;; x Actual 
+   00BD 50                   11 		enemigo21_yi: .db 80		 	;; y Actual
+   00BE 32                   12 		enemigo21_l: .db 50		 	;; Estado de longitude de recorrido	
+   00BF 32                   13 		enemigo21_li: .db 50		 	;; Longitud de recorrido inicial
+   00C0 01                   14 		enemigo21_dir: .db 1	  	;; Direccion de movimiento 1 (Arriba o izquierda), 0 (Abajo o derecha)
+   00C1 FF                   15 		enemigo21_random: .db -1 		;, Esta variable no sirve para nada
+   00C2 15                   16 		enemigo21_sprite: .db 21
+                             69 
+                             70 ;;=====================================================================
+                             71 ;;=====================================================================
+                             72 ;;FUNCIONES PUBLICAS
+                             73 ;;=====================================================================
+                             74 ;;=====================================================================
+                             75 
+                             76 ;;==============================================================================
+                             77 ;; FUNCION GLOBAL QUE OBTIENE EL PUNTERO IX PARA GUARDAR LOS DATOS DE ENEMIGO
+                             78 ;; MODIFICA : IX
+                             79 ;; DEVUELVE : 
+                             80 ;;		IX: Puntero a los datos del enemigo
+                             81 ;;===============================================================================
+   00C3                      82 enemigo1_getPtrIX::
+                             83 
+                             84 
+   00C3 DD 21 00 00   [14]   85 	ld ix, #enemigo1_datos
+                             86 
+   00C7 C9            [10]   87 	ret
+                             88 
+                             89 
+                             90 
+                             91 ;;============================================================================================
+                             92 ;; FUNCION GLOBAL QUE OBTIENE EL PUNTERO IY PARA GUARDAR LOS DATOS DE ENEMIGO PARA LA COLISION
+                             93 ;; MODIFICA : IX
+                             94 ;; DEVUELVE : 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 9.
+Hexadecimal [16-Bits]
+
+
+
+                             95 ;;		IX: Puntero a los datos del enemigo
+                             96 ;;============================================================================================
+   00C8                      97 enemigo1_getPtrIY::
+                             98 
+                             99 
+   00C8 FD 21 00 00   [14]  100 	ld iy, #enemigo1_datos
+                            101 
+   00CC C9            [10]  102 	ret
+                            103 
+                            104 
+   00CD                     105 enemigo2_getPtrIX::
+                            106 
+                            107 
+   00CD DD 21 0D 00   [14]  108 	ld ix, #enemigo2_datos
+                            109 
+   00D1 C9            [10]  110 	ret
+                            111 
+   00D2                     112 enemigo2_getPtrIY::
+                            113 
+                            114 
+   00D2 FD 21 0D 00   [14]  115 	ld iy, #enemigo2_datos
+                            116 
+   00D6 C9            [10]  117 	ret
+                            118 
+                            119 
+                            120 
+   00D7                     121 enemigo3_getPtrIX::
+                            122 
+                            123 
+   00D7 DD 21 1A 00   [14]  124 	ld ix, #enemigo3_datos
+                            125 
+   00DB C9            [10]  126 	ret
+                            127 
+   00DC                     128 enemigo3_getPtrIY::
+                            129 
+                            130 
+   00DC FD 21 1A 00   [14]  131 	ld iy, #enemigo3_datos
+                            132 
+   00E0 C9            [10]  133 	ret
+                            134 
+   00E1                     135 enemigo7_getPtrIX::
+                            136 
+                            137 
+   00E1 DD 21 27 00   [14]  138 	ld ix, #enemigo7_datos
+                            139 
+   00E5 C9            [10]  140 	ret
+                            141 
+                            142 
+   00E6                     143 enemigo7_getPtrIY::
+                            144 
+                            145 
+   00E6 FD 21 27 00   [14]  146 	ld iy, #enemigo7_datos
+                            147 
+   00EA C9            [10]  148 	ret
+                            149 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 10.
+Hexadecimal [16-Bits]
+
+
+
+   00EB                     150 enemigo8_getPtrIX::
+                            151 
+                            152 
+   00EB DD 21 34 00   [14]  153 	ld ix, #enemigo8_datos
+                            154 
+   00EF C9            [10]  155 	ret
+                            156 
+                            157 
+   00F0                     158 enemigo8_getPtrIY::
+                            159 
+                            160 
+   00F0 FD 21 34 00   [14]  161 	ld iy, #enemigo8_datos
+                            162 
+   00F4 C9            [10]  163 	ret
+                            164 
+   00F5                     165 enemigo9_getPtrIX::
+                            166 
+                            167 
+   00F5 DD 21 41 00   [14]  168 	ld ix, #enemigo9_datos
+                            169 
+   00F9 C9            [10]  170 	ret
+                            171 
+                            172 
+   00FA                     173 enemigo9_getPtrIY::
+                            174 
+                            175 
+   00FA FD 21 41 00   [14]  176 	ld iy, #enemigo9_datos
+                            177 
+   00FE C9            [10]  178 	ret
+                            179 
+   00FF                     180 enemigo10_getPtrIX::
+                            181 
+                            182 
+   00FF DD 21 4E 00   [14]  183 	ld ix, #enemigo10_datos
+                            184 
+   0103 C9            [10]  185 	ret
+                            186 
+                            187 
+   0104                     188 enemigo10_getPtrIY::
+                            189 
+                            190 
+   0104 FD 21 4E 00   [14]  191 	ld iy, #enemigo10_datos
+                            192 
+   0108 C9            [10]  193 	ret
+                            194 
+   0109                     195 enemigo11_getPtrIX::
+                            196 
+                            197 
+   0109 DD 21 5B 00   [14]  198 	ld ix, #enemigo11_datos
+                            199 
+   010D C9            [10]  200 	ret
+                            201 
+                            202 
+   010E                     203 enemigo11_getPtrIY::
+                            204 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 11.
+Hexadecimal [16-Bits]
+
+
+
+                            205 
+   010E FD 21 5B 00   [14]  206 	ld iy, #enemigo11_datos
+                            207 
+   0112 C9            [10]  208 	ret
+                            209 
+   0113                     210 enemigo12_getPtrIX::
+                            211 
+                            212 
+   0113 DD 21 68 00   [14]  213 	ld ix, #enemigo12_datos
+                            214 
+   0117 C9            [10]  215 	ret
+                            216 
+                            217 
+   0118                     218 enemigo12_getPtrIY::
+                            219 
+                            220 
+   0118 FD 21 68 00   [14]  221 	ld iy, #enemigo12_datos
+                            222 
+   011C C9            [10]  223 	ret
+                            224 
+   011D                     225 enemigo16_getPtrIX::
+                            226 
+                            227 
+   011D DD 21 75 00   [14]  228 	ld ix, #enemigo16_datos
+                            229 
+   0121 C9            [10]  230 	ret
+                            231 
+                            232 
+   0122                     233 enemigo16_getPtrIY::
+                            234 
+                            235 
+   0122 FD 21 75 00   [14]  236 	ld iy, #enemigo16_datos
+                            237 
+   0126 C9            [10]  238 	ret
+                            239 
+   0127                     240 enemigo17_getPtrIX::
+                            241 
+                            242 
+   0127 DD 21 82 00   [14]  243 	ld ix, #enemigo17_datos
+                            244 
+   012B C9            [10]  245 	ret
+                            246 
+                            247 
+   012C                     248 enemigo17_getPtrIY::
+                            249 
+                            250 
+   012C FD 21 82 00   [14]  251 	ld iy, #enemigo17_datos
+                            252 
+   0130 C9            [10]  253 	ret
+                            254 
+   0131                     255 enemigo18_getPtrIX::
+                            256 
+                            257 
+   0131 DD 21 8F 00   [14]  258 	ld ix, #enemigo18_datos
+                            259 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 12.
+Hexadecimal [16-Bits]
+
+
+
+   0135 C9            [10]  260 	ret
+                            261 
+                            262 
+   0136                     263 enemigo18_getPtrIY::
+                            264 
+                            265 
+   0136 FD 21 8F 00   [14]  266 	ld iy, #enemigo18_datos
+                            267 
+   013A C9            [10]  268 	ret
+                            269 
+   013B                     270 enemigo19_getPtrIX::
+                            271 
+                            272 
+   013B DD 21 9C 00   [14]  273 	ld ix, #enemigo19_datos
+                            274 
+   013F C9            [10]  275 	ret
+                            276 
+                            277 
+   0140                     278 enemigo19_getPtrIY::
+                            279 
+                            280 
+   0140 FD 21 9C 00   [14]  281 	ld iy, #enemigo19_datos
+                            282 
+   0144 C9            [10]  283 	ret
+                            284 
+   0145                     285 enemigo20_getPtrIX::
+                            286 
+                            287 
+   0145 DD 21 A9 00   [14]  288 	ld ix, #enemigo20_datos
+                            289 
+   0149 C9            [10]  290 	ret
+                            291 
+                            292 
+   014A                     293 enemigo20_getPtrIY::
+                            294 
+                            295 
+   014A FD 21 A9 00   [14]  296 	ld iy, #enemigo20_datos
+                            297 
+   014E C9            [10]  298 	ret
+                            299 
+   014F                     300 enemigo21_getPtrIX::
+                            301 
+                            302 
+   014F DD 21 B6 00   [14]  303 	ld ix, #enemigo21_datos
+                            304 
+   0153 C9            [10]  305 	ret
+                            306 
+                            307 
+   0154                     308 enemigo21_getPtrIY::
+                            309 
+                            310 
+   0154 FD 21 B6 00   [14]  311 	ld iy, #enemigo21_datos
+                            312 
+   0158 C9            [10]  313 	ret
+                            314 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 13.
+Hexadecimal [16-Bits]
+
+
+
+                            315 
+                            316 
+                            317 ;;=======================================
+                            318 ;; UPDATE DE LOS ENEMIGOS QUE SE MUEVEN
+                            319 ;; MODIFICA : AF, BC, DE, HL
+                            320 ;;========================================
+   0159                     321 enemigo9_update::
+                            322 	
+                            323 	
+                            324 	;;nocolision:
+   0159 DD 7E 0A      [19]  325 	ld a, enem_dir(ix)
+   015C FE 01         [ 7]  326 	cp #1
+   015E 28 13         [12]  327 	jr z, goup1
+                            328 
+                            329 	;; ABAJO
+                            330 
+                            331 	;; Move Obsacle DOWN	
+   0160 DD 34 01      [23]  332 	inc	enem_y(ix)			;; enemigo2_y ++
+   0163 DD 35 08      [23]  333 	dec 	enem_l(ix)			;; enemigo2_l --
+   0166 20 0A         [12]  334 	jr 	nz, not_restart_x11	;; If (Obs_x == 0)then not_restart_x
+                            335 	
+                            336 		;; Restart x or y when it is 0
+   0168 DD 36 0A 01   [19]  337 		ld 	enem_dir(ix), #1 
+   016C DD 7E 09      [19]  338 		ld 	a, enem_li(ix)
+   016F DD 77 08      [19]  339 		ld	enem_l(ix), a 	;; xa (actual) = x (inicial)
+                            340 
+   0172                     341 	not_restart_x11:
+                            342 
+   0172 C9            [10]  343 	ret
+                            344 	
+                            345 
+   0173                     346 	goup1:
+                            347 
+                            348 	;; ARRIBA
+                            349 	
+   0173 DD 35 01      [23]  350 	dec	enem_y(ix)			;; enemigo2_y --
+   0176 DD 35 08      [23]  351 	dec 	enem_l(ix)			;; enemigo2_l --
+   0179 20 0A         [12]  352 	jr 	nz, not_restart_x22	;; If (Obs_x == 0)then not_restart_x
+                            353 	
+                            354 		;; Restart_x when it is 0
+   017B DD 36 0A 00   [19]  355 		ld 	enem_dir(ix), #0 
+   017F DD 7E 09      [19]  356 		ld 	a, enem_li(ix)
+   0182 DD 77 08      [19]  357 		ld	enem_l(ix), a 	;; xa (actual) = x (inicial)
+                            358 
+   0185                     359 	not_restart_x22:
+                            360 
+                            361 
+   0185 C9            [10]  362 	ret
+                            363 
+                            364 ;;=====================================================================
+                            365 ;;=====================================================================
+                            366 ;;FUNCIONES PRIVADAS
+                            367 ;;=====================================================================
+                            368 ;;=====================================================================

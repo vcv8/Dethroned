@@ -1,0 +1,1502 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 .area _DATA
+                              2 
+                              3 
+                              4 .area _CODE
+                              5 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                              6 .include "cpctelera.h.s"
+                              1 .globl cpct_drawSolidBox_asm
+                              2 .globl cpct_getScreenPtr_asm
+                              3 .globl cpct_scanKeyboard_asm
+                              4 .globl cpct_isKeyPressed_asm
+                              5 .globl cpct_waitVSYNC_asm
+                              6 .globl cpct_etm_setTileset2x4_asm
+                              7 .globl cpct_etm_drawTileBox2x4_asm
+                              8 .globl cpct_disableFirmware_asm
+                              9 .globl cpct_setVideoMode_asm
+                             10 .globl cpct_drawSprite_asm
+                             11 .globl cpct_setPalette_asm
+                             12 .globl cpct_drawStringM0_asm
+                             13 .globl cpct_setPALColour_asm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                              7 .include "protagonista.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE PROTAGONISTA
+                              3 ;;====================================
+                              4 
+                              5 .globl prota_getPtrIX
+                              6 .globl prota_update
+                              7 .globl checkColision
+                              8 .globl	checkMenu
+                              9 .globl	spriteAcorona
+                             10 .globl	spriteAnormal
+                             11 
+                             12 
+                     0000    13 .equ pos_x, 0
+                     0001    14 .equ pos_y, 1
+                     0002    15 .equ ancho, 2
+                     0003    16 .equ alto, 3
+                     0004    17 .equ colision, 4
+                     0005    18 .equ jump, 5
+                     0006    19 .equ down, 6	
+                     0007    20 .equ ataqueIzq, 7
+                     0008    21 .equ ataqueD, 8
+                     0009    22 .equ moveD, 9
+                     000A    23 .equ moveI, 10
+                     000B    24 .equ nivel, 11
+                     000C    25 .equ sprite, 12
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+                              8 .include "dibujar.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE DIBUJAR
+                              3 ;;====================================
+                              4 
+                              5 .globl dibujar_entidad
+                              6 .globl borrar_entidad
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+                              9 .include "enemigo.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE ENEMIGO
+                              3 ;;====================================
+                              4 
+                              5 
+                              6 .globl enemigo1_getPtrIX
+                              7 .globl enemigo1_getPtrIY
+                              8 .globl enemigo2_getPtrIX
+                              9 .globl enemigo2_getPtrIY
+                             10 .globl enemigo3_getPtrIX
+                             11 .globl enemigo3_getPtrIY
+                             12 .globl enemigo7_getPtrIX
+                             13 .globl enemigo7_getPtrIY
+                             14 .globl enemigo8_getPtrIX
+                             15 .globl enemigo8_getPtrIY
+                             16 .globl enemigo9_getPtrIX
+                             17 .globl enemigo9_getPtrIY	
+                             18 .globl enemigo10_getPtrIX
+                             19 .globl enemigo10_getPtrIY
+                             20 .globl enemigo11_getPtrIX
+                             21 .globl enemigo11_getPtrIY
+                             22 .globl enemigo12_getPtrIX
+                             23 .globl enemigo12_getPtrIY
+                             24 .globl enemigo16_getPtrIX
+                             25 .globl enemigo16_getPtrIY
+                             26 .globl enemigo17_getPtrIX
+                             27 .globl enemigo17_getPtrIY
+                             28 .globl enemigo18_getPtrIX
+                             29 .globl enemigo18_getPtrIY
+                             30 .globl enemigo19_getPtrIX
+                             31 .globl enemigo19_getPtrIY
+                             32 .globl enemigo20_getPtrIX
+                             33 .globl enemigo20_getPtrIY
+                             34 .globl enemigo21_getPtrIX
+                             35 .globl enemigo21_getPtrIY
+                             36 .globl enemigo9_update
+                             37 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+                             10 .include "hud.h.s"
+                              1 ;;===============================================================================
+                              2 ;;===============================================================================
+                              3 ;;	HUD PUBLIC FUNCIONS
+                              4 ;;===============================================================================
+                              5 ;;===============================================================================
+                              6 
+                              7 .globl	hud_draw
+                              8 .globl	hud_erase	
+                              9 .globl	hud_getHP
+                             10 .globl hud_title
+                             11 .globl hud_ertitle
+                             12 .globl hud_getPtrIX
+                             13 .globl hud_getPtrFIN
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+                             11 .include "mapas.h"
+                              1  ;;====================================
+                              2  ;; FUNCIONES PUBLICAS DE MAPA  
+                              3  ;;====================================
+                              4 
+                              5  .globl mapa_draw
+                              6  .globl mapa_redraw
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 8.
+Hexadecimal [16-Bits]
+
+
+
+                             12 .include "bala.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE LAS BALAS
+                              3 ;;====================================
+                              4 
+                              5 .globl	b1_getPtrIX
+                              6 .globl	b1_getPtrIY
+                              7 .globl	b2_getPtrIX
+                              8 .globl	b2_getPtrIY
+                              9 .globl	b3_getPtrIX
+                             10 .globl	b3_getPtrIY
+                             11 .globl  b9_getPtrIX
+                             12 .globl  b9_getPtrIY
+                             13 .globl  b10_getPtrIX
+                             14 .globl  b10_getPtrIY
+                             15 .globl  b11_getPtrIX
+                             16 .globl  b11_getPtrIY
+                             17 .globl  b12_getPtrIX
+                             18 .globl  b12_getPtrIY
+                             19 .globl  b13_getPtrIX
+                             20 .globl  b13_getPtrIY
+                             21 .globl  b14_getPtrIX
+                             22 .globl  b14_getPtrIY
+                             23 .globl  b15_getPtrIX
+                             24 .globl  b15_getPtrIY
+                             25 .globl  b16_getPtrIX
+                             26 .globl  b16_getPtrIY
+                             27 .globl  b20_getPtrIX
+                             28 .globl  b20_getPtrIY
+                             29 .globl  b21_getPtrIX
+                             30 .globl  b21_getPtrIY
+                             31 .globl  b22_getPtrIX
+                             32 .globl  b22_getPtrIY
+                             33 .globl  b23_getPtrIX
+                             34 .globl  b23_getPtrIY
+                             35 .globl  b24_getPtrIX
+                             36 .globl  b24_getPtrIY
+                             37 .globl  b25_getPtrIX
+                             38 .globl  b25_getPtrIY
+                             39 .globl  b26_getPtrIX
+                             40 .globl  b26_getPtrIY
+                             41 .globl  b27_getPtrIX
+                             42 .globl  b27_getPtrIY
+                             43 .globl  b28_getPtrIX
+                             44 .globl  b28_getPtrIY
+                             45 .globl  b29_getPtrIX
+                             46 .globl  b29_getPtrIY
+                             47 .globl  b30_getPtrIX
+                             48 .globl  b30_getPtrIY
+                             49 .globl  b31_getPtrIX
+                             50 .globl  b31_getPtrIY
+                             51 .globl  b32_getPtrIX
+                             52 .globl  b32_getPtrIY
+                             53 .globl  b33_getPtrIX
+                             54 .globl  b33_getPtrIY
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 9.
+Hexadecimal [16-Bits]
+
+
+
+                             55 .globl  minuevaposicion
+                             56 .globl	bala_update
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 10.
+Hexadecimal [16-Bits]
+
+
+
+                             13 .include "objetos.h.s"
+                              1 ;;====================================
+                              2 ;; FUNCIONES PUBLICAS DE ENEMIGO
+                              3 ;;====================================
+                              4 
+                              5 
+                              6 .globl llave_getPtrIX
+                              7 .globl llave_getPtrIY
+                              8 .globl pocion_getPtrIX
+                              9 .globl pocion_getPtrIY
+                             10 .globl comprobar_recogido
+                             11 .globl update_corona
+                             12 .globl update_pocion
+                             13 .globl coronaIsMatada
+                             14 .globl PocionIsMatada
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 11.
+Hexadecimal [16-Bits]
+
+
+
+                             14 
+                             15 .globl _g_palette
+                             16 
+                             17 
+   0000 01                   18 ralentizacion: .db #1 			;; Variable para reducir a la mitad la velocidad
+   0001 01                   19 contEnemigo: .db #1 			;; Para saber si eliminar el enemigo o no
+                             20 
+                             21 
+   0002 50 72 65 73 73 20    22 string: .asciz "Press INTRO"
+        49 4E 54 52 4F 00
+   000E 66 6F 72 20 73 74    23 string2:.asciz "for start"
+        61 72 74 00
+   0018 47 41 4D 45 20 4F    24 string3: .asciz "GAME OVER"
+        56 45 52 00
+   0022 59 4F 55 20 57 49    25 win: .asciz "YOU WIN!"
+        4E 21 00
+                             26 ;;=============================================================
+                             27 ;;     Inicializacion del Amstrad CPC al empezar el juego
+                             28 ;;  Establecemos la paleta y el modo y desactivamos el firmware
+                             29 ;; 
+                             30 ;;=============================================================
+   002B                      31 inicializarCPC:
+                             32 
+                             33 
+   002B CD 00 00      [17]   34        call cpct_disableFirmware_asm 			;; Desactivamos el firmware no queremos que interfiera en nuestro juego
+   002E 0E 00         [ 7]   35        ld c,#0						;; 
+   0030 CD 00 00      [17]   36        call cpct_setVideoMode_asm 			;; Ponemos modo de video 0 (160x200, 16 colours)
+                             37 
+   0033 21 00 00      [10]   38        ld hl, #_g_palette				;;
+   0036 11 10 00      [10]   39        ld de, #16 					;;
+   0039 CD 00 00      [17]   40        call cpct_setPalette_asm 			;; Establecemos la paleta
+                             41 
+   003C 21 10 1E      [10]   42        ld hl, #0x1E10
+                             43       
+                             44 
+   003F CD 00 00      [17]   45        call cpct_setPALColour_asm
+                             46 
+                             47         
+                             48 
+   0042 C9            [10]   49  ret
+                             50 
+                             51 ;;=============================================================
+                             52 ;; 		Inicializacion del MENU del juego
+                             53 ;; 
+                             54 ;;=============================================================
+   0043                      55 inicializarMenu:
+                             56 
+   0043 CD 00 00      [17]   57 	call	hud_title					;; Draws the title screen
+                             58 
+   0046                      59     	inmenu:
+                             60 
+                             61 	    	;; We are going to call draw String, and we have to push parameters
+                             62 	   ;; to the stack first (as the function recovers it from there).
+   0046 21 02 00      [10]   63 	   ld   hl, #string  ;; HL = Pointer to the start of the string
+   0049 11 20 C4      [10]   64 	   ld   de, #0xC420  ;; DE = Pointer to video memory location where the string will be drawn
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 12.
+Hexadecimal [16-Bits]
+
+
+
+   004C 01 06 00      [10]   65 	   ld   bc, #0x0006  ;; B = Background colour, C = Foreground colour
+                             66 
+   004F CD 00 00      [17]   67 	   call cpct_drawStringM0_asm ;; Call the string drawing function
+                             68 
+   0052 21 0E 00      [10]   69 	   ld   hl, #string2  ;; MENU 
+   0055 11 14 C5      [10]   70 	   ld   de, #0xC514  
+   0058 01 06 00      [10]   71 	   ld   bc, #0x0006  
+                             72 
+   005B CD 00 00      [17]   73 	   call cpct_drawStringM0_asm 
+                             74 
+   005E CD 00 00      [17]   75     	call checkMenu
+   0061 FE 01         [ 7]   76     	cp #1
+   0063 20 E1         [12]   77     	jr nz,  inmenu
+                             78 
+   0065 CD 00 00      [17]   79     	call hud_ertitle
+                             80     
+                             81 
+   0068 C9            [10]   82  ret
+                             83 
+                             84 
+   0069                      85 restarvida:
+   0069 FE FF         [ 7]   86 	cp #0xFF
+   006B CC 6F 00      [17]   87  	call	z, losehp
+                             88 
+   006E C9            [10]   89  	ret
+                             90 
+   006F                      91 losehp:
+   006F 3E 01         [ 7]   92 		ld	a, #1	
+   0071 CD 00 00      [17]   93  		call 	hud_erase			;; Decrements hero hp in one
+   0074 CD 00 00      [17]   94  		call 	hud_getHP			;; Gets current hero HP			
+   0077 7E            [ 7]   95  		ld	a, (hl)
+   0078 FE 00         [ 7]   96  		cp 	#0
+   007A 20 11         [12]   97  		jr	nz, kg  
+                             98 
+                             99  			;; If (hp <=0)
+                            100  		
+   007C CD 00 00      [17]  101  			call	hud_title		;; Draws the title screen
+                            102 
+   007F 21 18 00      [10]  103  			ld   hl, #string3  ;; HL = GAME OVER
+   0082 11 55 C6      [10]  104    			ld   de, #0xC655  ;; DE = Pointer to video memory location where the string will be drawn
+   0085 01 06 00      [10]  105    			ld   bc, #0x0006  ;; B = Background colour, C = Foreground colour
+   0088 CD 00 00      [17]  106    			call cpct_drawStringM0_asm ;; Call the string drawing function
+                            107 
+   008B                     108    			infi:
+   008B 18 FE         [12]  109  			jr	infi
+                            110 
+                            111 
+   008D                     112 		kg:
+   008D C9            [10]  113 	ret
+                            114 
+                            115 ;;=============================================
+                            116 ;; FUNCION PARA REDUCIR LA VELOCIDAD A LA MITAD
+                            117 ;; MODIFICA : ralentizacion
+                            118 ;;=============================================
+   008E                     119 reducirVelocidadMitad:
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 13.
+Hexadecimal [16-Bits]
+
+
+
+                            120 
+                            121 
+   008E 3A 00 00      [13]  122 	ld a, (ralentizacion)
+   0091 EE 01         [ 7]  123 	xor #1
+   0093 32 00 00      [13]  124 	ld (ralentizacion), a
+                            125 
+   0096 C9            [10]  126 	ret
+                            127 ;;===================================================
+                            128 ;; 	  FUNCION PARA MATAR LOS ENEMIGOS
+                            129 ;; MODIFICA : contEnemigo1
+                            130 ;;===================================================
+   0097                     131 matarEnemigo:
+                            132 
+   0097 3A 01 00      [13]  133 	ld a, (contEnemigo)
+   009A FE 00         [ 7]  134 	cp #0
+   009C C8            [11]  135 	ret z
+                            136 
+   009D 3D            [ 4]  137 	dec a
+   009E 32 01 00      [13]  138 	ld (contEnemigo), a
+   00A1 CD 00 00      [17]  139 	call borrar_entidad
+                            140 
+                            141 
+   00A4 C9            [10]  142   ret
+                            143 
+                            144 
+                            145 ;;============================================================================
+                            146 ;;  FUNCION PARA RESETEAR EL CONTADOR PARA MATAR LOS ENEMIGOS DE CADA NIVEL
+                            147 ;; MODIFICA : contEnemigo1
+                            148 ;;============================================================================
+   00A5                     149  resetearMuerteEnemigo:
+                            150 
+   00A5 3E 01         [ 7]  151      ld a, #1
+   00A7 32 01 00      [13]  152     ld (contEnemigo), a
+                            153 
+   00AA C9            [10]  154   ret
+                            155 
+                            156  ;;===================================================
+                            157 ;; 	  FUNCION PARA MATAR CORONA
+                            158 ;; MODIFICA : contEnemigo1
+                            159 ;;===================================================
+   00AB                     160 matarCorona:
+                            161 
+   00AB DD 7E 0D      [19]  162 	ld a, 13(ix)
+   00AE FE 01         [ 7]  163 	cp #1
+   00B0 28 16         [12]  164 	jr z, endmatarCorona
+                            165 
+   00B2 DD 7E 05      [19]  166 	ld a, 5(ix)
+   00B5 FE 01         [ 7]  167 	cp #1
+   00B7 28 06         [12]  168 	jr z, mataCor
+                            169 
+                            170 
+   00B9 CD 00 00      [17]  171 	call dibujar_entidad
+                            172 
+   00BC C3 C8 00      [10]  173 	jp endmatarCorona
+                            174 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 14.
+Hexadecimal [16-Bits]
+
+
+
+   00BF                     175 	mataCor:
+                            176 	
+   00BF CD 00 00      [17]  177 	call coronaIsMatada
+   00C2 CD 00 00      [17]  178 	call spriteAcorona 
+   00C5 CD 00 00      [17]  179 	call borrar_entidad
+                            180 
+   00C8                     181 	endmatarCorona:
+   00C8 C9            [10]  182   	ret
+                            183 
+   00C9                     184 matarVida:
+                            185 
+   00C9 DD 7E 0D      [19]  186 	ld a, 13(ix)
+   00CC FE 01         [ 7]  187 	cp #1
+   00CE 28 18         [12]  188 	jr z, endmatarPocion
+                            189 
+   00D0 DD 7E 05      [19]  190 	ld a, 5(ix)
+   00D3 FE 01         [ 7]  191 	cp #1
+   00D5 28 06         [12]  192 	jr z, matarPocion
+                            193 
+                            194 
+   00D7 CD 00 00      [17]  195 	call dibujar_entidad
+                            196 
+   00DA C3 E8 00      [10]  197 	jp endmatarPocion
+                            198 
+   00DD                     199 	matarPocion:
+                            200 	
+   00DD CD 00 00      [17]  201 	call PocionIsMatada
+   00E0 CD 00 00      [17]  202 	call borrar_entidad
+   00E3 3E 01         [ 7]  203 	ld a, #1
+   00E5 CD 00 00      [17]  204 	call hud_draw
+                            205 
+   00E8                     206 	endmatarPocion:
+   00E8 C9            [10]  207   	ret
+                            208 ;;=======================================
+                            209 ;; 	  PROGRAMA PRINCIPAL MAIN
+                            210 ;;========================================
+   00E9                     211 _main::
+                            212 
+                            213 
+   00E9 CD 2B 00      [17]  214     call inicializarCPC 					;; Inicializacion del AMSTRAD CPC
+                            215 
+   00EC                     216     volver_empezar:
+                            217     
+   00EC CD 43 00      [17]  218     call inicializarMenu 					;; Iniciamos el MENU del juego
+                            219 
+   00EF CD 00 00      [17]  220     call mapa_draw						;; Pintamos el mapa		
+                            221 
+   00F2 CD 00 00      [17]  222     call	hud_getPtrIX					;; Gets Pointer for Hero X in HL 
+   00F5 DD 7E 0E      [19]  223     ld 		a, 14(ix)					;; CARGAMOS 3 COMO INPUT PARA HUD_DRAW 
+   00F8 CD 00 00      [17]  224     call 	hud_draw					;; Draws HUD Hearts, with INPUT A as number of HEARTS
+                            225 
+                            226 	;;BUCLE PRINCIPAL
+   00FB                     227 	main_loop:
+                            228 
+                            229 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 15.
+Hexadecimal [16-Bits]
+
+
+
+   00FB CD 00 00      [17]  230 		call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   00FE CD 00 00      [17]  231 		call llave_getPtrIY
+                            232 
+   0101 CD 00 00      [17]  233 		call borrar_entidad 				;; BORRAMOS EL PROTA
+   0104 CD 00 00      [17]  234 		call prota_update 				;; ACTUALIZAMOS EL PROTA
+   0107 CD 00 00      [17]  235 		call dibujar_entidad 				;; DIBUJAMOS EL PROTA
+                            236 				
+                            237 
+                            238 
+   010A DD 7E 0B      [19]  239 		ld a, nivel(ix) 				;; Guardamos el nivel donde se encuentra el protagonista
+   010D FE 01         [ 7]  240 		cp #1 						;;
+   010F 20 50         [12]  241 		jr nz, no_nivel_1 				;; CONTROLAMOS EL NIVEL DONDE NOS ENCONTRAMOS
+                            242 
+                            243 		;;=========================================================================================================
+                            244 		;; NIVEL 1	
+                            245 		;;
+                            246 		;;=========================================================================================================
+                            247 		
+                            248 		;;ENEMIGO 1	
+                            249 		
+                            250 		
+   0111 CD 00 00      [17]  251 		call enemigo1_getPtrIX
+                            252 		
+   0114 DD 7E 05      [19]  253 		ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0117 FE 01         [ 7]  254 		cp 	#1 					;;
+   0119 CC 97 00      [17]  255 		call	z, matarEnemigo 			;; Si hay colision matamos el enemigo
+   011C 28 40         [12]  256 		jr 	z, EnemMuerto			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            257 
+   011E CD 00 00      [17]  258 		call dibujar_entidad 				;; DIBUJAMOS EL ENEMIGO
+                            259 
+   0121 CD 8E 00      [17]  260 		call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD
+   0124 28 3B         [12]  261 		jr z, no_nivel_1
+                            262 
+   0126 CD 00 00      [17]  263 		call minuevaposicion
+                            264 
+   0129 CD 00 00      [17]  265 		call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   012C CD 00 00      [17]  266 		call enemigo1_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   012F CD 00 00      [17]  267 		call checkColision 			;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            268 		
+                            269 
+   0132 DD 7E 08      [19]  270 		ld a, 8(ix) 				;; A = prota_atack_right
+   0135 FE FF         [ 7]  271 		cp #-1
+   0137 28 0D         [12]  272 		jr z, nomata 				;; Solo si estamos atacando podemos matar
+                            273 
+   0139 FD 7E 04      [19]  274 			ld 	a, 4(iy)
+   013C FE 01         [ 7]  275 			cp 	#1
+   013E 20 06         [12]  276 			jr 	nz, nomata 
+                            277 
+                            278 				;MATA
+   0140 FD 36 05 01   [19]  279 				ld 	5(iy), #1
+   0144 18 18         [12]  280 				jr EnemMuerto
+                            281 		
+   0146                     282 		nomata:	
+                            283 
+                            284 		;; BALAS ENEMIGO 1
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 16.
+Hexadecimal [16-Bits]
+
+
+
+                            285 
+   0146 CD 00 00      [17]  286 		call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0149 CD 00 00      [17]  287 		call b1_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   014C CD 00 00      [17]  288 		call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            289 
+   014F CD 69 00      [17]  290 		call restarvida
+                            291 
+   0152 CD 00 00      [17]  292 		call b1_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   0155 CD 00 00      [17]  293 		call borrar_entidad
+   0158 CD 00 00      [17]  294 		call bala_update
+   015B CD 00 00      [17]  295 		call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            296 
+   015E                     297 		EnemMuerto:
+                            298 
+   015E C3 A5 06      [10]  299 		jp sincronizado 				;; Finalizamos iteracción del bucle
+                            300 
+   0161                     301 		no_nivel_1:
+                            302 
+   0161 DD 7E 0B      [19]  303 		   ld a, nivel(ix) 				;; Guardamos el nivel donde se encuentra el protagonista
+   0164 FE 02         [ 7]  304 		   cp #2
+   0166 C2 16 02      [10]  305 		   jp nz, no_nivel_2
+                            306 
+                            307 		   ;;=========================================================================================================
+                            308 		   ;; NIVEL 2	
+                            309 		   ;;
+                            310 		   ;;=========================================================================================================
+                            311 		   
+   0169 CD 00 00      [17]  312 		   call pocion_getPtrIY
+   016C CD 00 00      [17]  313 		   call checkColision 				;; Comprobamos colision con la llave
+   016F CD 00 00      [17]  314 		   call comprobar_recogido
+                            315 
+   0172 CD 00 00      [17]  316 		   call pocion_getPtrIX
+   0175 CD C9 00      [17]  317 		   call matarVida 				
+                            318 
+                            319 
+                            320 		   ;;ENEMIGO 2
+                            321 
+   0178 CD A5 00      [17]  322 		   call resetearMuerteEnemigo
+                            323 
+   017B CD 00 00      [17]  324 		   call enemigo2_getPtrIX 
+                            325 
+   017E DD 7E 05      [19]  326 		   ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0181 FE 01         [ 7]  327 		   cp 	#1 					;;
+   0183 CC 97 00      [17]  328 		   call	z, matarEnemigo 			;; Si hay colision matamos el enemigo
+   0186 28 3B         [12]  329 		   jr 	z, EnemMuerto2			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            330 
+   0188 CD 00 00      [17]  331 		   call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO 2
+                            332 		   
+   018B CD 00 00      [17]  333 		   call minuevaposicion
+                            334 
+   018E CD 00 00      [17]  335 		   call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0191 CD 00 00      [17]  336 		   call enemigo2_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0194 CD 00 00      [17]  337 		   call checkColision 	
+                            338 
+   0197 DD 7E 08      [19]  339 		   ld a, 8(ix) 				;; A = prota_atack_right
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 17.
+Hexadecimal [16-Bits]
+
+
+
+   019A FE FF         [ 7]  340 		   cp #-1
+   019C 28 0D         [12]  341 		   jr z, nomata2 			;; Solo si estamos atacando podemos matar
+                            342 
+   019E FD 7E 04      [19]  343 			 ld 	a, 4(iy)
+   01A1 FE 01         [ 7]  344 			 cp 	#1
+   01A3 20 06         [12]  345 			 jr 	nz, nomata2 
+                            346 
+                            347 				;MATA
+   01A5 FD 36 05 01   [19]  348 				ld 	5(iy), #1
+   01A9 18 18         [12]  349 				jr EnemMuerto2
+                            350 
+   01AB                     351 		   nomata2:
+                            352 		   ;; BALAS ENEMIGO 2
+                            353 
+   01AB CD 00 00      [17]  354 		   call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   01AE CD 00 00      [17]  355 		   call b2_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   01B1 CD 00 00      [17]  356 		   call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            357 
+   01B4 CD 69 00      [17]  358 		   call restarvida 				;; QUITAMOS VIDA AL PROTA SI CHOCAMOS CON UNA BALA
+                            359 
+   01B7 CD 00 00      [17]  360 		   call b2_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   01BA CD 00 00      [17]  361 		   call borrar_entidad
+   01BD CD 00 00      [17]  362 		   call bala_update
+   01C0 CD 00 00      [17]  363 		   call dibujar_entidad 			;; DIBUJAMOS LA BALA
+                            364 
+   01C3                     365 		   EnemMuerto2:
+                            366 
+                            367 		   ;;ENEMIGO 3 
+                            368 
+   01C3 CD A5 00      [17]  369 		   call resetearMuerteEnemigo
+                            370 
+   01C6 CD 00 00      [17]  371 		   call enemigo3_getPtrIX 
+                            372 
+   01C9 DD 7E 05      [19]  373 		   ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   01CC FE 01         [ 7]  374 		   cp 	#1 					;;
+   01CE CC 97 00      [17]  375 		   call	z, matarEnemigo 			;; Si hay colision matamos el enemigo
+   01D1 28 40         [12]  376 		   jr 	z, EnemMuerto6			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            377 
+   01D3 CD 00 00      [17]  378 		   call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO 3
+                            379 		   
+                            380 		   
+   01D6 CD 00 00      [17]  381 		   call minuevaposicion
+                            382 
+   01D9 CD 00 00      [17]  383 		   call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   01DC CD 00 00      [17]  384 		   call enemigo3_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   01DF CD 00 00      [17]  385 		   call checkColision 	
+                            386 
+   01E2 DD 7E 07      [19]  387 		   ld a, 7(ix) 				;; A = prota_atack_right
+   01E5 FE FF         [ 7]  388 		   cp #-1
+   01E7 28 0D         [12]  389 		   jr z, nomata6 			;; Solo si estamos atacando podemos matar
+                            390 
+   01E9 FD 7E 04      [19]  391 			 ld 	a, 4(iy)
+   01EC FE 01         [ 7]  392 			 cp 	#1
+   01EE 20 06         [12]  393 			 jr 	nz, nomata6 
+                            394 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 18.
+Hexadecimal [16-Bits]
+
+
+
+                            395 				;MATA
+   01F0 FD 36 05 01   [19]  396 				ld 	5(iy), #1
+   01F4 18 1D         [12]  397 				jr EnemMuerto6
+                            398 
+   01F6                     399 	           nomata6:
+                            400 
+   01F6 CD 8E 00      [17]  401 		   call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD A LA MITAD
+   01F9 28 1B         [12]  402 		   jr z, no_nivel_2
+                            403 		    ;; BALAS ENEMIGO 3
+                            404 
+   01FB CD 00 00      [17]  405 		   call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   01FE CD 00 00      [17]  406 		   call b3_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0201 CD 00 00      [17]  407 		   call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            408 
+   0204 CD 69 00      [17]  409 		   call restarvida
+                            410 
+   0207 CD 00 00      [17]  411 		   call b3_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   020A CD 00 00      [17]  412 		   call borrar_entidad
+   020D CD 00 00      [17]  413 		   call bala_update
+   0210 CD 00 00      [17]  414 		   call dibujar_entidad 			;; DIBUJAMOS LA BALA
+                            415 
+   0213                     416 		   EnemMuerto6:
+                            417 
+   0213 C3 A5 06      [10]  418 		   jp sincronizado 				;; Finalizamos iteracción del bucle
+                            419 
+   0216                     420 		   no_nivel_2:
+                            421  		
+                            422 
+   0216 DD 7E 0B      [19]  423  		      ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   0219 FE 03         [ 7]  424 		      cp #3
+   021B C2 22 03      [10]  425 		      jp nz, no_nivel_3
+                            426 
+                            427 		      	 ;;=========================================================================================================
+                            428 		     	 ;; NIVEL 3
+                            429 		      	 ;;	
+                            430 		      	 ;;=========================================================================================================		
+                            431 
+   021E CD 00 00      [17]  432 		      	call pocion_getPtrIY
+   0221 CD 00 00      [17]  433 		   	call checkColision 				;; Comprobamos colision con la llave
+   0224 CD 00 00      [17]  434 		  	call comprobar_recogido
+                            435 
+   0227 CD 00 00      [17]  436 		      	 call pocion_getPtrIX
+   022A CD C9 00      [17]  437 		   	 call matarVida
+                            438 
+                            439 
+                            440 		      	 ;;ENEMIGO 4
+                            441 
+   022D CD A5 00      [17]  442 		      	 call resetearMuerteEnemigo
+                            443 
+   0230 CD 00 00      [17]  444 		         call enemigo7_getPtrIX 
+                            445 
+   0233 DD 7E 05      [19]  446 		         ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0236 FE 01         [ 7]  447 		   	 cp 	#1 					;;
+   0238 CC 97 00      [17]  448 		   	 call	z, matarEnemigo			;; Si hay colision matamos el enemigo
+   023B 28 3B         [12]  449 		   	 jr 	z, EnemMuerto3			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 19.
+Hexadecimal [16-Bits]
+
+
+
+                            450 
+   023D CD 00 00      [17]  451 		         call dibujar_entidad 				;; DIBUJAMOS EL ENEMIGO 2
+                            452 		   
+   0240 CD 00 00      [17]  453 		         call minuevaposicion
+                            454 
+   0243 CD 00 00      [17]  455 		         call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0246 CD 00 00      [17]  456 		   	 call enemigo7_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0249 CD 00 00      [17]  457 		   	 call checkColision 	
+                            458 
+   024C DD 7E 08      [19]  459 		   	 ld a, 8(ix) 				;; A = prota_atack_right
+   024F FE FF         [ 7]  460 		   	 cp #-1
+   0251 28 0D         [12]  461 		    	 jr z, nomata3 			;; Solo si estamos atacando podemos matar
+                            462 
+   0253 FD 7E 04      [19]  463 				 ld 	a, 4(iy)
+   0256 FE 01         [ 7]  464 				 cp 	#1
+   0258 20 06         [12]  465 				 jr 	nz, nomata3 
+                            466 
+                            467 					;MATA
+   025A FD 36 05 01   [19]  468 					ld 	5(iy), #1
+   025E 18 18         [12]  469 					jr EnemMuerto3
+                            470 
+   0260                     471 			nomata3:
+                            472 
+                            473 		          ;; BALAS ENEMIGO 4
+                            474 
+   0260 CD 00 00      [17]  475 		         call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0263 CD 00 00      [17]  476 		         call b9_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0266 CD 00 00      [17]  477 		         call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            478 
+   0269 CD 69 00      [17]  479 		         call restarvida
+                            480 
+   026C CD 00 00      [17]  481 		         call b9_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   026F CD 00 00      [17]  482 		         call borrar_entidad
+   0272 CD 00 00      [17]  483 		         call bala_update
+   0275 CD 00 00      [17]  484 		         call dibujar_entidad 				;; DIBUJAMOS LA BALA 
+                            485 
+   0278                     486 		         EnemMuerto3:
+                            487 
+                            488 		         ;;ENEMIGO 5
+                            489 
+   0278 CD A5 00      [17]  490 		         call resetearMuerteEnemigo
+                            491 
+   027B CD 00 00      [17]  492 		         call enemigo8_getPtrIX 
+                            493 
+                            494 
+   027E DD 7E 05      [19]  495 		         ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0281 FE 01         [ 7]  496 		   	 cp 	#1 					;;
+   0283 CC 97 00      [17]  497 		   	 call	z, matarEnemigo			;; Si hay colision matamos el enemigo
+   0286 28 3B         [12]  498 		   	 jr 	z, EnemMuerto7	
+                            499 
+   0288 CD 00 00      [17]  500 		         call dibujar_entidad 				;; DIBUJAMOS EL ENEMIGO 2
+                            501 		   
+   028B CD 00 00      [17]  502 		         call minuevaposicion
+                            503 
+   028E CD 00 00      [17]  504 		         call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 20.
+Hexadecimal [16-Bits]
+
+
+
+   0291 CD 00 00      [17]  505 		   	 call enemigo8_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0294 CD 00 00      [17]  506 		   	 call checkColision 	
+                            507 
+   0297 DD 7E 07      [19]  508 		   	 ld a, 7(ix) 				;; A = prota_atack_right
+   029A FE FF         [ 7]  509 		   	 cp #-1
+   029C 28 0D         [12]  510 		    	 jr z, nomata7 			;; Solo si estamos atacando podemos matar
+                            511 
+   029E FD 7E 04      [19]  512 				 ld 	a, 4(iy)
+   02A1 FE 01         [ 7]  513 				 cp 	#1
+   02A3 20 06         [12]  514 				 jr 	nz, nomata7 
+                            515 
+                            516 					;MATA
+   02A5 FD 36 05 01   [19]  517 					ld 	5(iy), #1
+   02A9 18 18         [12]  518 					jr EnemMuerto7
+                            519 
+   02AB                     520 			nomata7:
+                            521 
+                            522 		         ;; BALAS ENEMIGO 5
+                            523 
+   02AB CD 00 00      [17]  524 		         call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   02AE CD 00 00      [17]  525 		         call b10_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   02B1 CD 00 00      [17]  526 		         call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            527 
+   02B4 CD 69 00      [17]  528 		         call restarvida
+                            529 
+   02B7 CD 00 00      [17]  530 		         call b10_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   02BA CD 00 00      [17]  531 		         call borrar_entidad
+   02BD CD 00 00      [17]  532 		         call bala_update
+   02C0 CD 00 00      [17]  533 		         call dibujar_entidad 				;; DIBUJAMOS LA BALA 
+                            534 
+   02C3                     535 		         EnemMuerto7:
+                            536 
+                            537 		         ;;ENEMIGO 6
+                            538 
+   02C3 CD 00 00      [17]  539 		         call enemigo9_getPtrIX 
+                            540 
+   02C6 CD 8E 00      [17]  541 		         call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD A LA MITAD
+   02C9 28 57         [12]  542 		      	 jr z, no_nivel_3
+                            543 
+   02CB CD 00 00      [17]  544 		         call borrar_entidad
+   02CE CD 00 00      [17]  545 		         call enemigo9_update
+   02D1 CD 00 00      [17]  546 		         call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO
+                            547 		   
+   02D4 CD 00 00      [17]  548 		         call minuevaposicion
+                            549 
+                            550 		          ;;BALAS ENEMIGO 6
+                            551 
+   02D7 CD 00 00      [17]  552 		          call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   02DA CD 00 00      [17]  553 		          call b11_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   02DD CD 00 00      [17]  554 		          call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   02E0 CD 69 00      [17]  555 		          call restarvida
+                            556 
+   02E3 CD 00 00      [17]  557 		          call b11_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   02E6 CD 00 00      [17]  558 		          call borrar_entidad
+   02E9 CD 00 00      [17]  559 		          call bala_update
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 21.
+Hexadecimal [16-Bits]
+
+
+
+   02EC CD 00 00      [17]  560 		          call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            561 
+   02EF CD 00 00      [17]  562 		          call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   02F2 CD 00 00      [17]  563 		          call b12_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   02F5 CD 00 00      [17]  564 		          call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   02F8 CD 69 00      [17]  565 		          call restarvida
+                            566 
+   02FB CD 00 00      [17]  567 		          call b12_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   02FE CD 00 00      [17]  568 		          call borrar_entidad
+   0301 CD 00 00      [17]  569 		          call bala_update
+   0304 CD 00 00      [17]  570 		          call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            571 
+   0307 CD 00 00      [17]  572 		          call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   030A CD 00 00      [17]  573 		          call b13_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   030D CD 00 00      [17]  574 		          call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO	
+   0310 CD 69 00      [17]  575 		          call restarvida
+                            576 
+   0313 CD 00 00      [17]  577 		          call b13_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 3
+   0316 CD 00 00      [17]  578 		          call borrar_entidad
+   0319 CD 00 00      [17]  579 		          call bala_update
+   031C CD 00 00      [17]  580 		          call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            581 
+   031F C3 A5 06      [10]  582 		         jp sincronizado 				;; Finalizamos iteracción del bucle
+                            583 
+   0322                     584 		      no_nivel_3:
+                            585 
+                            586 		      	 ;; LEVEL 4 (arreglar velocidades)
+                            587 
+   0322 DD 7E 0B      [19]  588  		         ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   0325 FE 04         [ 7]  589 		         cp #4
+   0327 C2 87 03      [10]  590 		         jp nz, no_nivel_4
+                            591 
+                            592 		      	 ;;=========================================================================================================
+                            593 		      	 ;; NIVEL 4
+                            594 		      	 ;;	
+                            595 		      	 ;;=========================================================================================================		
+                            596 
+                            597 
+   032A CD 00 00      [17]  598 			   call llave_getPtrIY
+   032D CD 00 00      [17]  599 			   call checkColision 				;; Comprobamos colision con la llave
+   0330 CD 00 00      [17]  600 			   call comprobar_recogido
+                            601 
+   0333 CD 00 00      [17]  602 		 	   call llave_getPtrIX
+   0336 CD AB 00      [17]  603 			   call matarCorona				;; Comprueba si has cogido la corona, para eliminarla del mapa
+                            604 
+                            605 
+                            606 
+                            607 			   ;ENEMIGO 7
+                            608 
+   0339 CD A5 00      [17]  609 			   call resetearMuerteEnemigo
+                            610 
+   033C CD 00 00      [17]  611 			   call enemigo10_getPtrIX 
+                            612 
+   033F DD 7E 05      [19]  613 			   ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0342 FE 01         [ 7]  614 		   	   cp 	#1 					;;
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 22.
+Hexadecimal [16-Bits]
+
+
+
+   0344 CC 97 00      [17]  615 		   	   call	z, matarEnemigo			;; Si hay colision matamos el enemigo
+   0347 28 3B         [12]  616 		   	   jr 	z, EnemMuerto4			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            617 
+                            618 
+   0349 CD 00 00      [17]  619 		           call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO 2
+                            620 		   
+   034C CD 00 00      [17]  621 		           call minuevaposicion
+                            622 
+   034F CD 00 00      [17]  623 		           call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0352 CD 00 00      [17]  624 		   	   call enemigo10_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0355 CD 00 00      [17]  625 		   	   call checkColision 	
+                            626 
+   0358 DD 7E 08      [19]  627 		   	   ld a, 8(ix) 				;; A = prota_atack_right
+   035B FE FF         [ 7]  628 		   	   cp #-1
+   035D 28 0D         [12]  629 		    	   jr z, nomata4 			;; Solo si estamos atacando podemos matar
+                            630 
+   035F FD 7E 04      [19]  631 				 ld 	a, 4(iy)
+   0362 FE 01         [ 7]  632 				 cp 	#1
+   0364 20 06         [12]  633 				 jr 	nz, nomata4 
+                            634 
+                            635 					;MATA
+   0366 FD 36 05 01   [19]  636 					ld 	5(iy), #1
+   036A 18 18         [12]  637 					jr EnemMuerto4
+                            638 
+   036C                     639 			nomata4:
+                            640 		           ;; BALAS ENEMIGO 7
+                            641 
+   036C CD 00 00      [17]  642 		           call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   036F CD 00 00      [17]  643 		           call b14_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0372 CD 00 00      [17]  644 		           call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            645 
+   0375 CD 69 00      [17]  646 		           call restarvida
+                            647 
+   0378 CD 00 00      [17]  648 		           call b14_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   037B CD 00 00      [17]  649 		           call borrar_entidad
+   037E CD 00 00      [17]  650 		           call bala_update
+   0381 CD 00 00      [17]  651 		           call dibujar_entidad 				;; DIBUJAMOS LA BALA  
+                            652 				
+   0384                     653 			   EnemMuerto4:
+                            654 
+   0384 C3 A5 06      [10]  655 			   jp sincronizado 				;; Finalizamos iteracción del bucle
+                            656 
+   0387                     657 		         no_nivel_4:
+                            658 
+                            659 
+   0387 DD 7E 0B      [19]  660  		           ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   038A FE 05         [ 7]  661 		           cp #5
+   038C C2 37 04      [10]  662 		           jp nz, no_nivel_5
+                            663 	
+                            664 
+                            665 		             ;;=========================================================================================================
+                            666 		      	     ;; NIVEL 5
+                            667 		      	     ;;	
+                            668 		      	     ;;=========================================================================================================		
+                            669 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 23.
+Hexadecimal [16-Bits]
+
+
+
+   038F CD 00 00      [17]  670 			     call llave_getPtrIY
+   0392 CD 00 00      [17]  671 			     call checkColision 				;; Comprobamos colision con la llave
+   0395 CD 00 00      [17]  672 			     call comprobar_recogido
+                            673 
+   0398 CD 00 00      [17]  674 		 	     call llave_getPtrIX
+   039B CD AB 00      [17]  675 			     call matarCorona
+                            676 
+                            677 
+                            678 			     ;ENEMIGO 8
+                            679 
+   039E CD A5 00      [17]  680 			     call resetearMuerteEnemigo
+                            681 
+   03A1 CD 00 00      [17]  682 			     call enemigo11_getPtrIX 
+                            683 
+   03A4 DD 7E 05      [19]  684 			     ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   03A7 FE 01         [ 7]  685 		   	     cp 	#1 					;;
+   03A9 CC 97 00      [17]  686 		   	     call	z, matarEnemigo 			;; Si hay colision matamos el enemigo
+   03AC 28 3B         [12]  687 		   	     jr 	z, EnemMuerto5			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            688 
+                            689 
+   03AE CD 00 00      [17]  690 		             call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO 2
+                            691 		   
+   03B1 CD 00 00      [17]  692 		             call minuevaposicion
+                            693 
+   03B4 CD 00 00      [17]  694 		             call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   03B7 CD 00 00      [17]  695 		   	     call enemigo11_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   03BA CD 00 00      [17]  696 		   	     call checkColision 	
+                            697 
+   03BD DD 7E 08      [19]  698 		   	      ld a, 8(ix) 				;; A = prota_atack_right
+   03C0 FE FF         [ 7]  699 		   	      cp #-1
+   03C2 28 0D         [12]  700 		    	      jr z, nomata5 				;; Solo si estamos atacando podemos matar
+                            701 
+   03C4 FD 7E 04      [19]  702 				 ld 	a, 4(iy)
+   03C7 FE 01         [ 7]  703 				 cp 	#1
+   03C9 20 06         [12]  704 				 jr 	nz, nomata5 
+                            705 
+                            706 					;MATA
+   03CB FD 36 05 01   [19]  707 					ld 	5(iy), #1
+   03CF 18 18         [12]  708 					jr EnemMuerto5
+                            709 
+   03D1                     710 			     nomata5:
+                            711 
+   03D1 CD 00 00      [17]  712 		             call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   03D4 CD 00 00      [17]  713 		             call b15_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   03D7 CD 00 00      [17]  714 		             call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            715 
+   03DA CD 69 00      [17]  716 		             call restarvida
+                            717 
+   03DD CD 00 00      [17]  718 		             call b15_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   03E0 CD 00 00      [17]  719 		             call borrar_entidad
+   03E3 CD 00 00      [17]  720 		             call bala_update
+   03E6 CD 00 00      [17]  721 		             call dibujar_entidad 				;; DIBUJAMOS LA BALA 
+                            722 
+   03E9                     723 		             EnemMuerto5:
+                            724 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 24.
+Hexadecimal [16-Bits]
+
+
+
+                            725 		             ;ENEMIGO 9
+   03E9 CD A5 00      [17]  726 		             call resetearMuerteEnemigo
+                            727 
+   03EC CD 00 00      [17]  728 			     call enemigo12_getPtrIX 
+                            729 
+   03EF DD 7E 05      [19]  730 			     ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   03F2 FE 01         [ 7]  731 		   	     cp 	#1 					;;
+   03F4 CC 97 00      [17]  732 		   	     call	z, matarEnemigo 			;; Si hay colision matamos el enemigo
+   03F7 28 3B         [12]  733 		   	     jr 	z, EnemMuerto8			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            734 
+                            735 
+   03F9 CD 00 00      [17]  736 		             call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO 2
+                            737 		   
+   03FC CD 00 00      [17]  738 		             call minuevaposicion
+                            739 
+   03FF CD 00 00      [17]  740 		             call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0402 CD 00 00      [17]  741 		   	     call enemigo12_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0405 CD 00 00      [17]  742 		   	     call checkColision 	
+                            743 
+   0408 DD 7E 07      [19]  744 		   	      ld a, 7(ix) 				;; A = prota_atack_right
+   040B FE FF         [ 7]  745 		   	      cp #-1
+   040D 28 0D         [12]  746 		    	      jr z, nomata8 				;; Solo si estamos atacando podemos matar
+                            747 
+   040F FD 7E 04      [19]  748 				 ld 	a, 4(iy)
+   0412 FE 01         [ 7]  749 				 cp 	#1
+   0414 20 06         [12]  750 				 jr 	nz, nomata8 
+                            751 
+                            752 					;MATA
+   0416 FD 36 05 01   [19]  753 					ld 	5(iy), #1
+   041A 18 18         [12]  754 					jr EnemMuerto8
+                            755 
+   041C                     756 			     nomata8:
+                            757 
+   041C CD 00 00      [17]  758 		             call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   041F CD 00 00      [17]  759 		             call b16_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0422 CD 00 00      [17]  760 		             call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            761 
+   0425 CD 69 00      [17]  762 		             call restarvida
+                            763 
+   0428 CD 00 00      [17]  764 		             call b16_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   042B CD 00 00      [17]  765 		             call borrar_entidad
+   042E CD 00 00      [17]  766 		             call bala_update
+   0431 CD 00 00      [17]  767 		             call dibujar_entidad 				;; DIBUJAMOS LA BALA 
+                            768 
+                            769 		             
+   0434                     770 		             EnemMuerto8:
+                            771 
+   0434 C3 A5 06      [10]  772 			     jp sincronizado 				;; Finalizamos iteracción del bucle
+                            773 
+   0437                     774 			   no_nivel_5:
+                            775 
+                            776 			   
+   0437 DD 7E 0B      [19]  777 			     ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   043A FE 06         [ 7]  778 		             cp #6
+   043C C2 C0 04      [10]  779 		             jp nz, no_nivel_6
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 25.
+Hexadecimal [16-Bits]
+
+
+
+                            780 
+                            781 		          	;;=========================================================================================================
+                            782 		      		;; NIVEL 6
+                            783 		      		;;	
+                            784 		      		;;=========================================================================================================		
+                            785 
+                            786 
+   043F CD 00 00      [17]  787 		      		call llave_getPtrIY
+   0442 CD 00 00      [17]  788 			   	call checkColision 				;; Comprobamos colision con la llave
+   0445 CD 00 00      [17]  789 			   	call comprobar_recogido
+                            790 
+   0448 CD 00 00      [17]  791 		 	   	call llave_getPtrIX
+   044B CD AB 00      [17]  792 			   	call matarCorona				;; Comprueba si has cogido la corona, para eliminarla del mapa
+                            793 
+                            794 		             	;;ENEMIGO 10
+                            795 
+   044E CD 00 00      [17]  796 		               	call enemigo16_getPtrIX
+                            797 
+   0451 CD 00 00      [17]  798 		         	call borrar_entidad
+   0454 CD 00 00      [17]  799 		         	call enemigo9_update
+   0457 CD 00 00      [17]  800 		         	call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO
+                            801 		   		
+                            802 		   		;call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD A LA MITAD
+                            803 		      	 	;jp z, no_nivel_6
+                            804 
+   045A CD 00 00      [17]  805 		        	call minuevaposicion
+                            806 
+                            807 		         	 ;;BALAS ENEMIGO 10
+                            808 
+   045D CD 00 00      [17]  809 		          	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0460 CD 00 00      [17]  810 		          	call b20_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0463 CD 00 00      [17]  811 		         	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0466 CD 69 00      [17]  812 		          	call restarvida
+                            813 
+   0469 CD 00 00      [17]  814 		          	call b20_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   046C CD 00 00      [17]  815 		          	call borrar_entidad
+   046F CD 00 00      [17]  816 		          	call bala_update
+   0472 CD 00 00      [17]  817 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            818 
+   0475 CD 00 00      [17]  819 		         	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0478 CD 00 00      [17]  820 		          	call b21_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   047B CD 00 00      [17]  821 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   047E CD 69 00      [17]  822 		          	call restarvida
+                            823 
+   0481 CD 00 00      [17]  824 		          	call b21_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   0484 CD 00 00      [17]  825 		          	call borrar_entidad
+   0487 CD 00 00      [17]  826 		          	call bala_update
+   048A CD 00 00      [17]  827 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            828 
+   048D CD 00 00      [17]  829 		          	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0490 CD 00 00      [17]  830 		          	call b22_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0493 CD 00 00      [17]  831 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO	
+   0496 CD 69 00      [17]  832 		          	call restarvida
+                            833 
+   0499 CD 00 00      [17]  834 		          	call b22_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 3
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 26.
+Hexadecimal [16-Bits]
+
+
+
+   049C CD 00 00      [17]  835 		          	call borrar_entidad
+   049F CD 00 00      [17]  836 		          	call bala_update
+   04A2 CD 00 00      [17]  837 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            838 
+   04A5 CD 00 00      [17]  839 		          	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   04A8 CD 00 00      [17]  840 		          	call b23_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   04AB CD 00 00      [17]  841 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO	
+   04AE CD 69 00      [17]  842 		          	call restarvida
+                            843 
+   04B1 CD 00 00      [17]  844 		          	call b23_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 3
+   04B4 CD 00 00      [17]  845 		          	call borrar_entidad
+   04B7 CD 00 00      [17]  846 		          	call bala_update
+   04BA CD 00 00      [17]  847 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            848 			     
+   04BD C3 A5 06      [10]  849 		          	jp sincronizado 				;; Finalizamos iteracción del bucle
+                            850 
+   04C0                     851 			     no_nivel_6:
+                            852 
+   04C0 DD 7E 0B      [19]  853 			     ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   04C3 FE 07         [ 7]  854 		             cp #7
+   04C5 C2 43 05      [10]  855 		             jp nz, no_nivel_7
+                            856 
+                            857 			             
+                            858 		             ;;=========================================================================================================
+                            859 			     ;; NIVEL 7
+                            860 			     ;;
+                            861 			     ;;=========================================================================================================
+                            862 			
+                            863 
+   04C8 CD 00 00      [17]  864 			     call pocion_getPtrIY
+   04CB CD 00 00      [17]  865 		   	     call checkColision 				;; Comprobamos colision con la llave
+   04CE CD 00 00      [17]  866 		  	     call comprobar_recogido
+                            867 
+   04D1 CD 00 00      [17]  868 		      	     call pocion_getPtrIX
+   04D4 CD C9 00      [17]  869 		   	     call matarVida
+                            870 
+                            871 			     ;;ENEMIGO 17	
+                            872 		
+                            873 		
+   04D7 CD A5 00      [17]  874 			    call resetearMuerteEnemigo
+                            875 
+   04DA CD 00 00      [17]  876 		            call enemigo17_getPtrIX 
+                            877 
+   04DD DD 7E 05      [19]  878 		            ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   04E0 FE 01         [ 7]  879 		   	    cp 	#1 					;;
+   04E2 CC 97 00      [17]  880 		   	    call	z, matarEnemigo			;; Si hay colision matamos el enemigo
+   04E5 28 59         [12]  881 		   	    jr 	z, EnemMuerto17			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            882 
+   04E7 CD 00 00      [17]  883 		            call dibujar_entidad 				;; DIBUJAMOS EL ENEMIGO 2
+                            884 		   	    
+   04EA CD 8E 00      [17]  885 		   	    call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD A LA MITAD
+   04ED CA 43 05      [10]  886 		      	    jp z, no_nivel_7
+                            887 
+   04F0 CD 00 00      [17]  888 		            call minuevaposicion
+                            889 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 27.
+Hexadecimal [16-Bits]
+
+
+
+   04F3 CD 00 00      [17]  890 		            call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   04F6 CD 00 00      [17]  891 		   	    call enemigo17_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   04F9 CD 00 00      [17]  892 		   	    call checkColision 	
+                            893 
+   04FC DD 7E 08      [19]  894 		   	    ld a, 8(ix) 				;; A = prota_atack_right
+   04FF FE FF         [ 7]  895 		   	    cp #-1
+   0501 28 0D         [12]  896 		    	    jr z, nomata17 			;; Solo si estamos atacando podemos matar
+                            897 
+   0503 FD 7E 04      [19]  898 				 ld 	a, 4(iy)
+   0506 FE 01         [ 7]  899 				 cp 	#1
+   0508 20 06         [12]  900 				 jr 	nz, nomata17 
+                            901 
+                            902 					;MATA
+   050A FD 36 05 01   [19]  903 					ld 	5(iy), #1
+   050E 18 30         [12]  904 					jr EnemMuerto17
+                            905 
+   0510                     906 			       nomata17:
+                            907 
+                            908 
+   0510 CD 00 00      [17]  909 			        call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0513 CD 00 00      [17]  910 		          	call b24_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0516 CD 00 00      [17]  911 		         	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0519 CD 69 00      [17]  912 		          	call restarvida
+                            913 
+   051C CD 00 00      [17]  914 		          	call b24_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   051F CD 00 00      [17]  915 		          	call borrar_entidad
+   0522 CD 00 00      [17]  916 		          	call bala_update
+   0525 CD 00 00      [17]  917 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            918 
+   0528 CD 00 00      [17]  919 		         	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   052B CD 00 00      [17]  920 		          	call b25_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   052E CD 00 00      [17]  921 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0531 CD 69 00      [17]  922 		          	call restarvida
+                            923 
+   0534 CD 00 00      [17]  924 		          	call b25_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   0537 CD 00 00      [17]  925 		          	call borrar_entidad
+   053A CD 00 00      [17]  926 		          	call bala_update
+   053D CD 00 00      [17]  927 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            928 
+                            929 
+   0540                     930 			       EnemMuerto17:
+                            931 
+   0540 C3 A5 06      [10]  932 		         	jp sincronizado
+                            933 
+   0543                     934    			     no_nivel_7:
+                            935 
+   0543 DD 7E 0B      [19]  936    			       ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   0546 FE 08         [ 7]  937 		               cp #8
+   0548 C2 04 06      [10]  938 		               jp nz, no_nivel_8
+                            939 
+                            940 
+                            941 		               ;;=========================================================================================================
+                            942 			       ;; NIVEL 8
+                            943 			       ;;
+                            944 			       ;;=========================================================================================================
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 28.
+Hexadecimal [16-Bits]
+
+
+
+                            945 				
+   054B CD 00 00      [17]  946 				call llave_getPtrIY
+   054E CD 00 00      [17]  947 			   	call checkColision 				;; Comprobamos colision con la llave
+   0551 CD 00 00      [17]  948 			   	call comprobar_recogido
+                            949 
+   0554 CD 00 00      [17]  950 		 	   	call llave_getPtrIX
+   0557 CD AB 00      [17]  951 			   	call matarCorona
+                            952 
+                            953 			       ;;ENEMIGO 18	
+                            954 				
+   055A CD A5 00      [17]  955 				call resetearMuerteEnemigo
+                            956 
+   055D CD 00 00      [17]  957 		            	call enemigo18_getPtrIX 
+                            958 
+   0560 DD 7E 05      [19]  959 		            	ld	a, 5(ix) 				;; A = enemigo_colision (1 --> Colision, !1 No colision)
+   0563 FE 01         [ 7]  960 		   	    	cp 	#1 					;;
+   0565 CC 97 00      [17]  961 		   	    	call	z, matarEnemigo			;; Si hay colision matamos el enemigo
+   0568 28 3B         [12]  962 		   	    	jr 	z, EnemMuerto18			;; NO DIBUJAMOS NI EL ENEMIGO NI SUS BALAS
+                            963 
+   056A CD 00 00      [17]  964 		            	call dibujar_entidad 				;; DIBUJAMOS EL ENEMIGO 2
+                            965 		   	    
+   056D CD 00 00      [17]  966 		            	call minuevaposicion
+                            967 
+   0570 CD 00 00      [17]  968 		            	call prota_getPtrIX 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0573 CD 00 00      [17]  969 		   	    	call enemigo18_getPtrIY 			;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0576 CD 00 00      [17]  970 		   	    	call checkColision 	
+                            971 
+   0579 DD 7E 08      [19]  972 		   	   	 ld a, 8(ix) 				;; A = prota_atack_right
+   057C FE FF         [ 7]  973 		   	    	cp #-1
+   057E 28 0D         [12]  974 		    	    	jr z, nomata18 			;; Solo si estamos atacando podemos matar
+                            975 
+   0580 FD 7E 04      [19]  976 				 	ld 	a, 4(iy)
+   0583 FE 01         [ 7]  977 				 	cp 	#1
+   0585 20 06         [12]  978 				 	jr 	nz, nomata18 
+                            979 
+                            980 						;MATA
+   0587 FD 36 05 01   [19]  981 						ld 	5(iy), #1
+   058B 18 18         [12]  982 						jr EnemMuerto18
+                            983 
+   058D                     984 			       nomata18:
+                            985 
+   058D CD 00 00      [17]  986 			        call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0590 CD 00 00      [17]  987 		          	call b26_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0593 CD 00 00      [17]  988 		         	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0596 CD 69 00      [17]  989 		          	call restarvida
+                            990 
+   0599 CD 00 00      [17]  991 		          	call b26_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   059C CD 00 00      [17]  992 		          	call borrar_entidad
+   059F CD 00 00      [17]  993 		          	call bala_update
+   05A2 CD 00 00      [17]  994 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                            995 
+                            996 		          	;call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+                            997 		          	;call b33_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+                            998 		         	;call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+                            999 		          	;call restarvida
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 29.
+Hexadecimal [16-Bits]
+
+
+
+                           1000 
+                           1001 		          	;call b33_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+                           1002 		          	;call borrar_entidad
+                           1003 		          	;call bala_update
+                           1004 		          	;call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1005 
+                           1006 		      
+                           1007 		          	
+   05A5                    1008 			       EnemMuerto18:
+                           1009 
+                           1010 			       ;; ENEMIGO 19
+                           1011 
+   05A5 CD 00 00      [17] 1012 			        call enemigo19_getPtrIX
+                           1013 
+   05A8 CD 00 00      [17] 1014 		         	call borrar_entidad
+   05AB CD 00 00      [17] 1015 		         	call enemigo9_update
+   05AE CD 00 00      [17] 1016 		         	call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO
+                           1017 
+   05B1 CD 8E 00      [17] 1018 		         	call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD
+   05B4 28 4E         [12] 1019 				jr z, no_nivel_8
+                           1020 
+   05B6 CD 00 00      [17] 1021 		         	call minuevaposicion
+                           1022 
+                           1023 		         	 ;;BALAS ENEMIGO 10
+                           1024 
+   05B9 CD 00 00      [17] 1025 		         	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   05BC CD 00 00      [17] 1026 		          	call b27_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   05BF CD 00 00      [17] 1027 		         	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   05C2 CD 69 00      [17] 1028 		          	call restarvida
+                           1029 
+   05C5 CD 00 00      [17] 1030 		          	call b27_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   05C8 CD 00 00      [17] 1031 		          	call borrar_entidad
+   05CB CD 00 00      [17] 1032 		          	call bala_update
+   05CE CD 00 00      [17] 1033 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1034 
+   05D1 CD 00 00      [17] 1035 		         	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   05D4 CD 00 00      [17] 1036 		          	call b28_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   05D7 CD 00 00      [17] 1037 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   05DA CD 69 00      [17] 1038 		          	call restarvida
+                           1039 
+   05DD CD 00 00      [17] 1040 		          	call b28_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   05E0 CD 00 00      [17] 1041 		          	call borrar_entidad
+   05E3 CD 00 00      [17] 1042 		          	call bala_update
+   05E6 CD 00 00      [17] 1043 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1044 
+                           1045 
+   05E9 CD 00 00      [17] 1046 		          	call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   05EC CD 00 00      [17] 1047 		          	call b30_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   05EF CD 00 00      [17] 1048 		          	call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   05F2 CD 69 00      [17] 1049 		          	call restarvida
+                           1050 
+   05F5 CD 00 00      [17] 1051 		          	call b30_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   05F8 CD 00 00      [17] 1052 		          	call borrar_entidad
+   05FB CD 00 00      [17] 1053 		          	call bala_update
+   05FE CD 00 00      [17] 1054 		          	call dibujar_entidad 				;; DIBUJAMOS LA BALA
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 30.
+Hexadecimal [16-Bits]
+
+
+
+                           1055 
+   0601 C3 A5 06      [10] 1056 		               jp sincronizado
+                           1057 
+                           1058 
+   0604                    1059 		               no_nivel_8:
+                           1060 
+                           1061 
+   0604 DD 7E 0B      [19] 1062 		                 ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   0607 FE 09         [ 7] 1063 		                 cp #9
+   0609 C2 89 06      [10] 1064 		                 jp nz, no_nivel_9
+                           1065 
+                           1066 
+   060C CD 00 00      [17] 1067 		                     call llave_getPtrIY
+   060F CD 00 00      [17] 1068 			   	     call checkColision 				;; Comprobamos colision con la llave
+   0612 CD 00 00      [17] 1069 			   	     call comprobar_recogido
+                           1070 
+   0615 CD 00 00      [17] 1071 		 	   	     call llave_getPtrIX
+   0618 CD AB 00      [17] 1072 			   	     call matarCorona
+                           1073 
+                           1074 		                     ;; ENEMIGO 21
+   061B CD 00 00      [17] 1075 		                     call enemigo21_getPtrIX
+                           1076 
+   061E CD 00 00      [17] 1077 		         	     call borrar_entidad
+   0621 CD 00 00      [17] 1078 		         	     call enemigo9_update
+   0624 CD 00 00      [17] 1079 		         	     call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO
+                           1080 
+   0627 CD 00 00      [17] 1081 		         	     call minuevaposicion
+                           1082 
+   062A CD 00 00      [17] 1083 		         	     call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   062D CD 00 00      [17] 1084 		          	     call b29_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0630 CD 00 00      [17] 1085 		         	     call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0633 CD 69 00      [17] 1086 		          	     call restarvida
+                           1087 
+   0636 CD 00 00      [17] 1088 		          	     call b29_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   0639 CD 00 00      [17] 1089 		          	     call borrar_entidad
+   063C CD 00 00      [17] 1090 		          	     call bala_update
+   063F CD 00 00      [17] 1091 		          	     call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1092 		   
+                           1093 
+                           1094 		         	     ;; ENEMIGO 20
+   0642 CD 00 00      [17] 1095 		                     call enemigo20_getPtrIX
+                           1096 
+   0645 CD 00 00      [17] 1097 		         	     call borrar_entidad
+   0648 CD 00 00      [17] 1098 		         	     call enemigo9_update
+   064B CD 00 00      [17] 1099 		         	     call dibujar_entidad 			;; DIBUJAMOS EL ENEMIGO
+                           1100 
+   064E CD 8E 00      [17] 1101 		         	     call reducirVelocidadMitad 			;;REDUCIMOS LA VELOCIDAD
+   0651 28 36         [12] 1102 				     jr z, no_nivel_9
+                           1103 
+   0653 CD 00 00      [17] 1104 		         	     call minuevaposicion
+                           1105 
+   0656 CD 00 00      [17] 1106 		         	     call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0659 CD 00 00      [17] 1107 		          	     call b31_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   065C CD 00 00      [17] 1108 		         	     call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   065F CD 69 00      [17] 1109 		          	     call restarvida
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 31.
+Hexadecimal [16-Bits]
+
+
+
+                           1110 
+   0662 CD 00 00      [17] 1111 		          	     call b31_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 1
+   0665 CD 00 00      [17] 1112 		          	     call borrar_entidad
+   0668 CD 00 00      [17] 1113 		          	     call bala_update
+   066B CD 00 00      [17] 1114 		          	     call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1115 
+   066E CD 00 00      [17] 1116 		         	     call prota_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL PROTA
+   0671 CD 00 00      [17] 1117 		          	     call b32_getPtrIY 				;; PUNTERO A LOS DATOS DE LA ENTIDAD DEL ENEMIGO
+   0674 CD 00 00      [17] 1118 		          	     call checkColision 				;; COMPROBAMOS SI HA COLISIONADO EL PROTA CON EL ENEMIGO
+   0677 CD 69 00      [17] 1119 		          	     call restarvida
+                           1120 
+   067A CD 00 00      [17] 1121 		          	     call b32_getPtrIX 				;; PUNTERO A LOS DATOS DE LA ENTIDAD BALA 2
+   067D CD 00 00      [17] 1122 		          	     call borrar_entidad
+   0680 CD 00 00      [17] 1123 		          	     call bala_update
+   0683 CD 00 00      [17] 1124 		          	     call dibujar_entidad 				;; DIBUJAMOS LA BALA
+                           1125 
+                           1126 		          	     
+                           1127 
+   0686 C3 A5 06      [10] 1128 		                 jp sincronizado
+                           1129 
+                           1130 
+   0689                    1131 		                 no_nivel_9:
+                           1132 
+                           1133 		                 
+   0689 DD 7E 0B      [19] 1134 		                   ld a, nivel(ix) 			;; Guardamos el nivel donde se encuentra el protagonista
+   068C FE 0A         [ 7] 1135 		               	   cp #10
+   068E C2 A5 06      [10] 1136 		                   jp nz, no_nivel_10
+                           1137 
+   0691 CD 00 00      [17] 1138 		                   	call hud_getPtrFIN
+   0694 CD 00 00      [17] 1139 		                   	call dibujar_entidad	
+                           1140 
+                           1141 			             	;; FIN DEL JUEGO TE HAS PASADO EL JUEGO
+   0697 21 22 00      [10] 1142 			            	 ld   hl, #win  
+   069A 11 55 C6      [10] 1143 	   			     	ld   de, #0xC655  
+   069D 01 06 00      [10] 1144 	   			     	ld   bc, #0x0006  
+                           1145 
+   06A0 CD 00 00      [17] 1146 	   			     	call cpct_drawStringM0_asm 
+                           1147 	   			     	;; BUCLE INFINITO
+   06A3                    1148 	   			     	fin: 
+   06A3 18 FE         [12] 1149 	   			     	jr fin			             
+                           1150 
+                           1151 
+   06A5                    1152 		                   no_nivel_10:
+                           1153 
+                           1154 		                     
+                           1155 
+                           1156 		                        	    
+                           1157 
+                           1158 
+                           1159 		               	  
+                           1160 
+                           1161 
+   06A5                    1162 		sincronizado:
+                           1163 
+   06A5 CD 00 00      [17] 1164 		call cpct_waitVSYNC_asm    			;; FUNCION DE cpctelera que permite hacer HALTS sincronizado con el raster
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 32.
+Hexadecimal [16-Bits]
+
+
+
+                           1165 
+                           1166 
+   06A8 C3 FB 00      [10] 1167 	jp main_loop
+                           1168 

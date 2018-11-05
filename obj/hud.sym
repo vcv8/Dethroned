@@ -1,0 +1,35 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     _sheart_   **** GX  |     _titulo_   **** GX
+  0 borramas   0039 R   |     borrar_e   **** GX  |     cpct_dis   **** GX
+    cpct_dra   **** GX  |     cpct_dra   **** GX  |     cpct_dra   **** GX
+    cpct_etm   **** GX  |     cpct_etm   **** GX  |     cpct_get   **** GX
+    cpct_isK   **** GX  |     cpct_sca   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_wai   **** GX
+    dibujar_   **** GX  |   0 dibujarm   002B R   |   0 drawHUD    0055 R
+  0 drawTITL   00AD R   |   0 eraseTIT   00C6 R   |   0 fin        00AC R
+  0 fin_col    0013 R   |   0 fin_dir    0019 R   |   0 fin_h      0012 R
+  0 fin_l      0016 R   |   0 fin_li     0017 R   |   0 fin_r      0018 R
+  0 fin_rand   001A R   |   0 fin_spri   001B R   |   0 fin_w      0011 R
+  0 fin_x      000F R   |   0 fin_xi     0014 R   |   0 fin_y      0010 R
+  0 fin_yi     0015 R   |   0 go         006F R   |   0 goPintar   0090 R
+  0 hud_dato   0000 R   |   0 hud_draw   0026 GR  |   0 hud_eras   0034 GR
+  0 hud_erti   0051 GR  |   0 hud_getH   0049 GR  |   0 hud_getP   0021 GR
+  0 hud_getP   001C GR  |   0 hud_h      000B R   |   0 hud_hear   000C R
+  0 hud_hp     0003 R   |   0 hud_init   000E R   |   0 hud_rand   0006 R
+  0 hud_rand   0007 R   |   0 hud_rand   0008 R   |   0 hud_rand   0009 R
+  0 hud_s      0002 R   |   0 hud_titl   004D GR  |   0 hud_w      000A R
+  0 hud_x      0000 R   |   0 hud_y      0001 R   |   0 noborra    0044 R
+  0 p_final    000F R   |   0 title_x    0004 R   |   0 title_y    0005 R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size   F3   flags    0
+
