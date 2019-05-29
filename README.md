@@ -9,5 +9,7 @@ AmstradCPC Game Proyect 2017 by [Royal Researchers](https://twitter.com/royalrsr
 
 ## Made By
 
+[Royal Researchers](https://twitter.com/royalrsrch)
+
 * [Alejandro Roca Vande Sype](https://github.com/AlexRoca95)
 * [Víctor Conejero Vicente](https://github.com/vcv8)
